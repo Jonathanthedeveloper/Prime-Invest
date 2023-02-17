@@ -1,0 +1,87 @@
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+      },
+      "google_translate_element"
+    );
+  }
+</script>
+<!-- Nav Bar -->
+<nav class="relative mx-auto px-6 container">
+  <!-- Flex Box -->
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <div class="md:pt-2">
+      <a href="">
+        <img
+          class="h-10 md:h-14"
+          src="../Images/Logo.png"
+          alt="This is the Millennium Investment's Logo"
+      /></a>
+    </div>
+    <!-- Menu Items -->
+    <div class="hidden md:flex space-x-12">
+      <a href="/" class="font-semibold text-gold hover:text-lightGray">Home</a>
+      <a href="aboutUS" class="font-semibold text-gold hover:text-lightGray"
+        >About US</a
+      >
+      <a href="/services" class="font-semibold text-gold hover:text-lightGray"
+        >Services</a
+      >
+      <a href="/faq" class="font-semibold text-gold hover:text-lightGray"
+        >FAQ</a
+      >
+      <a href="/contact" class="font-semibold text-gold hover:text-lightGray"
+        >Contact</a
+      >
+      <a href="/login" class="font-semibold text-gold hover:text-lightGray"
+        >Login</a
+      >
+    </div>
+    <!-- Button -->
+    <a
+      href="/create"
+      class="hidden md:block p-3 px-6 pt-3 duration-1000 font-bold text-gold border-2 border-gold rounded-lg baseline hover:bg-gold hover:text-darkNavy"
+      >Sign Up</a
+    >
+    <!-- Hamburger Icon -->
+    <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-down"></span>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="md:hidden">
+    <div
+      id="menu"
+      class="hidden absolute flex-col items-center z-50 self-end py-8 mt-14 space-y-6 font-bold bg-darkNavy sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+    >
+      <a class="font-semibold text-gold hover:text-lightGray" href="/">Home</a>
+      <a class="font-semibold text-gold hover:text-lightGray" href="/aboutUs"
+        >About Us</a
+      >
+      <a class="font-semibold text-gold hover:text-lightGray" href="/services"
+        >Services</a
+      >
+      <a class="font-semibold text-gold hover:text-lightGray" href="/faq"
+        >FAQ</a
+      >
+      <a class="font-semibold text-gold hover:text-lightGray" href="/contact"
+        >Contact</a
+      >
+      <a class="font-semibold text-gold hover:text-lightGray" href="/login"
+        >Login</a
+      >
+      <a
+        href="/create"
+        class="p-3 px-6 pt-3 duration-1000 text-lightGray border-2 border-gold rounded-lg baseline hover:bg-darkNavy hover:text-lightGray"
+        >Sign Up</a
+      >
+    </div>
+  </div>
+</nav>

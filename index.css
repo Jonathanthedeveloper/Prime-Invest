@@ -1,0 +1,427 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Merriweather Sans", sans-serif;
+}
+.index-body{
+  background-color: #0f2331;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* The Nav Bar For Small Screen */
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+.hamburger-top,
+.hamburger-middle,
+.hamburger-down {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: #dcdcdc;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+.aboutUs .hamburger-down,
+.aboutUs .hamburger-middle,
+.aboutUs .hamburger-top {
+  background-color: black;
+}
+.hamburger-middle {
+  transform: translateY(7px);
+}
+.hamburger-down {
+  transform: translateY(14px);
+}
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+.open .hamburger-middle {
+  display: none;
+}
+.open .hamburger-down {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+/* Scroll Bar */
+/* width */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background-color: #0f2331;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #31286e;
+}
+/* Top Section */
+.top .swiper1 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.top .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* First Card, Second Section */
+.fas {
+  color: #0f2331;
+}
+.far {
+  color: #0f2331;
+}
+/* Second Card */
+.card {
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+.card:hover {
+  box-shadow: none;
+}
+.card:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+.card:hover .me {
+  color: #d4af37;
+  transition-duration: 1s;
+}
+.card:hover .me-holder {
+  background-color: #0f2331;
+  transition-duration: 1s;
+}
+.me-holder {
+  background-color: #84d2c5;
+}
+.me {
+  color: #0f2331;
+  margin-top: 18px;
+}
+/* Investment Tag */
+.premiumTag::before {
+  content: "optimal selection";
+  position: absolute;
+  width: 150%;
+  height: 50px;
+  background-image: linear-gradient(
+    45deg,
+    #ff6547 0%,
+    #ffb144 51%,
+    #ff7053 100%
+  );
+  transform: rotate(-45deg) translateY(-25px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
+}
+
+.premiumTag::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  z-index: -1;
+  box-shadow: 140px -140px #cc3f47;
+  background-image: linear-gradient(
+    45deg,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+}
+
+/* Testimonial */
+#testimonial .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#testimonial .swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+/* Frequently Asked Questions */
+.collapsible {
+  background-color: #dcdcdc;
+  color: #0f2331;
+  cursor: pointer;
+  padding: 18px;
+  width: 90%;
+  border: none;
+  border-radius: 1rem;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+  background-color: #d4af37;
+  transition-duration: 500ms;
+}
+
+.collapsible:after {
+  content: "\002B";
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  border: 2px solid #d4af37;
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #0f2331;
+  border-radius: 1rem;
+  width: 90%;
+}
+.faq-cta {
+  background-image: url(../Images/CryptoOnPhone.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+/* About Us */
+.top {
+  width: 90%;
+  text-align: center;
+}
+.video {
+  width: 60%;
+}
+/* Services */
+.service .fas {
+  color: #d4af37;
+}
+.servicesIcon .icon {
+  color: #0f2331;
+}
+/* Contact */
+.body {
+  width: 80vw;
+}
+/* Acceptable Investment Currency */
+/* BTC */
+.btc-coin {
+  font-size: 200px;
+  width: 0.1em;
+  height: 1em;
+  background: linear-gradient(#faa504, #141001);
+  margin: auto;
+  animation: rotate_4001510 7s infinite linear;
+  transform-style: preserve-3d;
+}
+
+.btc-coin .side,
+.btc-coin:before,
+.btc-coin:after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  border-radius: 50%;
+  right: -0.4em;
+  text-align: center;
+  line-height: 1;
+  transform: rotateY(-90deg);
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.btc-coin .tails,
+.btc-coin:after {
+  left: -0.4em;
+  transform: rotateY(90deg);
+}
+
+.btc-coin:before,
+.btc-coin:after {
+  background: linear-gradient(#faa504, #141001);
+  backface-visibility: hidden;
+  transform: rotateY(90deg);
+}
+
+.btc-coin:after {
+  transform: rotateY(-90deg);
+}
+
+@keyframes rotate_4001510 {
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.svg_back {
+  transform: scaleX(-1);
+}
+/* Ethereum */
+.e-card {
+  width: 195px;
+  height: 285px;
+  background: #0f2331;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  transition: 0.2s ease-in-out;
+  border-radius: 1rem;
+}
+
+.img {
+  margin-top: 15px;
+  height: 70%;
+  transition: 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.textBox {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transition: 0.2s ease-in-out;
+  z-index: 2;
+}
+
+.textBox > .text {
+  font-weight: bold;
+}
+
+.textBox > .head {
+  font-size: 20px;
+}
+
+.e-card:hover > .textBox {
+  opacity: 1;
+}
+
+.e-card:hover > .img {
+  height: 65%;
+  filter: blur(7px);
+  animation: anim 3s infinite;
+}
+
+@keyframes anim {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+.e-card:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+/* Buy Section */
+.buy-button {
+  padding: 10px ;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  transition: 0.5s;
+  background: #D4AF37;
+  color: #0f2331;
+}
+
+.buy-button:hover {
+  animation: a 0.5s 1 linear;
+}
+
+@keyframes a {
+  0% {
+    transform: scale(0.7, 1.3);
+  }
+
+  25% {
+    transform: scale(1.3, 0.7);
+  }
+
+  50% {
+    transform: scale(0.7, 1.3);
+  }
+
+  75% {
+    transform: scale(1.3, 0.7);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+/* The Animation */
+.hide {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 2s;
+}
+.unhide {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+@media screen and (max-width: 767px) {
+  .video {
+    width: 100%;
+  }
+}

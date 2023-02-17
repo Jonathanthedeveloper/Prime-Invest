@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Millennium Investment is a cryptocurrency investment company that specialises in providing our investors with a wide range of investment options."
+    />
+    <meta name="copyright" content="Millennium Investment IT Department." />
+    <meta
+      name="keywords"
+      content="Invest, bitcoin, blockchain, profit, investors, company, cryptocurrency, Ethereum, Millennium"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="Millenniuminvestment.org" />
+    <meta property="og:title" content="Millennium Investment" />
+    <meta
+      property="og:description"
+      content="Millennium Investment is a cryptocurrency investment company that specialises in providing our investors with a wide range of investment options."
+    />
+    <meta
+      property="og:image"
+      content="http://res.cloudinary.com/dpu5ywrox/image/upload/v1675332457/kyuenvjtoqkylu8ma0sv.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="Millenniuminvestment.org" />
+    <meta property="twitter:title" content="Millennium Investment" />
+    <meta
+      property="twitter:description"
+      content="Millennium Investment is a cryptocurrency investment company that specialises in providing our investors with a wide range of investment options."
+    />
+    <meta
+      property="twitter:image"
+      content="http://res.cloudinary.com/dpu5ywrox/image/upload/v1675332457/kyuenvjtoqkylu8ma0sv.png"
+    />
+
+    <title>Contact</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../Images/Logo.ico" type="image/x-icon" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+  </head>
+  <body class="bg-darkNavy">
+    <!-- Nav Bar -->
+    <%- include("partials/nav"); -%>
+    <section class="bg-white">
+      <div
+        class="flex flex-col items-center justify-center mt-10 h-40 bg-darkNavy"
+      >
+        <div class="my-auto">
+          <h1 class="text-4xl font-bold text-gold text-center">CONTACT US</h1>
+        </div>
+      </div>
+      <div
+        class="body flex flex-col space-y-4 bg-white -mt-10 mx-auto shadow-2xl md:flex-row md:space-y-0 md:space-x-20"
+      >
+        <div class="p-4 md:w-1/3 md:ml-10">
+          <h2 class="mt-4 text-darkNavy text-2xl font-bold">Details</h2>
+          <h4 class="mt-6 text-gold font-bold">Telephone</h4>
+          <p class="mt-2 font-sm text-darkNavy"> +447458948030</p>
+          <h4 class="mt-4 text-gold font-bold">Address</h4>
+          <p class="mt-2 font-sm text-darkNavy">
+            Unit 24 Highcroft Industrial Estate Enterprise Road, Horndean,
+            Waterlooville, United Kingdom
+          </p>
+          <h4 class="mt-4 text-gold font-bold">Email</h4>
+          <p class="mt-2 font-sm text-darkNavy">
+            admin@millenniuminvestment.net
+            support@millenniuminvestment.net
+          </p>
+        </div>
+        <div class="mt-4 p-4 md:w-2/3 ml-10">
+          <form class="md:mt-4" action="mailto:support@millenniuminvestment.com" method="post" enctype="text/plain">
+            <p>
+              <input
+                class="border-primaryBlue border-solid border-2 p-1 w-4/5 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter Your Full Name"
+                required
+              />
+            </p>
+            <p class="mt-4">
+              <input
+                class="border-primaryBlue border-solid border-2 p-1 w-4/5 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Enter Your Email Address"
+                required
+              />
+            </p>
+            <p class="mt-4">
+              <input
+                class="border-primaryBlue border-solid border-2 p-1 w-4/5 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Enter The Subject"
+                required
+              />
+            </p>
+            <p class="mt-4">
+              <textarea
+                placeholder="Enter The Message"
+                class="p-4 shadow-2xl w-4/5 h-40 focus:outline-darkNavy placeholder:text-center"
+                name="contactMessage"
+                id="contactMessage"
+              ></textarea>
+            </p>
+            <p class="mt-6">
+              <input
+              type="submit"
+                class="py-2 px-10 duration-1000 text-darkNavy border-2 border-darkNavy rounded-lg baseline hover:bg-darkNavy hover:text-gold"
+                value =Send />
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <%- include("partials/footer"); -%>
+    <script src="../JS/aboutUS.js"></script>
+  </body>
+</html>
