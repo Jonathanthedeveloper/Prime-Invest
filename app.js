@@ -35,6 +35,10 @@ app.get('/policies', (req, res) => {
 app.get('/forgot', (req, res) => {
     res.render("forgotPassword");
 })
+// I know it won't be this way , did it for testing purposes.
+app.get('/dashboard', (req, res) => {
+    res.render("dashboard");
+})
 
 
 
