@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "build": "tailwindcss -i ./index.css -o ./public/CSS/main.css",
-    "watch": "tailwindcss -i ./index.css -o ./public/CSS/main.css --watch"
+    "watch": "tailwindcss -i ./index.css -o ./public/CSS/main.css --watch",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
