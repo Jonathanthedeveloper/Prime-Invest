@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <!-- Custom JavaScript -->
+    <script defer src="../JS/dashboard.js"></script>
+  </head>
+  <body class="bg-darkNavy">
+    <section>
+      <div class="navigation z-50">
+        <div class="menuToggle"></div>
+        <ul class="mt-14">
+          <li class="list chosen" style="--clr: #0f2331">
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="home-outline"></ion-icon
+              ></span>
+              <span class="text">Home</span>
+            </a>
+          </li>
+          <li class="list" style="--clr: #d4af37">
+            <a href="#"
+              ><span class="icon"
+                ><ion-icon name="download-outline"></ion-icon
+              ></span>
+              <span class="text">Deposit</span>
+            </a>
+          </li>
+          <li class="list" style="--clr: #3c6255">
+            <a href="#"
+              ><span class="icon"
+                ><ion-icon name="share-outline"></ion-icon
+              ></span>
+              <span class="text">Withdraw</span>
+            </a>
+          </li>
+          <li class="list" style="--clr: #0f2356">
+            <a href="#"
+              ><span class="icon"
+                ><ion-icon name="receipt-outline"></ion-icon
+              ></span>
+              <span class="text">History</span>
+            </a>
+          </li>
+          <li class="list" style="--clr: #ff4500">
+            <a href="#"
+              ><span class="icon"
+                ><ion-icon name="person-outline"></ion-icon
+              ></span>
+              <span class="text">My Profile</span>
+            </a>
+          </li>
+          <li class="list" style="--clr: #2196f3">
+            <a href="#"
+              ><span class="icon"
+                ><ion-icon name="help-circle-outline"></ion-icon
+              ></span>
+              <span class="text">Get Support</span>
+            </a>
+          </li>
+          <li class="list" style="--clr: #ffa117">
+            <a href="#"
+              ><span class="icon"
+                ><ion-icon name="people-outline"></ion-icon
+              ></span>
+              <span class="text">My Referral</span>
+            </a>
+          </li>
+          <li class="list" style="--clr: #31286e">
+            <a href="#"
+              ><span class="icon"
+                ><ion-icon name="log-out-outline"></ion-icon
+              ></span>
+              <span class="text">Log Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div class="flex flex-col items-center md:flex-row">
+        <div
+          class="main-body flex flex-row justify-between items-center p-4 bg-gold w-4/6 h-14 mt-10 border-b-4 border-white md:w-1/2"
+        >
+          <p class="text-xs md:text-base">Account Summary</p>
+          <a
+            href="#"
+            class="cursor-pointer duration-700 text-xs md:text-base rounded-lg bg-darkNavy px-4 h-10 text-gold hover:bg-white hover:text-black"
+          >
+            <button class="mt-3 md:mt-2">
+              <span class="mr-1"><ion-icon name="receipt"></ion-icon></span
+              >History
+            </button>
+          </a>
+        </div>
+        <div class="w-4/6 mt-10 flex flex-col items-center justify-center md:w-1/2">
+          <p class="text-white text-xs md:text-base">Invite Your Friends</p>
+          <div class="ml-20 h-10 w-4/5 mt-4 border-gold border-2 rounded-md md:ml-0">
+            <p class="text-white text-center mt-2 text-xs md:text-base md:mt-1">Referral Link</p>
+          </div>
+        </div>
+      </div>
+      <div class="main-body mt-5 flex flex-col items-center w-4/6 md:w-1/2">
+        <p class="text-xs md:text-base text-white">Available Balance</p>
+        <h1 class="mt-2 text-gold text-2xl md:text-4xl">[Balance]</h1>
+      </div>
+      <div class="main-body mt-5 flex flex-row justify-between w-4/6 md:w-1/2">
+        <div class="ml-4">
+          <p class="text-xs md:text-base text-white">Total Deposit</p>
+          <h1 class="mt-1 mb-3 text-gold text-xl md:text-2xl">[Total D]</h1>
+          <a
+            href="#"
+            class="cursor-pointer mt-1 duration-700 text-xs md:text-base rounded-lg bg-paleGreen px-4 py-2 text-black hover:bg-white"
+          >
+            <button class="mt-3 md:mt-2">
+              <span class="mr-1"><ion-icon name="download"></ion-icon></span
+              >Deposit
+            </button>
+          </a>
+        </div>
+        <div class="ml-4">
+          <p class="text-xs md:text-base text-white">Total Withdraw</p>
+          <h1 class="mt-1 mb-3 text-gold text-xl md:text-2xl">[Total W]</h1>
+          <a
+            href="#"
+            class="cursor-pointer duration-700 text-xs md:text-base rounded-lg bg-gold px-4 py-2 text-black hover:bg-white"
+          >
+            <button class="mt-3 md:mt-2">
+              <span class="mr-1"><ion-icon name="share"></ion-icon></span
+              >Withdraw
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="main-body w-4/6 p-4 flex flex-row justify-between items-center bg-gold mt-10 border-b-4 border-white md:w-auto"
+      >
+        <p class="text-xs md:text-base">Financial Record</p>
+        <a
+          href="#"
+          class="cursor-pointer duration-700 text-xs rounded-md bg-paleGreen px-4 h-10 text-black md:text-base hover:bg-white"
+        >
+          <button class="mt-3 md:mt-2">
+            <span class="mr-1"><ion-icon name="stats-chart"></ion-icon></span
+            >Invest
+          </button>
+        </a>
+      </div>
+      <div class="flex flex-col">
+        <div class="main-body space-y-4 mt-10 flex flex-row justify-evenly flex-wrap text-center">
+          <div class="mr-1">
+            <p class="text-xs mt-4 md:text-base text-white">Account Balance</p>
+            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Amount]</h1>
+          </div>
+          <div class="mr-1">
+            <p class="text-xs md:text-base text-white">Account Investment</p>
+            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Amount]</h1></div>
+          <div class="mr-1">
+            <p class="text-xs md:text-base text-white">Total Deposit</p>
+            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Amount]</h1></div>
+          <div>
+            <p class="text-xs md:text-base text-white">Total Withdraw</p>
+            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Amount]</h1></div>
+        </div>
+        <div class="main-body space-y-4 mt-5 flex flex-row justify-evenly flex-wrap text-center md:mt-10">
+          <div class="">
+            <p class="text-xs mt-4 md:text-base text-white">Total Earning</p>
+            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Amount]</h1>
+          </div>
+          <div >
+            <p class="text-xs md:text-base text-white">Last Deposit</p>
+            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Amount]</h1></div>
+          <div>
+            <p class="text-xs md:text-base text-white">Last Withdraw</p>
+            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Amount]</h1></div>
+          <div>
+            <p class="text-xs md:text-base text-white">Reg Date</p>
+            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Date]</h1></div>
+        </div>
+      </div>
+      <div class="main-body flex items-center justify-center mt-20">
+      <a
+          href="#"
+          class="cursor-pointer duration-700 text-xs rounded-md border-gold border-2 px-4 h-10 text-gold hover:border-white hover:text-white md:text-base"
+        >
+          <button class="mt-2 md:mt-1">
+            <span class="mr-1"><ion-icon class="text-2xl duration-700 hover:text-gold" name="documents"></ion-icon></span
+            >Show All Transactions
+          </button>
+        </a>
+      </div>
+    </section>
+    <!-- Iconic Icon Scripts -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
