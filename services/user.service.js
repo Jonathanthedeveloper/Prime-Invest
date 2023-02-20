@@ -11,7 +11,16 @@ class UserService {
 
     // update
     async update(filter, updateData) {
-        return await User.findOneAndUpdate
+        return await User.findOneAndUpdate(filter, updateData);
     }
 
+    // read 
+    async find(filter){
+        return await User.findOne(filter);
+    }
+
+    
+
 }
+
+module.exports = new UserService()
