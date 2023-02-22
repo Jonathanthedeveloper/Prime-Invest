@@ -11,6 +11,9 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.main-body{
+  margin-left: 80px;
+}
 
 /* The Nav Bar For Small Screen */
 .hamburger {
@@ -428,7 +431,6 @@ body::-webkit-scrollbar-thumb:hover {
 /* User Dashboard */
 .navigation{
   position: fixed;
-  inset: 0 0 0 20px ;
   width: 60px;
   height: 100%;
   background-color: #fff;
@@ -484,7 +486,6 @@ body::-webkit-scrollbar-thumb:hover {
 .navigation ul{
   display: flex;
   flex-direction: column;
-  gap: 5px;
   width: 100%;
 }
 .navigation ul li{
@@ -492,7 +493,7 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
   width: 100%;
   height: 60px;
-  padding: 0 10px;
+  padding: 0 5px;
   transition: 0.5s;
 }
 .navigation ul li.chosen{
@@ -514,7 +515,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: block;
   min-width: 55px;
   height: 55px;
-  line-height: 60px;
+  line-height: 55px;
   transition: 0.5s;
   border-radius: 10px;
   font-size: 1.75rem;
@@ -557,12 +558,65 @@ body::-webkit-scrollbar-thumb:hover {
 .navigation ul li.chosen a .text{
   color: var(--clr);
 }
-.main-body{
-  margin-left: 80px;
+
+/* Deposit Page */
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
 }
 
-@media screen and (max-width: 767px) {
-  .navigation {
-    inset: 0 0 0 0;
-  }
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: white;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #0f2331 transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #0f2331 transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #000;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
 }

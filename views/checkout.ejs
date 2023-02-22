@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <!-- Custom JavaScript -->
+    <script defer src="../JS/dashboard.js"></script>
+  </head>
+  <body class="bg-darkNavy">
+    <%- include ("partials/sidebar"); -%>
+    <section>
+      <div class="flex flex-col justify-center items-center ml-14 md:ml-0">
+        <div class="flex flex-row justify-center space-x-4 items-center mt-24">
+          <div class="w-4 h-4 rounded-full bg-gray-600"></div>
+          <div class="w-4 h-4 rounded-full bg-veryDarkWhite"></div>
+        </div>
+        <div class="text-gold mt-10 text-center">
+          <h1 class="text-2xl font-bold md:text-4xl">Confirm Your Deposit</h1>
+        </div>
+        <div class="mt-10 text-center ml-6 md:ml-0">
+          <h4 class="text-sm text-gray-500 md:base">
+            Please send your payments to the following Wallet Address.
+          </h4>
+          <div class="flex flex-row mt-6">
+            <h4 id="wallet" class="text-sm text-white md:base">
+              wallet wallet wallet wallet wallet wallet wallet
+            </h4>
+            <button
+              onclick="copy()"
+              class="text-gold ml-2 rounded-lg duration-500 hover:bg-gold hover:text-darkNavy"
+            >
+              <ion-icon name="clipboard-outline"></ion-icon>Copy
+            </button>
+          </div>
+        </div>
+        <div class="mt-10 text-center">
+          <h4 class="text-sm mt-6 text-gray-500 md:base">
+            Required Information
+          </h4>
+          <input
+            class="mt-4 ml-4 px-8 md:px-20 py-2 placeholder:text-center placeholder:text-sm md:ml-0"
+            type="text"
+            name="transaction-ID"
+            id="transaction-ID"
+            placeholder="Input Your Transaction ID"
+          />
+        </div>
+        <div class="flex flex-row space-x-6">
+          <a
+            href="#"
+            class="px-8 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold md:ml-0"
+            ><button>Cancel</button></a
+          >
+          <a
+            href="#"
+            class="px-8 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold"
+            ><button>Confirm</button></a
+          >
+        </div>
+      </div>
+    </section>
+    <%- include ("partials/script"); -%>
+    <script src="../JS/checkout.js"></script>
+  </body>
+</html>

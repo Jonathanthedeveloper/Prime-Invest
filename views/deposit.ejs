@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <!-- Custom JavaScript -->
+    <script defer src="../JS/dashboard.js"></script>
+  </head>
+  <body class="bg-darkNavy">
+    <%- include ("partials/sidebar"); -%>
+    <section>
+      <div class="flex flex-col justify-center items-center">
+        <div class="flex flex-row justify-center space-x-4 items-center mt-32">
+          <div class="w-4 h-4 rounded-full bg-veryDarkWhite"></div>
+          <div class="w-4 h-4 rounded-full bg-gray-600"></div>
+        </div>
+        <div class="text-center text-gold mt-10">
+          <h1 class="text-2xl font-bold md:text-4xl">Make A Deposit</h1>
+          <h4 class="text-sm mt-10 text-gray-500 md:base">
+            Choose The Type Of Deposit
+          </h4>
+        </div>
+        <div class="custom-select mt-2 ml-14 md:ml-0" style="width: 16.5rem">
+          <select>
+            <option value="0">Select The Deposit Channel</option>
+            <option value="1">Bitcoin</option>
+            <option value="2">Ethereum</option>
+            <option value="3">Bitcoin Cash</option>
+            <option value="4">Tron(TRX)</option>
+            <option value="5">BNB(BEP2)</option>
+            <option value="6">BNB(BEP20)</option>
+            <option value="7">USDT ERC20</option>
+            <option value="8">USDT TRC20</option>
+          </select>
+        </div>
+        <div class="mt-10">
+          <h4 class="text-sm text-center text-gray-500 md:base">
+            Amount To Deposit
+          </h4>
+          <input
+            class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0"
+            type="number"
+            name="amount"
+            id="amount"
+            placeholder="Minimum Of $200 "
+          />
+        </div>
+        <a href="#"
+          ><button
+            class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold"
+          >
+            Deposit
+          </button></a
+        >
+      </div>
+    </section>
+    <%- include ("partials/script"); -%>
+    <script src="../JS/deposit.js"></script>
+  </body>
+</html>
