@@ -36,7 +36,36 @@
   <!-- Font-Awesome -->
   <script src="https://kit.fontawesome.com/f5af09e245.js" crossorigin="anonymous"></script>
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="../CSS/main.css" />
+  <link rel="stylesheet" href="CSS/main.css" />
+
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script defer src="JS/form.js"></script>
+
+  <style>
+    .toast {
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin: 20px;
+      display: flex;
+    }
+
+    .toast__message {
+      margin-right: auto;
+    }
+
+    .success {}
+
+    .error {
+      background-color: rgb(248, 215, 218);
+      color: rgb(176, 42, 55);
+      border: 1px solid rgb(241, 174, 181);
+    }
+
+    .info {}
+  </style>
+
 </head>
 
 <body class="bg-darkNavy">
@@ -48,36 +77,46 @@
         <h1 class="text-3xl mt-4 text-darkNavy font-extrabold">Login</h1>
         <p class="text-sm text-gold">Welcome Back</p>
 
-        <form action="/login" method="post">
-          <p class="mt-10">
-            <input
-              class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="email" id="email" name="email" placeholder="Enter Your Email Address" required />
-          </p>
 
-          <p class="mt-4 flex justify-center mr-2">
-            <input
-              class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="password" id="myPassword" name="password" placeholder="Enter Your Password" required />
-            <i class="fas fa-eye -ml-6 mt-2.5" id="eye" onclick="myFunction()"></i>
-          </p>
+          <% if( alert?.message ){ %>
+            <div class="toast <%= alert.status %> ">
+              <p class="toast__message">
+                <%= alert.message %>
+              </p>
+              <button>&times;</button>
+            </div>
+            <% } %>
 
-          <p class="mt-6">
-            <button type="submit"
-              class="py-2 px-10 duration-1000 text-darkNavy border-2 border-darkNavy rounded-lg baseline hover:bg-darkNavy hover:text-gold">Login</button>
-          </p>
+              <form action="/login" method="post" id="login">
+                <p class="mt-10">
+                  <input
+                    class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                    type="email" id="email" name="email" placeholder="Enter Your Email Address" required />
+                </p>
 
-          <p class="mt-4">
-            <a class="text-sm hover: text-darkNavy hover:text-gold" href="/forgot">Forgot Password</a>
-            <a class="text-sm hover: text-darkNavy ml-4 hover:text-gold" href="/create">Sign Up</a>
-          </p>
-        </form>
+                <p class="mt-4 flex justify-center mr-2">
+                  <input
+                    class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                    type="password" id="myPassword" name="password" placeholder="Enter Your Password" required />
+                  <i class="fas fa-eye -ml-6 mt-2.5" id="eye" onclick="myFunction()"></i>
+                </p>
+
+                <p class="mt-6">
+                  <button type="submit"
+                    class="py-2 px-10 duration-1000 text-darkNavy border-2 border-darkNavy rounded-lg baseline hover:bg-darkNavy hover:text-gold">Login</button>
+                </p>
+
+                <p class="mt-4">
+                  <a class="text-sm hover: text-darkNavy hover:text-gold" href="/forgot">Forgot Password</a>
+                  <a class="text-sm hover: text-darkNavy ml-4 hover:text-gold" href="/create">Sign Up</a>
+                </p>
+              </form>
 
       </div>
     </div>
   </section>
 
-  <script src="../JS/form.js"></script>
+
 </body>
 
 </html>

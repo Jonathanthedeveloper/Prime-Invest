@@ -35,9 +35,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <!-- Font-Awesome -->
-  <script src="https://kit.fontawesome.com/f5af09e245.js" crossorigin="anonymous"></script>
+  <script async src="https://kit.fontawesome.com/f5af09e245.js" crossorigin="anonymous"></script>
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../CSS/main.css" />
+
+  <!-- script -->
+  <script defer src="JS/form.js"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body class="bg-lightGray md:bg-darkNavy">
@@ -47,26 +53,26 @@
         <img class="w-16 mt-0" src="../Images/Logo.png" alt="Millennium Investment Logo" />
         <h1 class="text-3xl mt-4 text-darkNavy font-extrabold">Sign-Up</h1>
         <p class="text-sm text-gold mb-4 w-56">Sign Up To Become An Investor</p>
-        <form action="/create" method="post">
+        <form action="/create" method="post" id="register">
           <p>
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="name" name="name" placeholder="Enter Your Full Name"  />
+              type="text" id="name" name="name" placeholder="Enter Your Full Name" />
           </p>
           <p class="mt-4">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="email" name="email" placeholder="Enter Your Email Address"  />
+              type="text" id="email" name="email" placeholder="Enter Your Email Address" />
           </p>
           <p class="mt-4">
-            <!-- <input
+            <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="email" name="email" placeholder="Confirm Your Email Address"  /> -->
+              type="text" id="confirmEmail" name="confirmEmail" placeholder="Confirm Your Email Address"  />
           </p>
           <p class="mt-4 flex justify-center mr-2">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="password" id="myPassword" name="password" placeholder="Enter Your Password"  />
+              type="password" id="myPassword" name="password" placeholder="Enter Your Password" />
             <i class="fas fa-eye -ml-6 mt-2.5" id="eye" onclick="myFunction()"></i>
           </p>
 
@@ -76,45 +82,45 @@
           </p>
 
           <p class="mt-4 flex justify-center mr-2">
-            <!-- <input
+            <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="password" id="myPassword1" name="password" placeholder="Confirm Your Password"  />
-            <i class="fas fa-eye -ml-6 mt-2.5" id="eye1" onclick="myFunction1()"></i> -->
+              type="password" id="myPassword1" name="confirmPassword" placeholder="Confirm Your Password"  />
+            <i class="fas fa-eye -ml-6 mt-2.5" id="eye1" onclick="myFunction1()"></i>
           </p>
           <p class="mt-4">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="BTCwallet" name="BTCwallet" placeholder="Enter Your Bitcoin Wallet"  />
+              type="text" id="BTCwallet" name="BTCwallet" placeholder="Enter Your Bitcoin Wallet" />
           </p>
           <p class="mt-4">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="bankName" name="bankName" placeholder="Enter Your Bank Name"  />
+              type="text" id="bankName" name="bankName" placeholder="Enter Your Bank Name" />
           </p>
           <p class="mt-4">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="bankAddress" name="bankAddress" placeholder="Enter Your Bank Address"  />
+              type="text" id="bankAddress" name="bankAddress" placeholder="Enter Your Bank Address" />
           </p>
           <p class="mt-4">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="number" id="accountNumber" name="accountNumber" placeholder="Enter Your Account Number"  />
+              type="number" id="accountNumber" name="accountNumber" placeholder="Enter Your Account Number" />
           </p>
           <p class="mt-4">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="sortCode" name="sortCode" placeholder="Enter Your Bank's Sort Code"  />
+              type="text" id="sortCode" name="sortCode" placeholder="Enter Your Bank's Sort Code" />
           </p>
           <p class="mt-4">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="secretQuestion" name="secretQuestion" placeholder="Enter Your Secret Question"  />
+              type="text" id="secretQuestion" name="secretQuestion" placeholder="Enter Your Secret Question" />
           </p>
           <p class="mt-4">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="secretAnswer" name="secretAnswer" placeholder="Enter Your Secret Answer"  />
+              type="text" id="secretAnswer" name="secretAnswer" placeholder="Enter Your Secret Answer" />
           </p>
           <p class="mt-10 ml-1.5 text-center">
             <input type="submit" href="#"
@@ -133,7 +139,7 @@
       </div>
     </div>
   </section>
-  <script src="../JS/form.js"></script>
+
 </body>
 
 </html>
