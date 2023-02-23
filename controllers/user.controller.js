@@ -36,7 +36,7 @@ class UserController {
 
 
 
-        const token = jwt.sign({ _id: user._id, email: user.email }, process.env.JWT_SECRET_KEY);
+        const token = jwt.sign({ _id: user._id, email: user.email }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
 
 
         res
@@ -54,6 +54,8 @@ class UserController {
         const userExists = await userService.find({ email: userCredentials.email });
         if (!userExists) {
             // throw an error with incorrect email or password
+            req.flash('alert', JSON.stringify({ "message": "Invalid Username or Password", "status": "error" }));
+            res.redirect('/login')
             console.error("user does not exist");
             return;
         }
@@ -63,6 +65,8 @@ class UserController {
 
         if (!isCorrectPassword) {
             // throw an error with incorrect email or password;
+            req.flash('alert', JSON.stringify({ "message": "Invalid Username or Password", "status": "error" }));
+            res.redirect('/login')
             console.error('incorrect email or password')
             return;
         }
@@ -70,7 +74,7 @@ class UserController {
         const token = jwt.sign({ _id: userExists._id, email: userExists.email }, process.env.JWT_SECRET_KEY);
         console.log('login successful')
         res
-            .cookie('token', token)
+            .cookie('token', token, { expire: new Date() + 3600000 })
             .header('Authorization', token)
             .redirect('/dashboard')
 

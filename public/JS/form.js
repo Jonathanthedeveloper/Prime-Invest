@@ -1,3 +1,5 @@
+// import swal from 'sweetalert';
+
 myFunction = () => {
     const x = document.getElementById("myPassword");
     if (x.type === "password") {
@@ -18,10 +20,3 @@ myFunction = () => {
     const eye1 = document.getElementById("eye1");
     eye1.classList.toggle("fa-eye-slash");
   }
-  // Password Validation
-  // required = () =>{
-  //  const input = document.getElementById("myPassword");
-  //   const password = input.value;
-  //   let reg = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$")
-  //   reg.test(password) ? alert("Password is valid") : alert("Password is not valid");
-  // }

@@ -4,7 +4,22 @@ const { loginUser } = require('../controllers/user.controller')
 
 router.route('/')
     .get(function (req, res) {
-        res.render('login');
+
+        let flash = req.flash('alert');
+
+        if (!flash) {
+            return res.render('login', { alert: null });
+        } else {
+            try {
+                flash = JSON.parse(flash)
+               return res.render('login', { alert: flash || null });
+
+            } catch (error) {
+                console.log(error)
+                return res.render('login', { alert: null });
+            }
+        }
+
     })
     .post(loginUser)
 

@@ -1,7 +1,9 @@
 const express = require('express');
 const ejs = require('ejs');
 const session = require('express-session');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser')
 
 
 
@@ -17,7 +19,14 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cookieParser('secret'));
+app.use(session({
+    secret: 'secret',
+    cookie: {maxAge: 60000},
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(flash())
 app.use('/', rootRoute);
 
 // so that mongoose no go disturb my ear with deprecation warning
