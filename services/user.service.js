@@ -15,7 +15,7 @@ class UserService {
     }
 
     // read 
-    async find(filter){
+    async findOne(filter){
         return await User.findOne(filter);
     }
 

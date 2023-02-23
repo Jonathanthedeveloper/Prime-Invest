@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const authenticate = require('../middlewares/authenticate.middleware')
+const authenticate = require('../middlewares/authenticate.middleware');
+const { renderDashboard } = require('../controllers/user.controller')
 
 router.route('/')
-    .get(authenticate, function (req, res) {
-        res.render('dashboard');
-    })
+    .get(authenticate, renderDashboard)
 
 
 module.exports = router;
