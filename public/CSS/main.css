@@ -932,6 +932,10 @@ video {
   width: 12rem;
 }
 
+.w-2\/4 {
+  width: 50%;
+}
+
 .min-w-fit {
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -1099,6 +1103,10 @@ video {
 
 .border-0 {
   border-width: 0px;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-b-4 {
@@ -2466,6 +2474,11 @@ body::-webkit-scrollbar-thumb:hover {
     --tw-space-y-reverse: 0;
     margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+  }
+
+  .md\:bg-darkNavy {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 35 49 / var(--tw-bg-opacity));
   }
 
   .md\:px-20 {
