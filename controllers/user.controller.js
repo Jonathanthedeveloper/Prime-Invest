@@ -18,9 +18,11 @@ class UserController {
 
 
         // checking if user already exists
-        const userAlreadyExists = await userService.find({ email: userData.email });
+        const userAlreadyExists = await userService.findOne({ email: userData.email });
         if (userAlreadyExists) {
             // throw an errow message saying user already exists
+            req.flash('alert', JSON.stringify({ "message": "User already Exists, Please login in", "status": "info" }));
+            res.redirect('/login')
             return;
         }
 
@@ -40,6 +42,7 @@ class UserController {
 
 
         res
+            .cookie('token', token, { expire: new Date() + 3600000 })
             .header('Authorization', token)
             .redirect('/dashboard')
 
@@ -51,7 +54,7 @@ class UserController {
 
 
         // check if user exists
-        const userExists = await userService.find({ email: userCredentials.email });
+        const userExists = await userService.findOne({ email: userCredentials.email });
         if (!userExists) {
             // throw an error with incorrect email or password
             req.flash('alert', JSON.stringify({ "message": "Invalid Username or Password", "status": "error" }));
@@ -78,6 +81,32 @@ class UserController {
             .header('Authorization', token)
             .redirect('/dashboard')
 
+    }
+
+    async renderDashboard(req, res) {
+        const user = req.user
+
+        if (!user) {
+            req.flash('alert', JSON.stringify({ "message": "Something Went Very wrong please login again", "status": "error" }));
+            res.redirect('/login');
+            return;
+        }
+
+        console.log(user);
+
+
+        const userInformation = await userService.findOne({ _id: user._id });
+
+        if (!userInformation) {
+            req.flash('alert', JSON.stringify({ "message": "Something Went Very wrong please login again", "status": "error" }));
+            res.redirect('/login');
+            return;
+        }
+
+        console.log(userInformation);
+
+
+        return res.render('dashboard', { user: userInformation });
     }
 
 

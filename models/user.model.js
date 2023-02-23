@@ -6,10 +6,12 @@ const { generateUserId } = require('../utils');
 const secretSchema = new Schema({
     question: {
         type: String,
+        default: ""
     },
     answer: {
         type: String,
-        trim: true
+        trim: true,
+        default: ""
     }
 });
 
@@ -17,22 +19,27 @@ const bankSchema = new Schema({
     bankName: {
         type: String,
         trim: true,
+        default: ""
     },
     bankAddress : {
         type: String,
         trim: true,
+        default: ""
     },
     accountNumber : {
         type: String,
         trim: true,
+        default: ""
     },
     accountName: {
         type: String,
         trim: true,
+        default: ""
     },
     sortCode :{
         type: String,
-        trim: true
+        trim: true,
+        default: ""
     }
 
 })
@@ -40,7 +47,8 @@ const bankSchema = new Schema({
 const accountSchema = new Schema({
     bitcoinAddress: {
         type: String,
-        trim: true
+        trim: true,
+        default: ""
     },
     bank: bankSchema
 });

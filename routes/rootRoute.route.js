@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const userRoute = require('./user.route')
+
 //Importing routes
 const aboutRoute = require("./about.route");
 const contactRoute = require("./contact.route");
@@ -23,6 +25,10 @@ const referral = require("./referral.route");
 const help = require("./help.route");
 
 // configuring routes
+
+router.use("/user", userRoute)
+
+
 router.use("/", indexRoute);
 router.use("/aboutUs", aboutRoute);
 router.use("/contact", contactRoute);
