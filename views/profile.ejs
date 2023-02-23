@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <!-- Custom JavaScript -->
+    <script defer src="../JS/dashboard.js"></script>
+  </head>
+  <body class="bg-darkNavy">
+    <%- include ("partials/sidebar"); -%>
+    <%- include ("partials/script"); -%>
+  <section>
+    <div class="flex flex-col-reverse space-x-4 items-center justify-center ml-20 md:flex-row md:justify-evenly">
+        <div class="mt-32">
+            <h4 class="text-sm text-gray-500 md:base">Your Profile</h4>
+          <h1 class="text-2xl mt-2 text-gold font-bold md:text-4xl">
+            Update Your Profile
+          </h1>
+          <form action="">
+           <p> <input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Update Your Name"
+          /></p>
+         <p> <input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="btc-wallet"
+            id="btc-wallet"
+            placeholder="Update Your BTC wallet"
+          /></p>
+         <p> <input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="Ethereum wallet"
+            id="Ethereum wallet"
+            placeholder="Update Your Ethereum wallet"
+          /></p>
+         <p> <input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name=Bitcoin-cash-wallet"
+            id="Bitcoin-cashwallet"
+            placeholder="Update Your Bitcoin Cash wallet"
+          /></p>
+         <p> <input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="tron-wallet"
+            id="tron-wallet"
+            placeholder="Update Your Tron wallet"
+          /></p>
+         <p> <input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="bnb-wallet"
+            id="bnb-wallet"
+            placeholder="Update Your BNB (BEP2) wallet"
+          /></p>
+         <p> <input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="bnb1-wallet"
+            id="bnb1-wallet"
+            placeholder="Update Your BNB(BEP20) wallet"
+          /></p>
+         <p> <input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="usdt-wallet"
+            id="usdt-wallet"
+            placeholder="Update Your USDT (ERC20) wallet"
+          /></p>
+         <p><input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="usdt1-wallet"
+            id="usdt1-wallet"
+            placeholder="Update Your USDT (TRC20) wallet"
+          /></p> 
+          <p><input
+            class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm"
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Update Your Password"
+          /></p>
+          <a href="#"
+          ><button
+            class="px-10 ml-4 mt-4 py-3 duration-700 bg-gold hover:bg-white hover:text-gold"
+          >
+            Update
+          </button></a
+        >
+          </form>
+        </div>
+        <div class="mt-10 md:mt-0">
+            <h4 class="text-sm text-gray-500 md:base">Your Profile</h4>
+            <h1 class="text-2xl mt-2 text-gold font-bold md:text-4xl">
+              Details
+            </h1>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Full Name <span class="text-gold">[Name]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Email Address <span class="text-gold">[Email]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Username <span class="text-gold">[Username]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Bitcoin Wallet Address <span class="text-gold">[BTC Wallet Address]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Ethereum Wallet Address <span class="text-gold">[Ethereum Wallet Address]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Bitcoin Cash Wallet Address <span class="text-gold">[Bitcoin Cash Wallet Address]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Tron (TRX) Wallet Address <span class="text-gold">[Tron Wallet Address]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your BNB Wallet Address <span class="text-gold">[BNB (BEP2) Wallet Address]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your BNB Wallet Address <span class="text-gold">[BNB (BEP20) Address]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your USDT Wallet Address <span class="text-gold">[USDT (ERC20) Wallet Address]</span></h4>
+            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your USDT Wallet Address <span class="text-gold">[USDT (TRC20) Wallet Address]</span></h4>
+        </div>
+    </div>
+  </section>
+</body>
+</html> 

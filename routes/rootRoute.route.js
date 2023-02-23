@@ -18,6 +18,9 @@ const checkout = require("./checkout.route");
 const invest = require("./invest.route");
 const withdraw = require("./withdraw.route");
 const history = require("./history.route");
+const profile = require("./profile.route");
+const referral = require("./referral.route");
+const help = require("./help.route");
 
 // configuring routes
 router.use("/", indexRoute);
@@ -36,6 +39,9 @@ router.use("/checkout", checkout);
 router.use("/invest", invest);
 router.use("/withdraw", withdraw);
 router.use("/history", history);
+router.use("/profile", profile);
+router.use("/referral", referral);
+router.use("/help", help);
 
 // exporting router middleware
 module.exports = router;

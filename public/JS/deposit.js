@@ -52,7 +52,7 @@ for (i = 0; i < l; i++) {
       this.classList.toggle("select-arrow-active");
     });
 }
-function closeAllSelect(elmnt) {
+function closeAllSelect(element) {
   /*a function that will close all select boxes in the document,
   except the current select box:*/
   var x, y, i, xl, yl, arrNo = [];
@@ -61,7 +61,7 @@ function closeAllSelect(elmnt) {
   xl = x.length;
   yl = y.length;
   for (i = 0; i < yl; i++) {
-    if (elmnt == y[i]) {
+    if (element == y[i]) {
       arrNo.push(i)
     } else {
       y[i].classList.remove("select-arrow-active");

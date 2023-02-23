@@ -40,34 +40,34 @@
   <link rel="stylesheet" href="../CSS/main.css" />
 </head>
 
-<body class="bg-lightGray md:bg-darkNavy">
+<body class="bg-darkWhite">
   <section id="main-section">
     <div class="flex flex-row items-center justify-center">
-      <div class="w-2/4 h-full p-6 flex flex-col items-center justify-center bg-darkWhite">
+      <div class="h-full p-6 flex flex-col items-center justify-center ">
         <img class="w-16 mt-0" src="../Images/Logo.png" alt="Millennium Investment Logo" />
         <h1 class="text-3xl mt-4 text-darkNavy font-extrabold">Sign-Up</h1>
         <p class="text-sm text-gold mb-4 w-56">Sign Up To Become An Investor</p>
         <form action="/create" method="post">
           <p>
             <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+              class="border-primaryBlue border-solid border-2 ml-1 p-1 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
               type="text" id="name" name="name" placeholder="Enter Your Full Name"  />
           </p>
           <p class="mt-4">
             <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+              class="border-primaryBlue border-solid border-2 ml-1 p- py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
               type="text" id="email" name="email" placeholder="Enter Your Email Address"  />
           </p>
           <p class="mt-4">
-            <!-- <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="email" name="email" placeholder="Confirm Your Email Address"  /> -->
+            <input
+              class="border-primaryBlue border-solid border-2 ml-1 p-1 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+              type="text" id="username" name="username" placeholder="Enter Your Username"  />
           </p>
           <p class="mt-4 flex justify-center mr-2">
             <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+              class="border-primaryBlue border-solid border-2 ml-1 p-1 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
               type="password" id="myPassword" name="password" placeholder="Enter Your Password"  />
-            <i class="fas fa-eye -ml-6 mt-2.5" id="eye" onclick="myFunction()"></i>
+            <i class="fas fa-eye -ml-6 mt-3.5" id="eye" onclick="myFunction()"></i>
           </p>
 
           <p class="text-sm font-extralight mt-2 w-80 text-center">
@@ -76,44 +76,24 @@
           </p>
 
           <p class="mt-4 flex justify-center mr-2">
-            <!-- <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+            <input
+              class="border-primaryBlue border-solid border-2 ml-1 p-1 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
               type="password" id="myPassword1" name="password" placeholder="Confirm Your Password"  />
-            <i class="fas fa-eye -ml-6 mt-2.5" id="eye1" onclick="myFunction1()"></i> -->
+            <i class="fas fa-eye -ml-6 mt-3.5" id="eye1" onclick="myFunction1()"></i>
           </p>
           <p class="mt-4">
             <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="BTCwallet" name="BTCwallet" placeholder="Enter Your Bitcoin Wallet"  />
+              class="border-primaryBlue border-solid border-2 ml-1 p-1 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+              type="text" id="bankName" name="bankName" placeholder="Referral Code"  />
           </p>
           <p class="mt-4">
             <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="bankName" name="bankName" placeholder="Enter Your Bank Name"  />
-          </p>
-          <p class="mt-4">
-            <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="bankAddress" name="bankAddress" placeholder="Enter Your Bank Address"  />
-          </p>
-          <p class="mt-4">
-            <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="number" id="accountNumber" name="accountNumber" placeholder="Enter Your Account Number"  />
-          </p>
-          <p class="mt-4">
-            <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-              type="text" id="sortCode" name="sortCode" placeholder="Enter Your Bank's Sort Code"  />
-          </p>
-          <p class="mt-4">
-            <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+              class="border-primaryBlue border-solid border-2 ml-1 p-1 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
               type="text" id="secretQuestion" name="secretQuestion" placeholder="Enter Your Secret Question"  />
           </p>
           <p class="mt-4">
             <input
-              class="border-primaryBlue border-solid border-2 ml-1 p-1 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+              class="border-primaryBlue border-solid border-2 ml-1 p-1 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
               type="text" id="secretAnswer" name="secretAnswer" placeholder="Enter Your Secret Answer"  />
           </p>
           <p class="mt-10 ml-1.5 text-center">
@@ -123,14 +103,12 @@
           </p>
         </form>
         <p class="mt-8 w-72 text-left text-sm">
-          By Signing Up, You Agree To Our<a class="text-gold hover:text-primaryBlue" href="/policies">Terms Of Service,
+          By Signing Up, You Agree To Our<a class="text-gold hover:text-primaryBlue" href="/policies"> Terms Of Service,
             Privacy And Anti-Spam</a>
           Policies.
         </p>
       </div>
-      <div class="hidden w-2/4 h-full md:block">
-        <img class="w-screen" src="../Images/Sign-up-ai.png" alt="Sign-up Image" />
-      </div>
+    
     </div>
   </section>
   <script src="../JS/form.js"></script>

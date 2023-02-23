@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <!-- Custom JavaScript -->
+    <script defer src="../JS/dashboard.js"></script>
+  </head>
+  <body class="bg-darkNavy">
+    <%- include ("partials/sidebar"); -%>
+    <section>
+      <div class="flex flex-col space-y-8 items-center justify-center">
+        <div class="mt-32 text-center">
+          <h1 class="text-2xl mt-2 text-gold font-bold md:text-4xl">
+            Contact Us
+          </h1>
+          <h4 class="text-sm text-gray-500 md:text-base ml-16 md:ml-0">
+            Contact Us For Any Issues Regarding Your Account.
+          </h4>
+        </div>
+        <div>
+          <form class="flex flex-col items-center justify-center" action="">
+            <input
+              class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-12 md:ml-0 w-72 md:w-96"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter Your Email Address"
+            />
+            <input class="px-8 py-3 mt-2 placeholder:text-center
+            placeholder:text-sm ml-12 md:ml-0 w-72 md:w-96" type="text"
+            name="subject" id="subject" placeholder="Enter Your Subject"" />
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Enter Your Message Here"
+              class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm h-60 w-72  ml-12 md:ml-0 md:w-96"
+            ></textarea>
+            <a href="#"
+              ><button
+                class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white md:ml-0 hover:text-gold"
+              >
+                Send
+              </button></a
+            >
+          </form>
+        </div>
+      </div>
+    </section>
+    <%- include ("partials/script"); -%>
+  </body>
+</html>

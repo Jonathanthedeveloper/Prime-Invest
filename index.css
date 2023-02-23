@@ -429,6 +429,7 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 /* User Dashboard */
+
 .navigation{
   position: fixed;
   width: 60px;
