@@ -22,7 +22,7 @@ class UserController {
         if (userAlreadyExists) {
             // throw an errow message saying user already exists
             req.flash('alert', JSON.stringify({ "message": "User already Exists, Please login in", "status": "info" }));
-            res.redirect('/login')
+            res.redirect('/user/login')
             return;
         }
 
@@ -44,7 +44,7 @@ class UserController {
         res
             .cookie('token', token, { expire: new Date() + 3600000 })
             .header('Authorization', token)
-            .redirect('/dashboard')
+            .redirect('/user/dashboard')
 
     }
 
@@ -58,7 +58,7 @@ class UserController {
         if (!userExists) {
             // throw an error with incorrect email or password
             req.flash('alert', JSON.stringify({ "message": "Invalid Username or Password", "status": "error" }));
-            res.redirect('/login')
+            res.redirect('/user/login')
             console.error("user does not exist");
             return;
         }
@@ -69,7 +69,7 @@ class UserController {
         if (!isCorrectPassword) {
             // throw an error with incorrect email or password;
             req.flash('alert', JSON.stringify({ "message": "Invalid Username or Password", "status": "error" }));
-            res.redirect('/login')
+            res.redirect('/user/login')
             console.error('incorrect email or password')
             return;
         }
@@ -79,7 +79,7 @@ class UserController {
         res
             .cookie('token', token, { expire: new Date() + 3600000 })
             .header('Authorization', token)
-            .redirect('/dashboard')
+            .redirect('/user/dashboard')
 
     }
 
@@ -88,7 +88,7 @@ class UserController {
 
         if (!user) {
             req.flash('alert', JSON.stringify({ "message": "Something Went Very wrong please login again", "status": "error" }));
-            res.redirect('/login');
+            res.redirect('/user/login');
             return;
         }
 
@@ -99,7 +99,7 @@ class UserController {
 
         if (!userInformation) {
             req.flash('alert', JSON.stringify({ "message": "Something Went Very wrong please login again", "status": "error" }));
-            res.redirect('/login');
+            res.redirect('/user/login');
             return;
         }
 
