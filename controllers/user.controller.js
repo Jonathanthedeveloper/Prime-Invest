@@ -13,9 +13,46 @@ class UserController {
 
     // registering a user 
     async registerUser(req, res) {
-        const userData = req.body;
-        console.log(userData);
+        // const userData = req.body;
 
+        // {
+        //     name: 'user',
+        //     email: 'user@email.com',
+        //     confirmEmail: 'user@email.com',
+        //     password: '123456',
+        //     confirmPassword: '123456',
+        //     BTCwallet: '',
+        //     bankName: '',
+        //     bankAddress: '',
+        //     accountNumber: '',
+        //     sortCode: '',
+        //     secretQuestion: '',
+        //     secretAnswer: ''
+        //   }
+        const userData = {
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            secret: {
+                question: req.body.secretQuestion,
+                answer: req.body.secretAnswer
+            },
+            account: {
+                bitcoinAddress: req.body.BTCwallet,
+                bank: {
+                    bankName: req.body.bankName,
+                    bankAddress: req.body.bankAddress,
+                    accountNumber: req.body.accountNumber,
+                    sortCode: req.body.sortCode
+                }
+            },
+            wallet: {
+                transactions: {}
+            }
+
+        }
+
+        console.log(userData);
 
         // checking if user already exists
         const userAlreadyExists = await userService.findOne({ email: userData.email });
@@ -107,6 +144,11 @@ class UserController {
 
 
         return res.render('dashboard', { user: userInformation });
+    }
+
+    async renderProfile(req, res) {
+        const userInformation = req.user;
+        res.render('profile', { user: userInformation })
     }
 
 

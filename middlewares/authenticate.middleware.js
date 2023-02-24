@@ -18,7 +18,7 @@ const authenticate = (req, res, next) => {
         // throw an error that something went wrong
         console.error("no token found");
 
-        res.redirect('/login')
+        res.redirect('/user/login')
         return;
     }
 
@@ -28,6 +28,7 @@ const authenticate = (req, res, next) => {
         next();
     } catch (error) {
         console.error(error);
+        res.redirect('/user/login')
     }
 };
 
