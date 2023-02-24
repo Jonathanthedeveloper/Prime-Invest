@@ -41,34 +41,51 @@ const earningSchema = new Schema({
 }, { timestamps: true })
 
 const investmentSchema = new Schema({
-    
-}, {timestamps: true})
+    amount: {
+        type: Number,
+        rquired: true
+    }
+}, { timestamps: true })
 
 
 const transactionSchema = new Schema({
     deposits: {
-        type: [depositSchema]
+        type: [depositSchema],
+        required: true,
+        default: []
     },
     withdrawals: {
-        type: [withdrawalSchema]
+        type: [withdrawalSchema],
+        required: true,
+        default: []
     },
     earnings: {
-        type: [earningSchema]
+        type: [earningSchema],
+        required: true,
+        default: []
     },
     investments: {
-        type: [investmentSchema]
+        type: [investmentSchema],
+        required: true,
+        default: []
     }
 })
 
-const walletSchema = new Schema({
+const walletSchema = new Schema({ //done
     balance: {
         type: Number,
         required: true,
-        default: 0
+        default: 0.00
+    },
+    transactions: {
+        type: transactionSchema,
+        required: true
     }
 })
 
-const bankSchema = new Schema({
+
+
+const bankSchema = new Schema({ // done
     bankName: {
         type: String,
         trim: true,
@@ -97,7 +114,7 @@ const bankSchema = new Schema({
 
 })
 
-const accountSchema = new Schema({
+const accountSchema = new Schema({ //done
     bitcoinAddress: {
         type: String,
         trim: true,
@@ -105,6 +122,18 @@ const accountSchema = new Schema({
     },
     bank: bankSchema
 });
+
+
+referralSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true
+    }
+})
 
 
 
@@ -129,13 +158,33 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    secret: secretSchema,
-    account: accountSchema
+    secret: {
+        type: secretSchema,
+        required: true,
+    },
+    account: {
+        type: accountSchema,
+        required: true
+    },
+    wallet: {
+        type: walletSchema,
+        required: true
+    },
+    referral: {
+        type: [referralSchema],
+        required: true,
+        default: []
+    }
 
 }, { timestamps: true });
 
 
-
+const Withdrawal = model("Withdrawal", withdrawalSchema)
+const Deposit = model("Deposit", depositSchema)
+const Earning = model("Earning", earningSchema)
+const Investment = model("Investment", investmentSchema)
+const Wallet = model("Wallet", walletSchema)
+const Transaction = model("Transaction", transactionSchema)
 const Secret = model('Secret', secretSchema);
 const Bank = model('Bank', bankSchema);
 const Account = model('Account', accountSchema);

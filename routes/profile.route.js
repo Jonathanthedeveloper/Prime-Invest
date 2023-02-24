@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const {renderProfile} = require("../controllers/user.controller");
+const fetchUserData = require('../middlewares/fetchUserData.middleware')
 
-router.get('/', function(req, res){
-    res.render('profile');
-});
+router.get('/',fetchUserData, renderProfile);
 
 
 module.exports = router;

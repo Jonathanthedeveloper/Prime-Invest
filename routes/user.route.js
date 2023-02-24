@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const authenticate = require("../middlewares/authenticate.middleware")
 
 
 //Importing routes
@@ -17,20 +18,22 @@ const profileRoute = require("./profile.route");
 const referralRoute = require("./referral.route");
 
 
+
+
 // configuring routes
-router.use("/transactions", transactionRoute)
-router.use("/dashboard", dashboardRoute);
+router.use("/transactions", authenticate, transactionRoute)
+router.use("/dashboard", authenticate, dashboardRoute);
 router.use("/login", loginRoute);
 router.use("/forgot-password", forgotPasswordRoute);
 router.use("/create", registerRoute);
 router.use("/notfound", notFoundRoute);
 
-router.use("/checkout", checkoutRoute);
-router.use("/invest", investRoute);
-router.use("/deposit", depositRoute);
-router.use("/withdraw", withdrawRoute);
-router.use("/profile", profileRoute);
-router.use("/referral", referralRoute);
+router.use("/checkout", authenticate, checkoutRoute);
+router.use("/invest", authenticate, investRoute);
+router.use("/deposit", authenticate, depositRoute);
+router.use("/withdraw", authenticate, withdrawRoute);
+router.use("/profile", authenticate, profileRoute);
+router.use("/referral", authenticate, referralRoute);
 
 // exporting router middleware
 module.exports = router;
