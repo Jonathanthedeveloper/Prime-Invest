@@ -121,34 +121,17 @@ class UserController {
     }
 
     async renderDashboard(req, res) {
-        const user = req.user
-
-        if (!user) {
-            req.flash('alert', JSON.stringify({ "message": "Something Went Very wrong please login again", "status": "error" }));
-            res.redirect('/user/login');
-            return;
-        }
-
-        console.log(user);
-
-
-        const userInformation = await userService.findOne({ _id: user._id });
-
-        if (!userInformation) {
-            req.flash('alert', JSON.stringify({ "message": "Something Went Very wrong please login again", "status": "error" }));
-            res.redirect('/user/login');
-            return;
-        }
-
-        console.log(userInformation);
-
-
+        const userInformation = req.user
         return res.render('dashboard', { user: userInformation });
     }
 
     async renderProfile(req, res) {
         const userInformation = req.user;
         res.render('profile', { user: userInformation })
+    }
+    async renderReferral(req, res) {
+        const userInformation = req.user;
+        res.render('referral', { user: userInformation })
     }
 
 
