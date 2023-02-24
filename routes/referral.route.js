@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function(req, res){
-    res.render('referral');
-});
+const { renderReferral } = require('../controllers/user.controller');
+const fetchUserData = require('../middlewares/fetchUserData.middleware')
+
+router.get('/', fetchUserData, renderReferral);
+
 
 
 module.exports = router;

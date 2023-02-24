@@ -5,7 +5,7 @@ const { renderDashboard } = require('../controllers/user.controller')
 const fetchUserData = require('../middlewares/fetchUserData.middleware')
 
 router.route('/')
-    .get(authenticate, fetchUserData, renderDashboard)
+    .get(fetchUserData, renderDashboard)
 
 
 module.exports = router;
