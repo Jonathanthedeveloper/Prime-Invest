@@ -6,7 +6,7 @@ class UserService {
 
     // create 
     async create(userData) {
-        return await User.create(userData);
+        return await User.create(userData)
     }
 
     // update
@@ -16,7 +16,7 @@ class UserService {
 
     // read 
     async findOne(filter){
-        return await User.findOne(filter);
+        return await User.findOne(filter).populate('referrals referredBy')
     }
 
     
