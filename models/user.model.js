@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, default: mongoose } = require('mongoose');
 const { generateUserId } = require('../utils');
 
 
@@ -68,6 +68,11 @@ const transactionSchema = new Schema({
         type: [investmentSchema],
         required: true,
         default: []
+    },
+    history: {
+        type: [],
+        required: true,
+        default: true
     }
 })
 
@@ -170,10 +175,13 @@ const userSchema = new Schema({
         type: walletSchema,
         required: true
     },
-    referral: {
-        type: [referralSchema],
-        required: true,
-        default: []
+    referrals: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    referredBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 
 }, { timestamps: true });

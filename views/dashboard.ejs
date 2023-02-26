@@ -16,8 +16,12 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../CSS/main.css" />
   <link rel="stylesheet" href="../CSS/toast.css">
+
+  <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <!-- Custom JavaScript -->
   <script defer src="../JS/dashboard.js"></script>
+
 </head>
 
 <body class="bg-darkNavy">
@@ -49,7 +53,7 @@
           <p class="text-white text-xs md:text-base">Invite Your Friends</p>
           <div class="ml-10 h-10 w-auto mt-4 border-gold border-2 rounded-md md:ml-0">
             <a onclick="copy()">
-              <p id="referral-link" class="text-white text-center mt-2.5 text-xs md:text-base md:mt-1">Referral Link</p>
+              <p id="referral-link" class="text-white text-center mt-2.5 text-xs md:text-base md:mt-1">http://127.0.0.1:3000/create?ref=<%= user.userId %></p>
             </a>
             <p class="text-xs mt-4 font-thin text-center text-gray-400 md:text-sm"> <span><ion-icon
                   name="information-circle-outline"></ion-icon></span> Tap the link to copy it to your CLIPBOARD</p>

@@ -17,7 +17,6 @@ const app = express();
 // configurations
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser('secret'));
 app.use(session({
@@ -27,6 +26,7 @@ app.use(session({
     saveUninitialized: false
 }))
 app.use(flash())
+app.use(express.static("public"));
 app.use('/', rootRoute);
 
 // so that mongoose no go disturb my ear with deprecation warning
@@ -44,7 +44,7 @@ mongoose.connect(process.env.URI)
 
 
 app.listen(PORT, function () {
-    console.log(`Server listening on port http://127.0.0.1:${PORT}`);
+    console.log(`Server listening on http://127.0.0.1:${PORT}`);
 })
 
 

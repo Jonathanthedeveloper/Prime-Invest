@@ -16,6 +16,7 @@ const investRoute = require("./invest.route");
 const withdrawRoute = require("./withdraw.route")
 const profileRoute = require("./profile.route");
 const referralRoute = require("./referral.route");
+const logoutRoute = require('./logout.route')
 
 
 
@@ -24,6 +25,7 @@ const referralRoute = require("./referral.route");
 router.use("/transactions", authenticate, transactionRoute)
 router.use("/dashboard", authenticate, dashboardRoute);
 router.use("/login", loginRoute);
+router.use("/logout", logoutRoute);
 router.use("/forgot-password", forgotPasswordRoute);
 router.use("/create", registerRoute);
 router.use("/notfound", notFoundRoute);

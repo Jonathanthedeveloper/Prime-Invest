@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../Images/Logo.png" />
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="../CSS/main.css" />
-    <!-- Custom JavaScript -->
-    <script defer src="../JS/dashboard.js"></script>
-  </head>
-  <body class="bg-darkNavy">
-    <%- include ("partials/sidebar"); -%>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Images/Logo.png" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <!-- Custom JavaScript -->
+  <script defer src="../JS/dashboard.js"></script>
+</head>
+
+<body class="bg-darkNavy box-border">
+  <%- include ("partials/sidebar"); -%>
     <section>
-      <div
-        class="flex flex-col justify-center items-center md:justify-around md:ml-20 md:flex-row"
-      >
+      <div class="flex flex-col justify-center items-center md:justify-around md:ml-20 md:flex-row">
         <div class="mt-32">
           <h4 class="text-sm text-gray-500 md:base">History</h4>
           <h1 class="text-2xl mt-2 text-gold font-bold md:text-4xl">
@@ -35,37 +33,53 @@
           </h4>
         </div>
         <div class="mt-10 md:mt-36">
-          <a
-            href="#"
-            class="cursor-pointer duration-700 mr-2 text-xs md:text-base rounded-lg bg-paleGreen px-4 py-2 text-black hover:bg-white"
-          >
+          <a href="/user/deposit"
+            class="cursor-pointer duration-700 mr-2 text-xs md:text-base rounded-lg bg-paleGreen px-4 py-2 text-black hover:bg-white">
             <button>
-              <span class="mr-1"><ion-icon name="download"></ion-icon></span
-              >Deposit
+              <span class="mr-1"><ion-icon name="download"></ion-icon></span>Deposit
             </button>
           </a>
-          <a
-            href="#"
-            class="cursor-pointer duration-700 text-xs md:text-base rounded-lg bg-gold px-4 py-2 text-black hover:bg-white"
-          >
+          <a href="/user/withdraw"
+            class="cursor-pointer duration-700 text-xs md:text-base rounded-lg bg-gold px-4 py-2 text-black hover:bg-white">
             <button class="">
-              <span class="mr-1"><ion-icon name="share"></ion-icon></span
-              >Withdraw
+              <span class="mr-1"><ion-icon name="share"></ion-icon></span>Withdraw
             </button>
           </a>
         </div>
       </div>
-      <div class="flex flex-col items-center justify-center mt-10">
+      <!-- <div class="flex flex-col items-center justify-center mt-10">
         <div
-          class="bg-white mt-4 border-1 w-3/4 h-16 ml-16 border-gray-500 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0"
-        >
+          class="bg-white mt-4 border-1 w-3/4 h-16 ml-16 border-gray-500 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0">
           <h4 class=" text-darkNavy">Transaction Made</h4>
           <h4 class="text-darkNavy">Amount</h4>
           <h4 class="text-sm text-gray-500 md:base">Status</h4>
-        </div>
-        
+
+        </div> -->
+
       </div>
+
+      <table class="w-4/5 bg-white mx-auto mt-10 p-5">
+        <thead class="p-12">
+          <tr class=" text-left">
+            <th class="w-1/2">Transaction Made</th>
+            <th class="">Amount</th>
+            <th class="">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% user.wallet.transactions.history.forEach( transaction => {%>
+          <tr>
+            <td class="w-1/2"><%= transaction.type%></td>
+            <td class="w-1/4"><%= transaction.amount%></td>
+            <td class="w-1/4"><%= transaction.status%></td>
+          </tr>
+          <%})%>
+
+        </tbody>
+      </table>
+
     </section>
     <%- include ("partials/script"); -%>
-  </body>
+</body>
+
 </html>

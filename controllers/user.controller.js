@@ -13,6 +13,9 @@ class UserController {
 
     // registering a user 
     async registerUser(req, res) {
+
+
+
         // const userData = req.body;
 
         // {
@@ -29,6 +32,9 @@ class UserController {
         //     secretQuestion: '',
         //     secretAnswer: ''
         //   }
+
+
+
         const userData = {
             name: req.body.name,
             email: req.body.email,
@@ -49,10 +55,14 @@ class UserController {
             wallet: {
                 transactions: {}
             }
-
         }
 
-        console.log(userData);
+        // checking if referral exists 
+        const referral = await userService.findOne({ userId: req.body.referredBy })
+        if (referral){            
+            userData.referredBy = referral._id;
+
+        }
 
         // checking if user already exists
         const userAlreadyExists = await userService.findOne({ email: userData.email });
@@ -72,6 +82,12 @@ class UserController {
         userData.userId = generateUserId()
 
         const user = await userService.create(userData)
+
+        // adding user to his uplines array
+        if (referral) {
+            referral.referrals.push(user._id);
+            referral.save()
+        }
 
 
 
@@ -120,6 +136,10 @@ class UserController {
 
     }
 
+    async logoutUser(req, res) {
+        res.clearCookie('token').redirect('/user/login')
+    }
+
     async renderDashboard(req, res) {
         const userInformation = req.user
         return res.render('dashboard', { user: userInformation });
@@ -134,6 +154,17 @@ class UserController {
         res.render('referral', { user: userInformation })
     }
 
+    async renderTransaction(req, res) {
+        const userInformation = req.user;
+        console.log("1", userInformation);
+
+        res.render('history', { user: userInformation })
+    }
+
+    async renderLoginPage(req, res) {
+        const referral = req.query.ref;
+        res.render('create', { referral })
+    }
 
 
 
