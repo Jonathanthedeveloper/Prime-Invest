@@ -166,6 +166,10 @@ class UserController {
         res.render('create', { referral })
     }
 
+    async handleWithdrawal(req, res) {
+        res.render('payment')
+    }
+
 
 
 
