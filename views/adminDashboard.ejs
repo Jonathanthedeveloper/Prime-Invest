@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/toast.css" />
+
+    <script
+      async
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script defer src="../JS/dashboard.js"></script>
+  </head>
+
+  <body class="bg-darkNavy">
+    <%- include("partials/adminSidebar"); -%>
+    <section class="adminWidth">
+      <div class="flex flex-col items-center justify-center">
+        <div class="mt-20 text-center">
+          <h1 class="text-2xl text-gold font-bold md:text-4xl">Overview</h1>
+          <h4 class="text-sm mt-2 text-gray-500 md:text-base">
+            Here is an insight of what is going on.
+          </h4>
+        </div>
+        <div
+          class="flex flex-col justify-center items-center md:flex-row space-x-8 mt-10 space-y-8 md:space-y-0"
+        >
+          <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 ml-8 md:ml-0">
+            <p class="text-gray-500 text-sm">Total Deposit</p>
+            <h1 class="text-blue-500 text-xl md:text-3xl mt-2">[Amount]</h1>
+            <div class="flex flex-row mt-3">
+              <ion-icon
+                class="text-3xl mr-1 text-blue-500"
+                name="arrow-down-circle-outline"
+              ></ion-icon>
+              <span class="text-darkNavy text-base font-bold mt-1"
+                >Deposit</span
+              >
+            </div>
+          </div>
+          <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4">
+            <p class="text-gray-500 text-sm">Total Withdraw</p>
+            <h1 class="text-green-700 text-xl md:text-3xl mt-2">[Amount]</h1>
+            <div class="flex flex-row mt-3">
+              <ion-icon
+                class="text-3xl mr-1 text-green-700"
+                name="arrow-up-circle-outline"
+              ></ion-icon>
+              <span class="text-darkNavy text-base font-bold mt-1"
+                >Withdraw</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center mt-16 w-full">
+          <div class="text-center">
+            <h1 class="text-gold text-xl md:text-3xl">Transactions</h1>
+            <h4 class="text-sm mt-1 text-gray-500 md:text-base">
+              A summary of all the transactions.
+            </h4>
+          </div>
+          <div
+            class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0"
+          >
+            <h4 class="text-darkNavy">Transaction Made</h4>
+            <h4 class="text-darkNavy">Amount</h4>
+            <h4 class="text-sm text-gray-500">Status</h4>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center mt-16 w-full">
+          <div class="text-center">
+            <h1 class="text-gold text-xl md:text-3xl">Users and Investment</h1>
+            <h4 class="text-sm mt-1 ml-10 text-gray-500 md:text-base md:ml-0">
+              A summary of all the Users and Investments.
+            </h4>
+          </div>
+          <div class="flex flex-col justify-center items-center space-x-8 mt-10 space-y-8 md:space-y-0 md:flex-row ">
+            <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 ml-8 md:ml-0">
+              <p class="text-gray-500 text-sm">Total Users</p>
+              <h1 class="text-red-600 text-xl md:text-3xl mt-2">[Users]</h1>
+              <div class="flex flex-row mt-3">
+                <ion-icon
+                  class="text-3xl mr-1 text-red-600"
+                  name="people-circle-outline"
+                ></ion-icon>
+                <span class="text-darkNavy text-base font-bold mt-1"
+                  >Users</span
+                >
+              </div>
+            </div>
+            <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 mt-10">
+              <p class="text-gray-500 text-sm">Total Investment</p>
+              <h1 class="text-purple-600 text-xl md:text-3xl mt-2">[Figure]</h1>
+              <div class="flex flex-row mt-3">
+                <ion-icon
+                  class="text-3xl mr-1 text-purple-600"
+                  name="add-circle-outline"
+                ></ion-icon>
+                <span class="text-darkNavy text-base font-bold mt-1"
+                  >Investments</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="flex flex-row space-x-8 justify-center items-center bg-veryDarkWhite mt-20 p-4">
+        <p class="text-gray-500 text-sm">CryptoTrust Limited</p>  
+        <p class="text-gray-500 text-sm">&copy; 2023</p>
+    </footer>
+    <%- include ("partials/script"); -%>
+  </body>
+</html>
