@@ -1,5 +1,5 @@
 const { Schema, model, default: mongoose } = require('mongoose');
-const { generateUserId } = require('../utils/utils');
+const { generateUserId } = require('../utils');
 
 
 
@@ -163,12 +163,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    role: {
-        type: String,
-        required: true,
-        enum: ["user", "admin"],
-        default: "user"
-    },
+    role
     secret: {
         type: secretSchema,
         required: true,

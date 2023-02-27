@@ -7,3 +7,9 @@ const authenticate = require('../middlewares/authenticate.middleware');
 
 // configuring routes
 // router.use("/adminDashboard", authenticate, adminDashboard);
+
+router.get('/', function(req, res){
+    res.render('adminDashboard')
+})
+
+module.exports = router

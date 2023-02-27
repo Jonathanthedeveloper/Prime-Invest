@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const userService = require('../services/user.service');
+const AdminService = require('../services/admin.service')
 const { generateUserId } = require('../utils/utils')
 const sendMail = require('../utils/mail.util')
 
@@ -76,6 +77,8 @@ class UserController {
         }
 
 
+
+
         // hashing users password
         const hash = await bcrypt.hash(userData.password, saltRounds);
 
@@ -88,12 +91,18 @@ class UserController {
         // adding user to his uplines array
         if (referral) {
             referral.referrals.push(user._id);
-            referral.save()
+           await referral.save()
         }
+
+        const admin = await AdminService.findAll({})
+        admin.users.push(user._id);
+        await admin.save()
 
 
 
         const token = jwt.sign({ _id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
+
+        
 
 
         sendMail({
@@ -187,7 +196,6 @@ class UserController {
                     address: req.body.address
                 }
             }
-    throw new Error("jhf")
             console.log(transactionData);
             req.flash('status', 'success');
             res.redirect('/user/withdraw')
