@@ -132,6 +132,8 @@ body::-webkit-scrollbar-thumb:hover {
   color: #0f2331;
   margin-top: 18px;
 }
+
+
 /* Investment Tag */
 .premiumTag::before {
   content: "optimal selection";
