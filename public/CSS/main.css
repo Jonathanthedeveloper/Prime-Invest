@@ -7,6 +7,32 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
+.spinner {
+  margin-right: 1.5em;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  
+  animation-name: spin;
+  animation-duration: .8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+  
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
 *,
 ::before,
 ::after {
@@ -384,7 +410,7 @@ Make sure disabled buttons don't get the pointer cursor.
 */
 
 :disabled {
-  cursor: default;
+  cursor: wait;
 }
 
 /*

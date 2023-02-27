@@ -22,7 +22,7 @@ async function sendMail(options) {
         service: "gmail",
         auth: {
           user: 'jonathancodes2@gmail.com', // generated ethereal user
-          pass: "Programming18$", // generated ethereal password
+          pass: "", // generated ethereal password
         },
       });
 
