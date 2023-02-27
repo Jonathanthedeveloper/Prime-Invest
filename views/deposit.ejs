@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../Images/Logo.png" />
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="../CSS/main.css" />
-    <!-- Custom JavaScript -->
-    <script defer src="../JS/dashboard.js"></script>
-  </head>
-  <body class="bg-darkNavy">
-    <%- include ("partials/sidebar"); -%>
-    <section>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Images/Logo.png" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <!-- Custom JavaScript -->
+  <script defer src="../JS/dashboard.js"></script>
+</head>
+
+<body class="bg-darkNavy">
+  <%- include ("partials/sidebar"); -%>
+    <form action="/user/deposit" method="post">
       <div class="flex flex-col justify-center items-center">
         <div class="flex flex-row justify-center space-x-4 items-center mt-32">
           <div class="w-4 h-4 rounded-full bg-veryDarkWhite"></div>
@@ -50,24 +50,16 @@
           <h4 class="text-sm text-center text-gray-500 md:base">
             Amount To Deposit
           </h4>
-          <input
-            class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
-            type="number"
-            name="amount"
-            id="amount"
-            placeholder="Minimum Of $200 "
-          />
+          <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
+            type="number" name="amount" id="amount" placeholder="Minimum Of $200 " />
         </div>
-        <a href="#"
-          ><button
-            class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold"
-          >
-            Deposit
-          </button></a
-        >
+        <button type="submit" class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold">
+          Deposit
+        </button>
       </div>
-    </section>
+    </form>
     <%- include ("partials/script"); -%>
-    <script src="../JS/deposit.js"></script>
-  </body>
+      <script src="../JS/deposit.js"></script>
+</body>
+
 </html>

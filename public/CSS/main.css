@@ -1971,7 +1971,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* User Dashboard */
-/*
+
 .navigation{
   position: fixed;
   width: 60px;
@@ -2118,8 +2118,8 @@ body::-webkit-scrollbar-thumb:hover {
 .navigation ul li.chosen a .text{
   color: var(--clr);
 }
-*/
 
+/*
 .grid__wrapper {
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -2129,7 +2129,7 @@ body::-webkit-scrollbar-thumb:hover {
   grid-column: 1/2;
   background-color: #fff;
   position: relative;
-  /* width: 3.7em; */
+   width: 3.7em; 
 }
 .navigation .menuToggle {
   height: 1.8em;
@@ -2187,8 +2187,7 @@ body::-webkit-scrollbar-thumb:hover {
   padding: .5em 1em;
   height: 40px;
 }
-
-
+*/
 /* Deposit Page */
 
 /*the container must be positioned relative:*/
