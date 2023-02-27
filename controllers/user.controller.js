@@ -6,7 +6,8 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const userService = require('../services/user.service');
-const { generateUserId } = require('../utils')
+const { generateUserId } = require('../utils/utils')
+const sendMail = require('../utils/mail.util')
 
 
 class UserController {
@@ -33,7 +34,7 @@ class UserController {
         //     secretAnswer: ''
         //   }
 
-
+        // if(!req.body.role) return console.log(req.body.role)
 
         const userData = {
             name: req.body.name,
@@ -43,6 +44,7 @@ class UserController {
                 question: req.body.secretQuestion,
                 answer: req.body.secretAnswer
             },
+            role: req.body.role || 'user',
             account: {
                 bitcoinAddress: req.body.BTCwallet,
                 bank: {
@@ -59,7 +61,7 @@ class UserController {
 
         // checking if referral exists 
         const referral = await userService.findOne({ userId: req.body.referredBy })
-        if (referral){            
+        if (referral) {
             userData.referredBy = referral._id;
 
         }
@@ -91,8 +93,14 @@ class UserController {
 
 
 
-        const token = jwt.sign({ _id: user._id, email: user.email }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
+        const token = jwt.sign({ _id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
 
+
+        sendMail({
+            to: user.email,
+            subject: 'Welcome',
+            text: "WE SEE you have registered"
+        })
 
         res
             .cookie('token', token, { expire: new Date() + 3600000 })
@@ -107,8 +115,8 @@ class UserController {
 
 
         // check if user exists
-        const userExists = await userService.findOne({ email: userCredentials.email });
-        if (!userExists) {
+        const foundUser = await userService.findOne({ email: userCredentials.email });
+        if (!foundUser) {
             // throw an error with incorrect email or password
             req.flash('alert', JSON.stringify({ "message": "Invalid Username or Password", "status": "error" }));
             res.redirect('/user/login')
@@ -117,7 +125,7 @@ class UserController {
         }
 
         // comparing passwords
-        const isCorrectPassword = await bcrypt.compare(userCredentials.password, userExists.password);
+        const isCorrectPassword = await bcrypt.compare(userCredentials.password, foundUser.password);
 
         if (!isCorrectPassword) {
             // throw an error with incorrect email or password;
@@ -127,7 +135,7 @@ class UserController {
             return;
         }
 
-        const token = jwt.sign({ _id: userExists._id, email: userExists.email }, process.env.JWT_SECRET_KEY);
+        const token = jwt.sign({ _id: foundUser._id, email: foundUser.email, role: foundUser.role }, process.env.JWT_SECRET_KEY);
         console.log('login successful')
         res
             .cookie('token', token, { expire: new Date() + 3600000 })
@@ -163,7 +171,31 @@ class UserController {
 
     async renderLoginPage(req, res) {
         const referral = req.query.ref;
-        res.render('create', { referral })
+        const { role } = req.query
+        // if(!role) return console.log('user')
+        res.render('create', { referral, role })
+    }
+
+    async handleWithdrawal(req, res) {
+        try{
+            const transactionData = {
+                type: 'withdrawal',
+                amount: req.body.amount,
+                user: req.user._id,
+                account: {
+                    wallet: req.body.wallet,
+                    address: req.body.address
+                }
+            }
+    throw new Error("jhf")
+            console.log(transactionData);
+            req.flash('status', 'success');
+            res.redirect('/user/withdraw')
+        }
+        catch (error){
+            req.flash('status', 'fail')
+            res.redirect('/user/withdraw')
+        }
     }
 
 

@@ -26,6 +26,7 @@
     "joi": "^17.8.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.2",
+    "nodemailer": "^6.9.1",
     "referral-codes": "^2.0.3",
     "sweetalert": "^2.1.2",
     "swiper": "^8.4.6"

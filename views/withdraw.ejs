@@ -1,84 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../Images/Logo.png" />
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="../CSS/main.css" />
-    <!-- Custom JavaScript -->
-    <script defer src="../JS/dashboard.js"></script>
-  </head>
-  <body class="bg-darkNavy">
-    <%- include ("partials/sidebar"); -%>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Images/Logo.png" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <!-- Custom JavaScript -->
+  <script defer src="../JS/dashboard.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script defer src="../JS/withdrawal.js"></script>
+</head>
+
+<body class="bg-darkNavy">
+  <%- include ("partials/sidebar"); -%>
     <section>
       <div class="flex flex-col justify-center items-center">
         <div class="text-center text-gold mt-32">
           <h1 class="text-2xl font-bold ml-4 md:ml-0 md:text-4xl">Make A Withdrawal</h1>
           <h4 class="text-sm mt-4 text-gray-500 md:base">
-            Account Balance <span class="text-base ml-1 text-white md:text-xl">[Balance]</span>
+            Account Balance <span class="text-base ml-1 text-white md:text-xl">
+              <%= user.wallet.balance %>
+
+            </span>
           </h4>
         </div>
         <div>
-            <h4 class="text-sm mt-10 text-gray-500 md:base">
-                Choose Type Of Withdrawal
-              </h4> 
-        </div>
-        <div class="custom-select mt-2 ml-14 md:ml-0 w-72 md:w-96">
-          <select>
-            <option value="0">Select The Wallet</option>
-            <option value="1">Bitcoin</option>
-            <option value="2">Ethereum</option>
-            <option value="3">Bitcoin Cash</option>
-            <option value="4">Tron(TRX)</option>
-            <option value="5">BNB(BEP2)</option>
-            <option value="6">BNB(BEP20)</option>
-            <option value="7">USDT ERC20</option>
-            <option value="8">USDT TRC20</option>
-          </select>
-        </div>
-        <div class="mt-4">
-          <h4 class="text-sm text-center text-gray-500 md:base">
-            Amount To Withdraw
+          <h4 class="text-sm mt-10 text-gray-500 md:base">
+            Choose Type Of Withdrawal
           </h4>
-          <input
-            class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
-            type="number"
-            name="amount"
-            id="amount"
-            placeholder="Minimum Of $200 "
-          />
-          <h4 class="text-sm mt-4 text-center text-gray-500 md:base">
-            Wallet Address
-          </h4>
-          <input
-            class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
-            type="text"
-            name="address"
-            id="address"
-            placeholder="Input Your Wallet Address"
-          />
         </div>
-        <a href="#"
-          ><button
-            class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold"
-          >
+        <p class="withdrawal-status" hidden><%=status%></p>
+        <form action="/user/withdraw" method="post">
+          <div class="custom-select mt-2 ml-14 md:ml-0 w-72 md:w-96">
+            <select name="wallet">
+              <option value="none">Select The Wallet</option>
+              <option value="Bitcoin"></option>
+              <option value="Ethereum">Ethereum</option>
+              <option value="Bitcoin Cash">Bitcoin Cash</option>
+              <option value="Tron">Tron(TRX)</option>
+              <option value="BNB (BEP2)">BNB(BEP2)</option>
+              <option value="BNB (BEP20)">BNB(BEP20)</option>
+              <option value="USDT (ERC20)">USDT ERC20</option>
+              <option value="USDT (TRC20)">USDT TRC20</option>
+            </select>
+          </div>
+          <div class="mt-4">
+            <h4 class="text-sm text-center text-gray-500 md:base">
+              Amount To Withdraw
+            </h4>
+            <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
+              type="number" name="amount" id="amount" placeholder="Minimum Of $200 " />
+            <h4 class="text-sm mt-4 text-center text-gray-500 md:base">
+              Wallet Address
+            </h4>
+            <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
+              type="text" name="address" id="address" placeholder="Input Your Wallet Address" />
+          </div>
+          <button type="submit" class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold">
             Withdraw
-          </button></a
-        >
+          </button>
+        </form>
       </div>
     </section>
     <%- include ("partials/script"); -%>
-    <script src="../JS/deposit.js"></script>
-  </body>
+      <script src="../JS/deposit.js"></script>
+</body>
+
 </html>
