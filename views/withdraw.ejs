@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="../CSS/main.css" />
   <!-- Custom JavaScript -->
   <script defer src="../JS/dashboard.js"></script>
+  <script defer src="../JS/load.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script defer src="../JS/withdrawal.js"></script>
 </head>
@@ -40,7 +41,7 @@
           </h4>
         </div>
         <p class="withdrawal-status" hidden><%=status%></p>
-        <form action="/user/withdraw" method="post">
+        <form onsubmit="displayLoader()" action="/user/withdraw" method="post">
           <div class="custom-select mt-2 ml-14 md:ml-0 w-72 md:w-96">
             <select name="wallet">
               <option value="none">Select The Wallet</option>
@@ -66,7 +67,8 @@
             <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
               type="text" name="address" id="address" placeholder="Input Your Wallet Address" />
           </div>
-          <button type="submit" class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold">
+          <button  type="submit" class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold flex items-center disabled:opacity-50 disabled:cursor-not-allowed load">
+            <!-- <span class="spinner"></span> -->
             Withdraw
           </button>
         </form>
