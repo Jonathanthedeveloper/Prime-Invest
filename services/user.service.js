@@ -1,4 +1,4 @@
-const User = require('../models/user.model');
+const { User } = require('../models/user.model');
 
 class UserService {
 
@@ -15,11 +15,15 @@ class UserService {
     }
 
     // read 
-    async findOne(filter){
-        return await User.findOne(filter).populate('referrals referredBy')
+    async findOne(filter) {
+        return await User.findOne(filter).populate('referrals referredBy withdrawals deposits investments earnings')
     }
 
-    
+    async findAll(filter) {
+        return await User.find(filter).populate('referrals referredBy withdrawals deposits investments earnings')
+    }
+
+
 
 }
 

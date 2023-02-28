@@ -9,6 +9,7 @@ const userService = require('../services/user.service');
 const AdminService = require('../services/admin.service')
 const { generateUserId } = require('../utils/utils')
 const sendMail = require('../utils/mail.util')
+const transactionService = require('../services/transaction.service');
 
 
 class UserController {
@@ -55,9 +56,10 @@ class UserController {
                     sortCode: req.body.sortCode
                 }
             },
-            wallet: {
-                transactions: {}
-            }
+            withdrawals: [],
+            deposits: [],
+            investments: [],
+            earnings: []
         }
 
         // checking if referral exists 
@@ -91,18 +93,18 @@ class UserController {
         // adding user to his uplines array
         if (referral) {
             referral.referrals.push(user._id);
-           await referral.save()
+            await referral.save()
         }
 
-        const admin = await AdminService.findAll({})
-        admin.users.push(user._id);
-        await admin.save()
+        // const admin = await AdminService.findAll({})
+        // admin.users.push(user._id);
+        // await admin.save()
 
 
 
         const token = jwt.sign({ _id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
 
-        
+
 
 
         sendMail({
@@ -186,21 +188,28 @@ class UserController {
     }
 
     async handleWithdrawal(req, res) {
-        try{
+        try {
             const transactionData = {
+                user: req.user._id,
                 type: 'withdrawal',
                 amount: req.body.amount,
-                user: req.user._id,
                 account: {
-                    wallet: req.body.wallet,
+                    walletType: req.body.wallet,
                     address: req.body.address
                 }
             }
-            console.log(transactionData);
+
+            const withdrawal = await transactionService.create(transactionData);
+            const user = await userService.findOne({ _id: req.user._id })
+            user.withdrawals.push(withdrawal._id)
+            user.save()
+
+            console.log(user)
+
             req.flash('status', 'success');
             res.redirect('/user/withdraw')
         }
-        catch (error){
+        catch (error) {
             req.flash('status', 'fail')
             res.redirect('/user/withdraw')
         }

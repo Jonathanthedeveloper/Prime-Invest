@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authenticate = require('../middlewares/authenticate.middleware');
+const {renderAdminDashboard} = require('../controllers/admin.controller')
 
 //Importing Routes
 // const adminDashboard = require("./adminDashboard.route");
@@ -8,8 +9,6 @@ const authenticate = require('../middlewares/authenticate.middleware');
 // configuring routes
 // router.use("/adminDashboard", authenticate, adminDashboard);
 
-router.get('/', function(req, res){
-    res.render('adminDashboard')
-})
+router.get('/', renderAdminDashboard)
 
 module.exports = router
