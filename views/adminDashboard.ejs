@@ -37,13 +37,7 @@
           <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 ml-8 md:ml-0">
             <p class="text-gray-500 text-sm">Total Deposit</p>
             <h1 class="text-blue-500 text-xl md:text-3xl mt-2">
-              <% if(deposits){ %>
-                <% deposits.reduce((total , current)=> {%>
-                  <% return total + current%>
-                    <% }, 0)%>
-                      <% } else { %>
-                        0 
-                        <% }%>
+              <%= deposits.reduce((total, current)=> total + current.amount, 0) %>
             </h1>
             <div class="flex flex-row mt-3">
               <ion-icon class="text-3xl mr-1 text-blue-500" name="arrow-down-circle-outline"></ion-icon>
@@ -52,7 +46,9 @@
           </div>
           <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4">
             <p class="text-gray-500 text-sm">Total Withdraw</p>
-            <h1 class="text-green-700 text-xl md:text-3xl mt-2">[Amount]</h1>
+            <h1 class="text-green-700 text-xl md:text-3xl mt-2">
+              <%= withdrawals.reduce((total, current)=> total + current.amount, 0) %>
+            </h1>
             <div class="flex flex-row mt-3">
               <ion-icon class="text-3xl mr-1 text-green-700" name="arrow-up-circle-outline"></ion-icon>
               <span class="text-darkNavy text-base font-bold mt-1">Withdraw</span>
@@ -93,7 +89,9 @@
             </div>
             <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 mt-10">
               <p class="text-gray-500 text-sm">Total Investment</p>
-              <h1 class="text-purple-600 text-xl md:text-3xl mt-2">[Figure]</h1>
+              <h1 class="text-purple-600 text-xl md:text-3xl mt-2">
+                <%= investments.reduce((total, current)=> total + current.amount, 0) %>
+              </h1>
               <div class="flex flex-row mt-3">
                 <ion-icon class="text-3xl mr-1 text-purple-600" name="add-circle-outline"></ion-icon>
                 <span class="text-darkNavy text-base font-bold mt-1">Investments</span>

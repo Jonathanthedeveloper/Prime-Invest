@@ -10,11 +10,25 @@ class AdminController {
     async renderAdminDashboard(req, res) {
         // fetching user data
         const transactions = await transactionService.findAll({});
+        const users = await userService.findAll({});
 
-        console.log(transactions);
+        // console.log(transactions);
+
+        const deposits = transactions.filter(transaction => {
+            return transaction.type === "deposit" && transaction.status === "success"
+        })
+        const withdrawals = transactions.filter(transaction => transaction.type === "withdrawal" && transaction.status === "success")
+        const investments = transactions.filter(transaction => transaction.type === "investment" && transaction.status === "success")
+        const earnings = transactions.filter(transaction => transaction.type === "earning" && transaction.status === "success")
+        console.log(withdrawals);
+
+        const pendings = transactions.filter(transaction => transaction.status === "pending")
+        const successfuls = transactions.filter(transaction => transaction.status === "success")
 
 
-        res.render('adminDashboard', { transactions })
+
+
+        res.render('adminDashboard', { users, deposits, withdrawals, investments, earnings, pendings })
     }
 
 }

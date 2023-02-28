@@ -161,7 +161,18 @@ class UserController {
 
     async renderDashboard(req, res) {
         const userInformation = req.user
-        return res.render('dashboard', { user: userInformation });
+        console.log(userInformation);
+
+
+        const deposits = userInformation.deposits.filter(deposit => deposit.type === "success")
+
+        const withdrawals = userInformation.withdrawals.filter(withdrawal => withdrawal.type === "success")
+
+        const investments = userInformation.investments.filter(investment => investment.type === "success")
+
+        const earnings = userInformation.earnings.filter(earning => earning.type === "success")
+
+        return res.render('dashboard', { user: userInformation, deposits, withdrawals, investments, earnings });
     }
 
     async renderProfile(req, res) {
@@ -175,9 +186,16 @@ class UserController {
 
     async renderTransaction(req, res) {
         const userInformation = req.user;
-        console.log("1", userInformation);
 
-        res.render('history', { user: userInformation })
+        // console.log(userInformation);
+
+
+        const transactions = [...userInformation.withdrawals, ...userInformation.deposits, ...userInformation.earnings, ...userInformation.investments]
+
+        transactions.sort((a, b) => a.createdAt - b.createdAt)
+
+
+        res.render('history', { transactions })
     }
 
     async renderLoginPage(req, res) {
