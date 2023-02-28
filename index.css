@@ -432,7 +432,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 /* User Dashboard */
 
-/*
+
 .navigation{
   position: fixed;
   width: 60px;
@@ -562,7 +562,7 @@ body::-webkit-scrollbar-thumb:hover {
 .navigation ul li.chosen a .text{
   color: var(--clr);
 }
-*/
+
 /* Deposit Page */
 /*the container must be positioned relative:*/
 .custom-select {
