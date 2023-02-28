@@ -43,48 +43,30 @@ const earningSchema = new Schema({
 const investmentSchema = new Schema({
     amount: {
         type: Number,
-        rquired: true
+        required: true
     }
 }, { timestamps: true })
 
 
-const transactionSchema = new Schema({
-    deposits: {
-        type: [depositSchema],
-        required: true,
-        default: []
-    },
-    withdrawals: {
-        type: [withdrawalSchema],
-        required: true,
-        default: []
-    },
-    earnings: {
-        type: [earningSchema],
-        required: true,
-        default: []
-    },
-    investments: {
-        type: [investmentSchema],
-        required: true,
-        default: []
-    },
-    history: {
-        type: [],
-        required: true,
-        default: true
-    }
-})
+// const transactionSchema = new Schema({
+//     type: {
+//         type: String,
+//     },
+//     amount: {
+//         type: Number,
+//     },
+//     status: {
+//         type: String,
+//         enum: ["pending", "successful", "failed"],
+//         default: "pending"
+//     }
+// }, {timestamps : true})
 
 const walletSchema = new Schema({ //done
     balance: {
         type: Number,
         required: true,
         default: 0.00
-    },
-    transactions: {
-        type: transactionSchema,
-        required: true
     }
 })
 
@@ -177,9 +159,10 @@ const userSchema = new Schema({
         type: accountSchema,
         required: true
     },
-    wallet: {
-        type: walletSchema,
-        required: true
+    balance: {
+        type: Number,
+        required: true,
+        default: 0
     },
     referrals: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -188,7 +171,23 @@ const userSchema = new Schema({
     referredBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    withdrawals: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Transaction'
+    }],
+    deposits: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Transaction'
+    }],
+    investments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Transaction'
+    }],
+    earnings: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Transaction'
+    }]
 
 }, { timestamps: true });
 
@@ -198,10 +197,10 @@ const Deposit = model("Deposit", depositSchema)
 const Earning = model("Earning", earningSchema)
 const Investment = model("Investment", investmentSchema)
 const Wallet = model("Wallet", walletSchema)
-const Transaction = model("Transaction", transactionSchema)
+// const Transaction = model("Transaction", transactionSchema)
 const Secret = model('Secret', secretSchema);
 const Bank = model('Bank', bankSchema);
 const Account = model('Account', accountSchema);
 const User = model('User', userSchema);
-module.exports = User;
+module.exports = { User, Withdrawal, Deposit, Investment };
 

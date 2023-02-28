@@ -67,13 +67,21 @@
           </tr>
         </thead>
         <tbody>
-          <% user.wallet.transactions.history.forEach( transaction => {%>
-          <tr>
-            <td class="w-1/2"><%= transaction.type%></td>
-            <td class="w-1/4"><%= transaction.amount%></td>
-            <td class="w-1/4"><%= transaction.status%></td>
-          </tr>
-          <%})%>
+          <% transactions.forEach(transaction=> {%>
+            <tr>
+              <td class="w-1/2">
+                <%= transaction.type %>
+              </td>
+              <td class="w-1/4">
+                <%= transaction.amount %>
+              </td>
+              <td class="w-1/4">
+                <%= transaction.status %>
+              </td>
+            </tr>
+            <% }) %>
+
+
 
         </tbody>
       </table>

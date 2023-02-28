@@ -5,7 +5,7 @@ const userRoute = require('./user.route')
 // const adminRoute = require('./admin.route')
 
 //Importing routes
-const aDashboard = require('./adminDashboard.route')
+// const aDashboard = require('./adminDashboard.route')
 const aboutRoute = require("./about.route");
 const contactRoute = require("./contact.route");
 const faqRoute = require("./faq.route");
@@ -28,7 +28,7 @@ const help = require("./help.route");
 
 // configuring routes
 
-router.use("/adminDashboard", aDashboard);
+// router.use("/adminDashboard", aDashboard);
 // router.use("/admin", adminRoute);
 router.use("/user", userRoute)
 router.use("/", indexRoute);

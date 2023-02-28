@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../Images/Logo.png" />
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="../CSS/main.css" />
-    <link rel="stylesheet" href="../CSS/toast.css" />
 
-    <script
-      async
-      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Images/Logo.png" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <link rel="stylesheet" href="../CSS/toast.css" />
 
-    <!-- Custom JavaScript -->
-    <script defer src="../JS/dashboard.js"></script>
-  </head>
+  <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  <body class="bg-darkNavy">
-    <%- include("partials/adminSidebar"); -%>
+<body class="bg-darkNavy">
+  <%- include("partials/adminSidebar"); -%>
     <section>
       <div class="flex flex-col items-center justify-center">
         <div class="mt-20 text-center">
@@ -37,33 +29,25 @@
             Here is an insight of what is going on.
           </h4>
         </div>
-        <div
-          class="flex flex-col justify-center items-center md:flex-row space-x-8 mt-10 space-y-8 md:space-y-0"
-        >
+        <div class="flex flex-col justify-center items-center md:flex-row space-x-8 mt-10 space-y-8 md:space-y-0">
           <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 ml-8 md:ml-0">
             <p class="text-gray-500 text-sm">Total Deposit</p>
-            <h1 class="text-blue-500 text-xl md:text-3xl mt-2">[Amount]</h1>
+            <h1 class="text-blue-500 text-xl md:text-3xl mt-2">
+              <%= deposits.reduce((total, current)=> total + current.amount, 0) %>
+            </h1>
             <div class="flex flex-row mt-3">
-              <ion-icon
-                class="text-3xl mr-1 text-blue-500"
-                name="arrow-down-circle-outline"
-              ></ion-icon>
-              <span class="text-darkNavy text-base font-bold mt-1"
-                >Deposit</span
-              >
+              <ion-icon class="text-3xl mr-1 text-blue-500" name="arrow-down-circle-outline"></ion-icon>
+              <span class="text-darkNavy text-base font-bold mt-1">Deposit</span>
             </div>
           </div>
           <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4">
             <p class="text-gray-500 text-sm">Total Withdraw</p>
-            <h1 class="text-green-700 text-xl md:text-3xl mt-2">[Amount]</h1>
+            <h1 class="text-green-700 text-xl md:text-3xl mt-2">
+              <%= withdrawals.reduce((total, current)=> total + current.amount, 0) %>
+            </h1>
             <div class="flex flex-row mt-3">
-              <ion-icon
-                class="text-3xl mr-1 text-green-700"
-                name="arrow-up-circle-outline"
-              ></ion-icon>
-              <span class="text-darkNavy text-base font-bold mt-1"
-                >Withdraw</span
-              >
+              <ion-icon class="text-3xl mr-1 text-green-700" name="arrow-up-circle-outline"></ion-icon>
+              <span class="text-darkNavy text-base font-bold mt-1">Withdraw</span>
             </div>
           </div>
         </div>
@@ -75,21 +59,12 @@
             </h4>
           </div>
           <div
-            class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0"
-          >
+            class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0">
             <h4 class="text-darkNavy">Transaction</h4>
             <h4 class="text-darkNavy">Amount</h4>
             <div class="flex flex-row items-center justify-center">
-              <a
-                href=""
-                class="text-green-600 text-sm mr-2 hover:text-black duration-500"
-                >Confirm</a
-              >
-              <a
-                href=""
-                class="text-red-600 text-sm mr-6 hover:text-black duration-500 md:mr-0"
-                >Reject</a
-              >
+              <a href="" class="text-green-600 text-sm mr-2 hover:text-black duration-500">Confirm</a>
+              <a href="" class="text-red-600 text-sm mr-6 hover:text-black duration-500 md:mr-0">Reject</a>
             </div>
           </div>
         </div>
@@ -101,17 +76,12 @@
             A summary of all the Users and Investments.
           </h4>
         </div>
-        <div
-          class="flex flex-col justify-center items-center space-x-8 mt-10 space-y-8 md:space-y-0 md:flex-row"
-        >
+        <div class="flex flex-col justify-center items-center space-x-8 mt-10 space-y-8 md:space-y-0 md:flex-row">
           <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 ml-8 md:ml-0">
             <p class="text-gray-500 text-sm">Total Users</p>
             <h1 class="text-red-600 text-xl md:text-3xl mt-2">[Users]</h1>
             <div class="flex flex-row mt-3">
-              <ion-icon
-                class="text-3xl mr-1 text-red-600"
-                name="people-circle-outline"
-              ></ion-icon>
+              <ion-icon class="text-3xl mr-1 text-red-600" name="people-circle-outline"></ion-icon>
               <span class="text-darkNavy text-base font-bold mt-1">Users</span>
             </div>
           </div>
@@ -119,24 +89,18 @@
             <p class="text-gray-500 text-sm">Total Investment</p>
             <h1 class="text-purple-600 text-xl md:text-3xl mt-2">[Figure]</h1>
             <div class="flex flex-row mt-3">
-              <ion-icon
-                class="text-3xl mr-1 text-purple-600"
-                name="add-circle-outline"
-              ></ion-icon>
-              <span class="text-darkNavy text-base font-bold mt-1"
-                >Investments</span
-              >
+              <ion-icon class="text-3xl mr-1 text-purple-600" name="add-circle-outline"></ion-icon>
+              <span class="text-darkNavy text-base font-bold mt-1">Investments</span>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <footer
-      class="flex flex-row space-x-8 justify-center items-center bg-gray-500 mt-20 p-4"
-    >
-      <p class= "text-sm">CryptoTrust Limited</p>
-      <p class= "text-sm">&copy; 2023</p>
+    <footer class="flex flex-row space-x-8 justify-center items-center bg-gray-500 mt-20 p-4">
+      <p class="text-sm">CryptoTrust Limited</p>
+      <p class="text-sm">&copy; 2023</p>
     </footer>
     <%- include ("partials/script"); -%>
-  </body>
+</body>
+
 </html>

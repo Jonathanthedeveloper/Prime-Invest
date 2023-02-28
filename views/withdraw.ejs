@@ -30,7 +30,7 @@
           <h1 class="text-2xl font-bold ml-4 md:ml-0 md:text-4xl">Make A Withdrawal</h1>
           <h4 class="text-sm mt-4 text-gray-500 md:base">
             Account Balance <span class="text-base ml-1 text-white md:text-xl">
-              <%= user.wallet.balance %>
+              <%= user.balance %>
 
             </span>
           </h4>
@@ -40,7 +40,9 @@
             Choose Type Of Withdrawal
           </h4>
         </div>
-        <p class="withdrawal-status" hidden><%=status%></p>
+        <p class="withdrawal-status" hidden>
+          <%=status%>
+        </p>
         <form onsubmit="displayLoader()" action="/user/withdraw" method="post">
           <div class="custom-select mt-2 ml-14 md:ml-0 w-72 md:w-96">
             <select name="wallet">
@@ -67,7 +69,8 @@
             <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
               type="text" name="address" id="address" placeholder="Input Your Wallet Address" />
           </div>
-          <button  type="submit" class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold flex items-center disabled:opacity-50 disabled:cursor-not-allowed load">
+          <button type="submit"
+            class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold flex items-center disabled:opacity-50 disabled:cursor-not-allowed load">
             <!-- <span class="spinner"></span> -->
             Withdraw
           </button>

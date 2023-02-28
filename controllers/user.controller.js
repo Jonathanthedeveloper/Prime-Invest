@@ -6,8 +6,10 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const userService = require('../services/user.service');
+const AdminService = require('../services/admin.service')
 const { generateUserId } = require('../utils/utils')
 const sendMail = require('../utils/mail.util')
+const transactionService = require('../services/transaction.service');
 
 
 class UserController {
@@ -54,9 +56,10 @@ class UserController {
                     sortCode: req.body.sortCode
                 }
             },
-            wallet: {
-                transactions: {}
-            }
+            withdrawals: [],
+            deposits: [],
+            investments: [],
+            earnings: []
         }
 
         // checking if referral exists 
@@ -76,6 +79,8 @@ class UserController {
         }
 
 
+
+
         // hashing users password
         const hash = await bcrypt.hash(userData.password, saltRounds);
 
@@ -88,12 +93,18 @@ class UserController {
         // adding user to his uplines array
         if (referral) {
             referral.referrals.push(user._id);
-            referral.save()
+            await referral.save()
         }
+
+        // const admin = await AdminService.findAll({})
+        // admin.users.push(user._id);
+        // await admin.save()
 
 
 
         const token = jwt.sign({ _id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
+
+
 
 
         sendMail({
@@ -150,7 +161,18 @@ class UserController {
 
     async renderDashboard(req, res) {
         const userInformation = req.user
-        return res.render('dashboard', { user: userInformation });
+        console.log(userInformation);
+
+
+        const deposits = userInformation.deposits.filter(deposit => deposit.type === "success")
+
+        const withdrawals = userInformation.withdrawals.filter(withdrawal => withdrawal.type === "success")
+
+        const investments = userInformation.investments.filter(investment => investment.type === "success")
+
+        const earnings = userInformation.earnings.filter(earning => earning.type === "success")
+
+        return res.render('dashboard', { user: userInformation, deposits, withdrawals, investments, earnings });
     }
 
     async renderProfile(req, res) {
@@ -164,9 +186,16 @@ class UserController {
 
     async renderTransaction(req, res) {
         const userInformation = req.user;
-        console.log("1", userInformation);
 
-        res.render('history', { user: userInformation })
+        // console.log(userInformation);
+
+
+        const transactions = [...userInformation.withdrawals, ...userInformation.deposits, ...userInformation.earnings, ...userInformation.investments]
+
+        transactions.sort((a, b) => a.createdAt - b.createdAt)
+
+
+        res.render('history', { transactions })
     }
 
     async renderLoginPage(req, res) {
@@ -177,22 +206,28 @@ class UserController {
     }
 
     async handleWithdrawal(req, res) {
-        try{
+        try {
             const transactionData = {
+                user: req.user._id,
                 type: 'withdrawal',
                 amount: req.body.amount,
-                user: req.user._id,
                 account: {
-                    wallet: req.body.wallet,
+                    walletType: req.body.wallet,
                     address: req.body.address
                 }
             }
-    throw new Error("jhf")
-            console.log(transactionData);
+
+            const withdrawal = await transactionService.create(transactionData);
+            const user = await userService.findOne({ _id: req.user._id })
+            user.withdrawals.push(withdrawal._id)
+            user.save()
+
+            console.log(user)
+
             req.flash('status', 'success');
             res.redirect('/user/withdraw')
         }
-        catch (error){
+        catch (error) {
             req.flash('status', 'fail')
             res.redirect('/user/withdraw')
         }
