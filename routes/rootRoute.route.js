@@ -13,6 +13,8 @@ const servicesRoute = require("./service.route");
 const indexRoute = require("./index.route");
 const policyRoute = require("./policy.route");
 const help = require("./help.route");
+const adminDeposit = require("./adminDeposit.route");
+const adminWithdraw = require("./adminWithdraw.route");
 // const loginRoute = require("./login.route");
 // const forgotPasswordRoute = require("./forgot-password.route");
 // const registerRoute = require("./register.route");
@@ -39,6 +41,8 @@ router.use("/faq", faqRoute);
 router.use("/services", servicesRoute);
 router.use("/policy", policyRoute);
 router.use("/help", help);
+router.use("/adminDeposit", adminDeposit);
+router.use("/adminWithdraw", adminWithdraw);
 
 // router.use("/notfound", notFoundRoute);
 // router.use("/create", registerRoute);

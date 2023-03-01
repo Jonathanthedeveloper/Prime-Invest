@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/toast.css" />
+
+    <script
+      async
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+    ></script>
+     <!-- Custom JavaScript -->
+  <script defer src="../JS/dashboard.js"></script>
+
+  </head>
+
+  <body class="bg-darkNavy">
+    <%- include("partials/adminSidebar"); -%>
+    <section>
+      <div class="flex flex-col items-center justify-center">
+        <div class="mt-20 text-center">
+          <h1 class="text-2xl text-gold font-bold md:text-4xl">Withdrawal</h1>
+          <h4 class="text-sm mt-2 text-gray-500 ml-14 md:text-base">
+            Total Of [transaction number] Transactions.
+          </h4>
+          <h3 class="mt-10 text-white font-bold text-base md:text-2xl">
+            All Orders
+          </h3>
+        </div>
+        <div
+          class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center space-x-1 px-1 justify-between md:px-4 md:ml-0"
+        >
+          <div class="flex flex-row">
+            <ion-icon
+              class="text-3xl mr-1 text-blue-500"
+              name="arrow-down-circle-outline"
+            ></ion-icon>
+            <h4 class="text-darkNavy text-sm mt-1.5 md:text-base">Username</h4>
+          </div>
+          <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Amount</h4>
+          <h4 class="text-gray-500 mt-1.5 text-xs md:text-sm">Pending</h4>
+          <div class="flex flex-row items-center justify-center mt-1.5">
+            <a
+              href=""
+              class="text-green-600 mr-2 hover:text-black duration-500 text-xs md:text-sm"
+              >Confirm</a
+            >
+            <a
+              href=""
+              class="text-red-600 mr-6 hover:text-black duration-500 md:mr-0 text-xs md:text-sm"
+              >Reject</a
+            >
+          </div>
+        </div>
+        <!-- For Completed Deposits, The Button should be removed. If there is a better way, it is fine. -->
+        <!-- For Completed -->
+        <div
+          class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0"
+        >
+          <div class="flex flex-row">
+            <ion-icon
+              class="text-3xl mr-1 text-blue-500"
+              name="arrow-down-circle-outline"
+            ></ion-icon>
+            <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Username</h4>
+          </div>
+          <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Amount</h4>
+          <h4 class="text-green-600 mt-1.5 text-xs md:text-sm">Completed</h4>
+        </div>
+        <!-- For Rejected -->
+        <div
+          class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0"
+        >
+          <div class="flex flex-row">
+            <ion-icon
+              class="text-3xl mr-1 text-blue-500"
+              name="arrow-down-circle-outline"
+            ></ion-icon>
+            <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Username</h4>
+          </div>
+          <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Amount</h4>
+          <h4 class="text-red-600 mt-1.5 text-xs md:text-sm">Rejected</h4>
+        </div>
+      </div>
+    </section>
+    <%- include ("partials/script"); -%>
+  </body>
+</html>

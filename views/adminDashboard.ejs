@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="../CSS/toast.css" />
 
   <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
 
 <body class="bg-darkNavy">
   <%- include("partials/adminSidebar"); -%>
@@ -96,10 +97,7 @@
         </div>
       </div>
     </section>
-    <footer class="flex flex-row space-x-8 justify-center items-center bg-gray-500 mt-20 p-4">
-      <p class="text-sm">CryptoTrust Limited</p>
-      <p class="text-sm">&copy; 2023</p>
-    </footer>
+    <%- include ("partials/dashboardFooter"); -%>
     <%- include ("partials/script"); -%>
 </body>
 
