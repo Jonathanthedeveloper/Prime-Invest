@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const { renderAdminWithdrawal, handleApproval } = require('../controllers/admin.controller');
 
-router.get('/', function(req, res){
-    res.render('adminWithdraw');
-});
+router.get('/', renderAdminWithdrawal)
+    .patch('/', handleApproval)
 
 
 module.exports = router;

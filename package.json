@@ -25,6 +25,7 @@
     "express-session": "^1.17.3",
     "joi": "^17.8.1",
     "jsonwebtoken": "^9.0.0",
+    "method-override": "^3.0.0",
     "mongoose": "^6.9.2",
     "nodemailer": "^6.9.1",
     "referral-codes": "^2.0.3",

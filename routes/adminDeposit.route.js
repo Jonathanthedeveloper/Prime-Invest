@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function(req, res){
-    res.render('adminDeposit');
-});
+
+const { renderAdminDeposit, handleApproval } = require('../controllers/admin.controller')
+
+
+
+router.get('/', renderAdminDeposit);
+router.patch('/', handleApproval)
 
 
 module.exports = router;
