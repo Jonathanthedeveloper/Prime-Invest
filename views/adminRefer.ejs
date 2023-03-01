@@ -22,6 +22,37 @@
       async
       src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
     ></script>
+     <!-- Custom JavaScript -->
+  <script defer src="../JS/dashboard.js"></script>
+
+  </head>
+
+  <body class="bg-darkNavy">
+    <%- include("partials/adminSidebar"); -%>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/toast.css" />
+
+    <script
+      async
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+    ></script>
     <!-- Custom JavaScript -->
     <script defer src="../JS/dashboard.js"></script>
   </head>
@@ -31,28 +62,28 @@
     <section>
       <div class="flex flex-col items-center justify-center">
         <div class="mt-20 text-center">
-          <h1 class="text-2xl text-gold font-bold md:text-4xl">Users</h1>
+          <h1 class="text-2xl text-gold font-bold md:text-4xl">Referrals</h1>
           <h4 class="text-sm mt-2 text-gray-500 ml-14 md:text-base">
-            Total Of [Users number] Accounts.
+            A Summary On Your Referrals And Their Details.
           </h4>
         </div>
         <div
           class="bg-veryDarkWhite ml-16 w-4/5 mt-16 h-16 flex flex-row items-center space-x-1 px-1 justify-between md:px-4 md:ml-0"
         >
-          <div class="flex flex-col">
-           <a href=""><h6 class="text-darkNavy text-sm mt-1.5">[Username]</h6></a>
-            <h6 class="text-darkNavy text-sm mt-1.5 mb-1">[Email Address]</h6>
-          </div>
+           <h6 class="text-darkNavy text-sm mt-1.5">[Username]</h6>
           <h4 class="text-darkNavy mt-1.5 text-sm">[Account Balance]</h4>
-          <h4 class="text-gray-500 mt-1.5 text-xs md:text-sm">[Reg Date]</h4>
-          <a
-            href=""
-            class="text-red-600 mr-6 hover:text-black duration-500 md:mr-0 text-xs md:text-sm"
-            >Delete Account</a
+          <h4 class="text-gray-500 mt-1.5 text-sm">[Reg Date]</h4>
+          <h4
+            class="text-green-700 mr-6 hover:text-black duration-500 md:mr-0 text-sm"
+            >[Username Of The Referrer]</h4
           >
         </div>
       </div>
     </section>
+    <%- include ("partials/script"); -%>
+  </body>
+</html>
+
     <%- include ("partials/script"); -%>
   </body>
 </html>

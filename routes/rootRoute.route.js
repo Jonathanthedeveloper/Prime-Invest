@@ -15,6 +15,10 @@ const policyRoute = require("./policy.route");
 const help = require("./help.route");
 const adminDeposit = require("./adminDeposit.route");
 const adminWithdraw = require("./adminWithdraw.route");
+const adminUsers = require("./adminUsers.route");
+const adminRefer = require("./adminRefer.route");
+const adminPersonalProfile = require("./adminPersonalProfile.route");
+
 // const loginRoute = require("./login.route");
 // const forgotPasswordRoute = require("./forgot-password.route");
 // const registerRoute = require("./register.route");
@@ -43,7 +47,9 @@ router.use("/policy", policyRoute);
 router.use("/help", help);
 router.use("/adminDeposit", adminDeposit);
 router.use("/adminWithdraw", adminWithdraw);
-
+router.use("/adminUsers", adminUsers);
+router.use("/adminRefer", adminRefer);
+router.use("/adminPersonalProfile", adminPersonalProfile);
 // router.use("/notfound", notFoundRoute);
 // router.use("/create", registerRoute);
 // router.use("/forgot-password", forgotPasswordRoute);

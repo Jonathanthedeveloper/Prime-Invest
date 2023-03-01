@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logo.png" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/toast.css" />
+
+    <script
+      async
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+    ></script>
+    <!-- Custom JavaScript -->
+    <script defer src="../JS/dashboard.js"></script>
+  </head>
+
+  <body class="bg-darkNavy">
+    <%- include("partials/adminSidebar"); -%>
+    <section>
+        <div class="flex flex-col items-center justify-center">
+            <div class="mt-20 ml-20 md:ml-0">
+                <h4 class="text-2xl text-gray-500 mt-10 text-center font-bold">User's Information</h4>
+                <h4 class="text-sm mt-10 text-white md:text-base">Users Full Name <span class="text-gold">[Full Name]</span>
+                </h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users Email Address <span
+                    class="text-gold">[Email Address]</span></h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users Username <span class="text-gold">[Username]</span>
+                </h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users Bitcoin Wallet Address <span class="text-gold">[Bitcoin Wallet Address]</span></h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users Ethereum Wallet Address <span
+                    class="text-gold">[Ethereum Wallet Address]</span></h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users Bitcoin Cash Wallet Address <span
+                    class="text-gold">[Bitcoin Cash Wallet Address]</span></h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users Tron (TRX) Wallet Address <span
+                    class="text-gold">[Tron Wallet Address]</span></h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users BNB Wallet Address <span class="text-gold">[BNB
+                    (BEP2) Wallet Address]</span></h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users BNB Wallet Address <span class="text-gold">[BNB
+                    (BEP20) Address]</span></h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users USDT Wallet Address <span class="text-gold">[USDT
+                    (ERC20) Wallet Address]</span></h4>
+                <h4 class="text-sm mt-4 text-white md:text-base">Users USDT Wallet Address <span class="text-gold">[USDT
+                    (TRC20) Wallet Address]</span></h4>
+            </div>
+        </div>
+    </section>
+    <%- include ("partials/script"); -%>
+</body>
+</html>
