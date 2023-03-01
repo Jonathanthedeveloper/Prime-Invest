@@ -31,6 +31,36 @@ class AdminController {
         res.render('adminDashboard', { users, deposits, withdrawals, investments, earnings, pendings })
     }
 
+    async renderAdminDeposit(req, res) {
+        const transactions = await transactionService.findAll({});
+        const deposits = transactions.filter(transaction => {
+            return transaction.type === "deposit"
+        })
+
+        res.render('adminDeposit', { deposits })
+    }
+
+    async renderAdminWithdrawal(req, res) {
+        const transactions = await transactionService.findAll({});
+        const withdrawals = transactions.filter(transaction => {
+            return transaction.type === "withdrawal"
+        })
+
+        res.render('adminWithdraw', { withdrawals })
+    }
+
+    async handleApproval(req, res) {
+        const { id, approve } = req.body;
+        const status = approve === "confirm" ? "successful" : "failed";
+        const transaction = await transactionService.update({ _id: id }, { status });
+
+        if (transaction.type === 'deposit') {
+            res.redirect('/user/admin/deposit')
+        } else if (transaction.type === 'withdrawal') {
+            res.redirect('/user/admin/withdraw')
+        }
+    }
+
 }
 
 

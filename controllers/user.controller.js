@@ -148,6 +148,8 @@ class UserController {
 
         const token = jwt.sign({ _id: foundUser._id, email: foundUser.email, role: foundUser.role }, process.env.JWT_SECRET_KEY);
         console.log('login successful')
+
+
         res
             .cookie('token', token, { expire: new Date() + 3600000 })
             .header('Authorization', token)
@@ -162,6 +164,9 @@ class UserController {
     async renderDashboard(req, res) {
         const userInformation = req.user
         console.log(userInformation);
+        if (userInformation.role === 'admin') {
+            return res.redirect('/user/admin')
+        }
 
 
         const deposits = userInformation.deposits.filter(deposit => deposit.type === "success")
