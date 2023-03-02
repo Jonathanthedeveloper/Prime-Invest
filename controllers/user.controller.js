@@ -107,11 +107,11 @@ class UserController {
 
 
 
-        sendMail({
-            to: user.email,
-            subject: 'Welcome',
-            text: "WE SEE you have registered"
-        })
+        // sendMail({
+        //     to: user.email,
+        //     subject: 'Welcome',
+        //     text: "WE SEE you have registered"
+        // })
 
         res
             .cookie('token', token, { expire: new Date() + 3600000 })
