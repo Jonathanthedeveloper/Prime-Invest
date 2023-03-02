@@ -17,6 +17,21 @@
   <link rel="stylesheet" href="../CSS/main.css" />
   <!-- Custom JavaScript -->
   <script defer src="../JS/dashboard.js"></script>
+
+
+  <style>
+    .successful {
+      color: green
+    }
+
+    .failed {
+      color: red;
+    }
+
+    .pending {
+      color: yellow;
+    }
+  </style>
 </head>
 
 <body class="bg-darkNavy box-border">
@@ -58,30 +73,31 @@
 
       </div>
 
-      <table class="w-4/5 bg-white mx-auto mt-10 p-5">
-        <thead class="p-12">
-          <tr class=" text-left">
-            <th class="w-1/2">Transaction Made</th>
-            <th class="">Amount</th>
-            <th class="">Status</th>
+      <table class="mx-auto mt-12 mb-1 border-collapse w-3/4 text-sm bg-white rounded-md">
+        <thead class="">
+          <tr class=" text-left h-16 border-b-2 border-cyan-500">
+            <th class="w-1/2 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+              Transaction Made</th>
+            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+              Amount</th>
+            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+              Status</th>
           </tr>
         </thead>
         <tbody>
           <% transactions.forEach(transaction=> {%>
-            <tr>
-              <td class="w-1/2">
+            <tr class="border-b-1 h-10">
+              <td class="border p-4">
                 <%= transaction.type %>
               </td>
-              <td class="w-1/4">
+              <td class="border p-4">
                 <%= transaction.amount %>
               </td>
-              <td class="w-1/4">
+              <td class="border p-4 <%= transaction.status %>">
                 <%= transaction.status %>
               </td>
             </tr>
             <% }) %>
-
-
 
         </tbody>
       </table>

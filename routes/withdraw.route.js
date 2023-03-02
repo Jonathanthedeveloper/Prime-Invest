@@ -6,7 +6,7 @@ const { handleWithdrawal } = require('../controllers/user.controller')
 
 router.route('/')
     .get(fetchUserData, function (req, res) {
-        res.render('withdraw', { user: req.user, status: req.flash('status')});
+        res.render('withdraw', { user: req.user, status: req.flash('status') });
     })
     .post(handleWithdrawal)
 

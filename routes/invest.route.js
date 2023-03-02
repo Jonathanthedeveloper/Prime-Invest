@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const fetchUserData = require('../middlewares/fetchUserData.middleware');
 
-router.get('/', function(req, res){
+const { handleInvestment } = require('../controllers/user.controller')
+
+router.get('/', function (req, res) {
     res.render('invest');
-});
+})
+
+router.post('/', fetchUserData, handleInvestment)
 
 
 module.exports = router;

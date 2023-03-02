@@ -8,7 +8,8 @@ const accountSchema = new Schema({
 const transactionSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true
     },
     type: {
         type: String,
@@ -18,6 +19,12 @@ const transactionSchema = new Schema({
     amount: {
         type: Number,
         required: true
+    },
+    plan: {
+        type: String
+    },
+    medium: {
+        type: String
     },
     status: {
         type: String,
