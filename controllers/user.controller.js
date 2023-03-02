@@ -225,7 +225,7 @@ class UserController {
             const withdrawal = await transactionService.create(transactionData);
             const user = await userService.findOne({ _id: req.user._id })
             user.withdrawals.push(withdrawal._id)
-            user.save()
+            await user.save()
 
             console.log(user)
 
@@ -238,6 +238,96 @@ class UserController {
         }
     }
 
+    async handleDeposit(req, res) {
+
+        try {
+            // const transactionData = {
+            //     user: req.user._id,
+            //     type: 'deposit',
+            //     amount: req.body.amount,
+            //     medium: req.body.medium
+            // }
+
+
+            // const transaction = await transactionService.create(transactionData);
+            // const user = await userService.findOne({ _id: req.user._id })
+
+            // user.deposits.push(transaction._id)
+            // await user.save()
+
+
+            res.render('checkout', { amount: req.body.amount, medium: req.body.medium, wallet: "48924294242894729" });
+
+
+        } catch (error) {
+            req.flash('status', 'fail')
+            res.redirect('/user/deposit')
+        }
+
+    }
+
+    async handleCheckout(req, res) {
+        try {
+
+            if (req.body.action === 'cancel') {
+                return res.redirect('/user/dashboard')
+            }
+
+            const transactionData = {
+                user: req.user._id,
+                type: 'deposit',
+                amount: req.body.amount,
+                medium: req.body.medium,
+                transactionID: req.body.transactionID
+            }
+
+            const deposit = await transactionService.create(transactionData)
+            const user = await userService.findOne({ _id: req.user._id })
+            user.deposits.push(deposit._id)
+            await user.save()
+
+            req.flash('status', 'success')
+            res.redirect('/user/deposit')
+
+
+
+
+        } catch (error) {
+            req.flash('status', 'fail')
+            res.redirect('/user/checkout')
+        }
+    }
+
+
+    async handleInvestment(req, res) {
+        try {
+
+
+            if (req.body.amount > req.user.balance) {
+                return res.redirect('/user/deposit')
+            }
+
+            const transactionData = {
+                user: req.user._id,
+                type: 'investment',
+                amount: req.body.amount,
+                plan: req.body.plan
+            }
+
+            const investment = await transactionService.create(transactionData);
+            const user = await userService.findOne({ _id: req.user._id })
+            user.investments.push(investment._id)
+            await user.save()
+
+            req.flash('status', 'success');
+            res.redirect('/user/invest')
+
+
+        } catch (error) {
+            req.flash('status', 'fail')
+            res.redirect('/user/invest')
+        }
+    }
 
 
 

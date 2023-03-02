@@ -16,11 +16,40 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../CSS/main.css" />
   <!-- Custom JavaScript -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script defer src="../JS/dashboard.js"></script>
+  <script defer src="../JS/getDepositData.js"></script>
 </head>
 
 <body class="bg-darkNavy">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const depositStatus = document.querySelector('.deposit-status').textContent.trim()
+
+      console.log(depositStatus);
+
+
+      if (depositStatus === 'success') {
+        swal({
+          icon: "success",
+          title: "Success",
+          text: "Your request has been summitted successfully",
+          button: "Go To dashboard"
+        })
+      } else if (depositStatus === 'fail') {
+        swal({
+          icon: "error",
+          title: "Failed",
+          text: "Deposit failed, please try again later",
+          buttons: ["Retry", "Go To Dashboard"]
+        })
+      }
+    })
+  </script>
   <%- include ("partials/sidebar"); -%>
+    <p class="deposit-status" hidden>
+      <%= status %>
+    </p>
     <form action="/user/deposit" method="post">
       <div class="flex flex-col justify-center items-center">
         <div class="flex flex-row justify-center space-x-4 items-center mt-32">
@@ -34,16 +63,16 @@
           </h4>
         </div>
         <div class="custom-select mt-2 ml-14 md:ml-0 w-72 md:w-96">
-          <select>
+          <select name="medium">
             <option value="0">Select The Deposit Channel</option>
-            <option value="1">Bitcoin</option>
-            <option value="2">Ethereum</option>
-            <option value="3">Bitcoin Cash</option>
-            <option value="4">Tron(TRX)</option>
-            <option value="5">BNB(BEP2)</option>
-            <option value="6">BNB(BEP20)</option>
-            <option value="7">USDT ERC20</option>
-            <option value="8">USDT TRC20</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="bitcoin cash">Bitcoin Cash</option>
+            <option value="tron">Tron(TRX)</option>
+            <option value="bnb bep2">BNB(BEP2)</option>
+            <option value="bnb bep20">BNB(BEP20)</option>
+            <option value="usdt erc20">USDT ERC20</option>
+            <option value="usdt trc20">USDT TRC20</option>
           </select>
         </div>
         <div class="mt-10">

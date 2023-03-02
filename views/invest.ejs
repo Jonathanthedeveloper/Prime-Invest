@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../Images/Logo.png" />
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="../CSS/main.css" />
-    <!-- Custom JavaScript -->
-    <script defer src="../JS/dashboard.js"></script>
-  </head>
-  <body class="bg-darkNavy">
-    <%- include ("partials/sidebar"); -%>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Images/Logo.png" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <!-- Custom JavaScript -->
+  <script defer src="../JS/dashboard.js"></script>
+</head>
+
+<body class="bg-darkNavy">
+  <%- include ("partials/sidebar"); -%>
     <section>
       <div class="flex flex-col justify-center items-center">
         <div class="text-center text-gold mt-16">
@@ -29,46 +29,35 @@
           </h1>
           <h4 class="text-sm mt-10 text-gray-500 md:base">Select Your Plan.</h4>
         </div>
-        <div class="custom-select mt-2 ml-14 w-72 md:w-96 md:ml-0">
-          <select>
-            <option value="0">Select Your Plan</option>
-            <option value="1">Starter Plan</option>
-            <option value="2">Platinum Plan</option>
-            <option value="3">Premium Plan</option>
-            <option value="4">Zenith Plan</option>
-          </select>
-        </div>
-        <div class="mt-10">
-          <h4 class="text-sm text-center text-gray-500 md:base">
-            Amount To Invest.
-          </h4>
-          <input
-            class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 w-72 md:w-96 md:ml-0"
-            type="number"
-            name="amount"
-            id="amount"
-            placeholder="Minimum Of $200 "
-          />
-        </div>
-        <a href="#"
-          ><button
-            class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold"
-          >
+        <form action="/user/invest" method="post">
+          <div class="custom-select mt-2 ml-14 w-72 md:w-96 md:ml-0">
+            <select name="plan">
+              <option value="">Select Your Plan</option>
+              <option value="starter">Starter Plan</option>
+              <option value="platinum">Platinum Plan</option>
+              <option value="premium">Premium Plan</option>
+              <option value="zenith">Zenith Plan</option>
+            </select>
+          </div>
+          <div class="mt-10">
+            <h4 class="text-sm text-center text-gray-500 md:base">
+              Amount To Invest.
+            </h4>
+            <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 w-72 md:w-96 md:ml-0"
+              type="number" name="amount" id="amount" placeholder="Minimum Of $200 " />
+          </div>
+          ><button type="submit" class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold">
             Invest
-          </button></a
-        >
+          </button>
+        </form>
         <div class="mt-10">
           <h1 class="text-base ml-6 text-white font-thin md:text-xl md:ml-0">
             Confused About The Plans?
           </h1>
         </div>
-        <div
-          class="flex flex-col flex-wrap items-center justify-center mt-4 space-y-4 md:space-x-4 md:flex-row"
-        >
-          <div
-            id="card1"
-            class="w-48 h-48 p-4 ml-6 rounded-xl duration-1000 drop-shadow-2xl hover:drop-shadow-none bg-inkBlue md:mt-4 md:ml-4"
-          >
+        <div class="flex flex-col flex-wrap items-center justify-center mt-4 space-y-4 md:space-x-4 md:flex-row">
+          <div id="card1"
+            class="w-48 h-48 p-4 ml-6 rounded-xl duration-1000 drop-shadow-2xl hover:drop-shadow-none bg-inkBlue md:mt-4 md:ml-4">
             <h4 class="text-white text-base font-bold md:text-xl">
               Starter Plan
             </h4>
@@ -90,14 +79,11 @@
             </p>
             <p class="text-white">
               Principal Return<span class="text-gold text-sm ml-2">
-                YES</span
-              >
+                YES</span>
             </p>
           </div>
-          <div
-            id="card2"
-            class="w-48 h-48 p-4 ml-6 rounded-xl duration-1000 drop-shadow-2xl hover:drop-shadow-none bg-inkBlue md:mt-4 md:ml-4"
-          >
+          <div id="card2"
+            class="w-48 h-48 p-4 ml-6 rounded-xl duration-1000 drop-shadow-2xl hover:drop-shadow-none bg-inkBlue md:mt-4 md:ml-4">
             <h4 class="text-white text-base font-bold md:text-xl">
               Platinum Plan
             </h4>
@@ -119,14 +105,11 @@
             </p>
             <p class="text-white">
               Principal Return<span class="text-gold text-sm ml-2">
-                YES</span
-              >
+                YES</span>
             </p>
           </div>
-          <div
-            id="card3"
-            class="w-48 h-48 p-4 ml-6 rounded-xl duration-1000 drop-shadow-2xl hover:drop-shadow-none bg-inkBlue md:mt-4 md:ml-4"
-          >
+          <div id="card3"
+            class="w-48 h-48 p-4 ml-6 rounded-xl duration-1000 drop-shadow-2xl hover:drop-shadow-none bg-inkBlue md:mt-4 md:ml-4">
             <h4 class="text-white text-base font-bold md:text-xl">
               Premium Plan
             </h4>
@@ -148,14 +131,11 @@
             </p>
             <p class="text-white">
               Principal Return<span class="text-gold text-sm ml-2">
-                YES</span
-              >
+                YES</span>
             </p>
           </div>
-          <div
-            id="card4"
-            class="w-48 h-48 p-4 ml-6 rounded-xl duration-1000 drop-shadow-2xl hover:drop-shadow-none bg-inkBlue md:mt-4 md:ml-4"
-          >
+          <div id="card4"
+            class="w-48 h-48 p-4 ml-6 rounded-xl duration-1000 drop-shadow-2xl hover:drop-shadow-none bg-inkBlue md:mt-4 md:ml-4">
             <h4 class="text-white text-base font-bold md:text-xl">
               Zenith Plan
             </h4>
@@ -177,14 +157,14 @@
             </p>
             <p class="text-white">
               Principal Return<span class="text-gold text-sm ml-2">
-                YES</span
-              >
+                YES</span>
             </p>
           </div>
         </div>
       </div>
     </section>
     <%- include ("partials/script"); -%>
-    <script src="../JS/deposit.js"></script>
-  </body>
+      <script src="../JS/deposit.js"></script>
+</body>
+
 </html>
