@@ -311,7 +311,8 @@ class UserController {
                 user: req.user._id,
                 type: 'investment',
                 amount: req.body.amount,
-                plan: req.body.plan
+                plan: req.body.plan,
+                expires: Date.now() + 604800000,
             }
 
             const investment = await transactionService.create(transactionData);
