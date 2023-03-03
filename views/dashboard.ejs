@@ -31,7 +31,7 @@
     </div>
     <section>
       <div class="toast info">
-        <p class="toast__message">
+        <p class="toast__message mx-auto">
           Finish creating your account <a style="text-decoration: underline; font-weight: 400; color: blueviolet;"
             href="/user/profile">here</a>
         </p>
@@ -56,7 +56,7 @@
           <p class="text-white text-xs md:text-base">Invite Your Friends</p>
           <div class="ml-10 h-10 w-auto mt-4 border-gold border-2 rounded-md md:ml-0">
             <a onclick="copy()">
-              <p id="referral-link" class="text-white text-center mt-2.5 text-xs md:text-base md:mt-1">
+              <p id="referral-link" class="text-white text-center px-2 mt-2.5 text-xs md:text-base md:mt-1">
                 http://127.0.0.1:3000/user/create?ref=<%= user.userId %>
               </p>
             </a>
@@ -112,23 +112,23 @@
         <div class="ml-20 space-y-4 mt-10 flex flex-row justify-evenly flex-wrap text-center">
           <div class="mr-1">
             <p class="text-xs mt-4 md:text-base text-white">Account Balance</p>
-            <h1 class="mt-1 text-gold text-2xl md:text-3xl">
+            <h1 class="mt-1 text-gold text-xl md:text-2xl">
               ₦<%= user.balance %>
             </h1>
           </div>
           <div class="mr-1">
             <p class="text-xs md:text-base text-white">Account Investment</p>
-            <h1 class="mt-1 text-gold text-2xl md:text-3xl">[Amount]</h1>
+            <h1 class="mt-1 text-gold text-xl md:text-2xl">[Amount]</h1>
           </div>
           <div class="mr-1">
             <p class="text-xs md:text-base text-white">Total Deposit</p>
-            <h1 class="mt-1 text-gold text-2xl md:text-3xl"> ₦
+            <h1 class="mt-1 text-gold text-xl md:text-2xl"> ₦
               <%= deposits.reduce( (total, current)=> total + current, 0)%>
             </h1>
           </div>
           <div>
             <p class="text-xs md:text-base text-white">Total Withdraw</p>
-            <h1 class="mt-1 text-gold text-2xl md:text-3xl">₦
+            <h1 class="mt-1 text-gold text-xl md:text-2xl">₦
               <%= withdrawals.reduce( (total, current)=> total + current, 0)%>
             </h1>
           </div>
@@ -136,27 +136,27 @@
         <div class="ml-20 space-y-4 mt-5 flex flex-row justify-evenly flex-wrap text-center md:mt-10">
           <div class="">
             <p class="text-xs mt-4 md:text-base text-white">Total Earning</p>
-            <h1 class="mt-1 text-gold text-2xl md:text-3xl">₦
+            <h1 class="mt-1 text-gold text-xl md:text-2xl">₦
               <%= earnings.reduce( (total, current)=> total + current, 0)%>
             </h1>
           </div>
           <div>
             <p class="text-xs md:text-base text-white">Last Deposit</p>
-            <h1 class="mt-1 text-gold text-2xl md:text-3xl">
+            <h1 class="mt-1 text-gold text-xl md:text-2xl">
               ₦
               <%= deposits.at(-1) || 0 %>
             </h1>
           </div>
           <div>
             <p class="text-xs md:text-base text-white">Last Withdraw</p>
-            <h1 class="mt-1 text-gold text-2xl md:text-3xl">
+            <h1 class="mt-1 text-gold text-xl md:text-2xl">
               ₦
               <%= withdrawals.at(-1) || 0 %>
             </h1>
           </div>
           <div>
             <p class="text-xs md:text-base text-white">Reg Date</p>
-            <h1 class="mt-1 text-gold text-2xl md:text-3xl">
+            <h1 class="mt-1 text-gold text-xl md:text-2xl">
               <%= user.createdAt.toLocaleDateString() %>
             </h1>
           </div>

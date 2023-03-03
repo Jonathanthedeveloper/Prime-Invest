@@ -87,13 +87,13 @@
         <tbody>
           <% transactions.forEach(transaction=> {%>
             <tr class="border-b-1 h-10">
-              <td class="border p-4">
+              <td class="border p-4 capitalize">
                 <%= transaction.type %>
               </td>
               <td class="border p-4">
-                <%= transaction.amount %>
+                $<%= transaction.amount %>
               </td>
-              <td class="border p-4 <%= transaction.status %>">
+              <td class="border p-4 <%= transaction.status %> capitalize">
                 <%= transaction.status %>
               </td>
             </tr>

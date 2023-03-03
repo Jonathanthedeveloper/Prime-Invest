@@ -20,7 +20,6 @@
   <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Custom JavaScript -->
   <script defer src="../../JS/dashboard.js"></script>
-  <script defer src="../../JS/submit.js"></script>
 
 </head>
 
@@ -59,7 +58,7 @@
               <h4 class="text-darkNavy text-sm mt-1.5 md:text-base">Username</h4>
             </div>
             <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">
-              <%= deposit.amount %>
+             $ <%= deposit.amount %>
             </h4>
             <!-- <h4 class="text-gray-500 mt-1.5 text-xs md:text-sm">Pending</h4> -->
             <% if(deposit.status==='pending' ){ %>
