@@ -19,8 +19,7 @@
 
   <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Custom JavaScript -->
-  <script defer src="../../JS/dashboard.js"></script>
-
+  <script defer src="../JS/dashboard.js"></script>
 </head>
 
 <body class="bg-darkNavy">
@@ -28,13 +27,10 @@
     <section>
       <div class="flex flex-col items-center justify-center">
         <div class="mt-20 text-center">
-          <h1 class="text-2xl text-gold font-bold md:text-4xl">Withdrawal</h1>
-          <h4 class="text-sm mt-2 text-gray-500 ml-14 md:text-base md:ml-0">
-            Total Of <%= withdrawals.length %> Transactions.
+          <h1 class="text-2xl text-gold font-bold md:text-4xl">Users</h1>
+          <h4 class="text-sm mt-2 text-gray-500 ml-14 md:text-base">
+            Total Of [Users number] Accounts.
           </h4>
-          <h3 class="mt-10 text-white font-bold text-base md:text-2xl">
-            All Orders
-          </h3>
         </div>
 
         <table class="mx-auto mt-12 mb-1 border-collapse w-3/4 text-sm bg-veryDarkWhite rounded-md">
@@ -43,52 +39,40 @@
               <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
                 Username</th>
               <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
-                Amount</th>
+                Accout balance</th>
               <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
-                Date</th>
+                Registraton Date</th>
               <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
-                Status</th>
+                Action</th>
             </tr>
           </thead>
           <tbody>
 
-            <% withdrawals.forEach( (withdrawal, index)=> { %>
+            <% users.forEach(user=> {%>
               <tr class="border-b-1 h-10">
                 <td class="border p-4 capitalize">
-                  <%= withdrawal.user.username %>
+                  <a href="/user/admin/profile/<%= user._id %>">
+                    <%= user.username || user.name%>
+                  </a>
+                </td>
+                <td class="border p-4">
+                  $<%= user.balance %>
                 </td>
                 <td class="border p-4 capitalize">
-                  $<%= withdrawal.amount %>
+                  <%= user.createdAt.toLocaleDateString() %>
                 </td>
                 <td class="border p-4 capitalize">
-                  <%= withdrawal.createdAt.toLocaleDateString()%>
-                </td>
-                <td class="border p-4 capitalize">
-                  <% if(withdrawal.status==='pending' ){ %>
-
-                    <form action="/user/admin/withdraw?_method=patch" method="post">
-                      <input type="hidden" name="id" value="<%= withdrawal._id %>">
-                      <input type="submit" value="confirm" name="approve">
-                      <input type="submit" value="reject" name="approve">
-                    </form>
-                    <!-- <div class="flex flex-row items-center justify-center mt-1.5">
-                        <a href="" class="text-green-600 mr-2 hover:text-black duration-500 text-xs md:text-sm">Confirm</a>
-                        <a href="" class="text-red-600 mr-6 hover:text-black duration-500 md:mr-0 text-xs md:text-sm">Reject</a>
-                      </div> -->
-                    <% } else {%>
-                      <h4 class="text-<%= withdrawal.status===" successful".trim() ? "green" : "red" %>-600 mt-1.5
-                        text-xs
-                        md:text-sm">
-                        <%= withdrawal.status==="successful" ? "Completed" : "Rejected" %>
-                      </h4>
-                      <% }%>
+                  <form action="/user/admin/user?_method=patch" method="post">
+                    <input type="hidden" name="user" value="<%= user._id %>">
+                    <button type="submit"
+                      class="text-red-600 mr-6 hover:text-black duration-500 md:mr-0 text-xs md:text-sm">Delete
+                      Account</button>
+                  </form>
                 </td>
               </tr>
               <% }) %>
           </tbody>
         </table>
-
-
       </div>
     </section>
     <%- include ("partials/script"); -%>

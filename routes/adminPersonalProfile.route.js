@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const { renderAdminUsersProfile } = require('../controllers/admin.controller');
 
-router.get('/', function(req, res){
-    res.render('adminPersonalProfile');
-});
+router.get('/:user', renderAdminUsersProfile);
 
 
 module.exports = router;

@@ -75,7 +75,7 @@
           <p class="text-xs md:text-base text-white">Total Deposit</p>
           <h1 class="mt-1 mb-3 text-gold text-xl md:text-2xl">
             ₦
-            <%= deposits.reduce( (total, current)=> total + current, 0)%>
+            <%= deposits.reduce( (total, current)=> total + current.amount, 0)%>
           </h1>
           <a href="#"
             class="cursor-pointer mt-1 duration-700 text-xs md:text-base rounded-lg bg-paleGreen px-4 py-2 text-black hover:bg-white">
@@ -88,7 +88,7 @@
           <p class="text-xs md:text-base text-white">Total Withdraw</p>
           <h1 class="mt-1 mb-3 text-gold text-xl md:text-2xl">
             ₦
-            <%= withdrawals.reduce( (total, current)=> total + current, 0)%>
+            <%= withdrawals.reduce( (total, current)=> total + current.amount, 0)%>
           </h1>
           <a href="#"
             class="cursor-pointer duration-700 text-xs md:text-base rounded-lg bg-gold px-4 py-2 text-black hover:bg-white">
@@ -118,18 +118,20 @@
           </div>
           <div class="mr-1">
             <p class="text-xs md:text-base text-white">Account Investment</p>
-            <h1 class="mt-1 text-gold text-xl md:text-2xl">[Amount]</h1>
+            <h1 class="mt-1 text-gold text-xl md:text-2xl">
+              <%= investments.length %>
+            </h1>
           </div>
           <div class="mr-1">
             <p class="text-xs md:text-base text-white">Total Deposit</p>
             <h1 class="mt-1 text-gold text-xl md:text-2xl"> ₦
-              <%= deposits.reduce( (total, current)=> total + current, 0)%>
+              <%= deposits.reduce( (total, current)=> total + current.amount, 0)%>
             </h1>
           </div>
           <div>
             <p class="text-xs md:text-base text-white">Total Withdraw</p>
             <h1 class="mt-1 text-gold text-xl md:text-2xl">₦
-              <%= withdrawals.reduce( (total, current)=> total + current, 0)%>
+              <%= withdrawals.reduce( (total, current)=> total + current.amount, 0)%>
             </h1>
           </div>
         </div>
@@ -137,21 +139,21 @@
           <div class="">
             <p class="text-xs mt-4 md:text-base text-white">Total Earning</p>
             <h1 class="mt-1 text-gold text-xl md:text-2xl">₦
-              <%= earnings.reduce( (total, current)=> total + current, 0)%>
+              <%= earnings.reduce( (total, current)=> total + current.amount, 0)%>
             </h1>
           </div>
           <div>
             <p class="text-xs md:text-base text-white">Last Deposit</p>
             <h1 class="mt-1 text-gold text-xl md:text-2xl">
               ₦
-              <%= deposits.at(-1) || 0 %>
+              <%= deposits.at(-1).amount || 0 %>
             </h1>
           </div>
           <div>
             <p class="text-xs md:text-base text-white">Last Withdraw</p>
             <h1 class="mt-1 text-gold text-xl md:text-2xl">
               ₦
-              <%= withdrawals.at(-1) || 0 %>
+              <%= withdrawals.at(-1).amount || 0 %>
             </h1>
           </div>
           <div>

@@ -29,39 +29,56 @@
               Your Referral List
             </h1>
           </div>
-          <div
-            class="bg-white mt-5 border-1 w-3/4 h-16 ml-16 border-gray-500 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0">
-            <h4 class="text-darkNavy">User Name</h4>
-            <h4 class="text-darkNavy">Email</h4>
-            <h4 class="text-sm text-gray-500 md:base">Status</h4>
-          </div>
 
-          <%user.referrals.forEach( referral=> {%>
-            <div
-              class="bg-white mt-5 border-1 w-3/4 h-16 ml-16 border-gray-500 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0">
-              <h4 class="text-darkNavy">
-                <%= referral.name %>
-              </h4>
-              <h4 class="text-darkNavy">
-                <%= referral.email %>
-              </h4>
-              <h4 class="text-sm text-gray-500 md:base">Success</h4>
+
+
+          <table class="mx-auto mt-12 mb-1 border-collapse w-3/4 text-sm bg-white rounded-md">
+            <thead class="">
+              <tr class=" text-left h-16 border-b-2 border-cyan-500">
+                <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+                  User name</th>
+                <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+                  Email</th>
+                <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+                  Date</th>
+                <th class="w-1/44border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+                  Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% user.referrals.forEach(referral=> {%>
+                <tr class="border-b-1 h-10">
+                  <td class="border p-4 capitalize">
+                    <%= referral.username || "user" %>
+                  </td>
+                  <td class="border p-4">
+                    <%= referral.email%>
+                  </td>
+                  <td class="border p-4 capitalize">
+                    <%= referral.createdAt.toLocaleDateString()%>
+                  </td>
+                  <td class="border p-4">
+                    Success
+                  </td>
+                </tr>
+                <% }) %>
+
+            </tbody>
+          </table>
+
+          <div class="mt-20">
+            <p class="text-gray-400 text-center text-xs md:text-base">Invite Your Friends</p>
+            <div class="ml-10 h-10 w-auto mt-4 border-gold border-2 rounded-md md:ml-0">
+              <a onclick="copy()">
+                <p id="referral-link" class="text-white text-center mt-2.5 text-xs md:text-base md:mt-1">
+                  http://127.0.0.1:3000/user/create<%= user.userId %>
+                </p>
+              </a>
+              <p class="text-xs mt-4 font-thin text-center text-gray-400 md:text-sm"> <span><ion-icon
+                    name="information-circle-outline"></ion-icon></span> Tap the link to copy it to your CLIPBOARD
+              </p>
             </div>
-            <%})%>
-
-              <div class="mt-20">
-                <p class="text-gray-400 text-center text-xs md:text-base">Invite Your Friends</p>
-                <div class="ml-10 h-10 w-auto mt-4 border-gold border-2 rounded-md md:ml-0">
-                  <a onclick="copy()">
-                    <p id="referral-link" class="text-white text-center mt-2.5 text-xs md:text-base md:mt-1">Referral
-                      Link
-                    </p>
-                  </a>
-                  <p class="text-xs mt-4 font-thin text-center text-gray-400 md:text-sm"> <span><ion-icon
-                        name="information-circle-outline"></ion-icon></span> Tap the link to copy it to your CLIPBOARD
-                  </p>
-                </div>
-              </div>
+          </div>
         </div>
       </section>
       <script src="../JS/referral.js"></script>

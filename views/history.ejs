@@ -81,6 +81,8 @@
             <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
               Amount</th>
             <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+              Date</th>
+            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
               Status</th>
           </tr>
         </thead>
@@ -92,6 +94,9 @@
               </td>
               <td class="border p-4">
                 $<%= transaction.amount %>
+              </td>
+              <td class="border p-4 capitalize">
+                <%= transaction.createdAt.toLocaleDateString() %>
               </td>
               <td class="border p-4 <%= transaction.status %> capitalize">
                 <%= transaction.status %>

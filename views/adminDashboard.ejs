@@ -18,8 +18,8 @@
   <link rel="stylesheet" href="../../CSS/toast.css" />
 
   <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-   <!-- Custom JavaScript -->
-   <script defer src="../../JS/dashboard.js"></script>
+  <!-- Custom JavaScript -->
+  <script defer src="../../JS/dashboard.js"></script>
 </head>
 
 <body class="bg-darkNavy">
@@ -82,7 +82,9 @@
         <div class="flex flex-col justify-center items-center space-x-8 mt-10 space-y-8 md:space-y-0 md:flex-row">
           <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 ml-8 md:ml-0">
             <p class="text-gray-500 text-sm">Total Users</p>
-            <h1 class="text-red-600 text-xl md:text-3xl mt-2">[Users]</h1>
+            <h1 class="text-red-600 text-xl md:text-3xl mt-2">
+              <%= users.length %>
+            </h1>
             <div class="flex flex-row mt-3">
               <ion-icon class="text-3xl mr-1 text-red-600" name="people-circle-outline"></ion-icon>
               <span class="text-darkNavy text-base font-bold mt-1">Users</span>
@@ -90,7 +92,9 @@
           </div>
           <div class="bg-veryDarkWhite h-32 w-72 rounded-lg p-4 mt-10">
             <p class="text-gray-500 text-sm">Total Investment</p>
-            <h1 class="text-purple-600 text-xl md:text-3xl mt-2">[Figure]</h1>
+            <h1 class="text-purple-600 text-xl md:text-3xl mt-2">
+              <%= investments.reduce((total, current)=> total + current.amount, 0) %>
+            </h1>
             <div class="flex flex-row mt-3">
               <ion-icon class="text-3xl mr-1 text-purple-600" name="add-circle-outline"></ion-icon>
               <span class="text-darkNavy text-base font-bold mt-1">Investments</span>

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authenticate = require('../middlewares/authenticate.middleware');
-const { renderAdminDashboard } = require('../controllers/admin.controller')
+const { renderAdminDashboard, renderReferrals } = require('../controllers/admin.controller')
 
 //Importing Routes
 // const adminDashboard = require("./adminDashboard.route");
@@ -11,10 +11,16 @@ const { renderAdminDashboard } = require('../controllers/admin.controller')
 
 const adminDepositRoute = require('./adminDeposit.route')
 const adminWithdrawRoute = require('./adminWithdraw.route')
+const adminRefferralRoute = require('./adminRefer.route')
+const adminUserRoute = require('./adminUser.route')
+const adminProfileRoute = require('./adminPersonalProfile.route')
 
 
 router.use('/deposit', adminDepositRoute)
 router.use('/withdraw', adminWithdrawRoute)
+router.use('/referral', adminRefferralRoute)
+router.use('/user', adminUserRoute)
+router.use('/profile', adminProfileRoute)
 
 router.get('/', renderAdminDashboard)
 

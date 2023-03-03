@@ -48,15 +48,15 @@ class UserController {
                 answer: req.body.secretAnswer
             },
             role: req.body.role || 'user',
-            account: {
-                bitcoinAddress: req.body.BTCwallet,
-                bank: {
-                    bankName: req.body.bankName,
-                    bankAddress: req.body.bankAddress,
-                    accountNumber: req.body.accountNumber,
-                    sortCode: req.body.sortCode
-                }
-            },
+            // account: {
+            //     bitcoinAddress: req.body.BTCwallet,
+            //     bank: {
+            //         bankName: req.body.bankName,
+            //         bankAddress: req.body.bankAddress,
+            //         accountNumber: req.body.accountNumber,
+            //         sortCode: req.body.sortCode
+            //     }
+            // },
             withdrawals: [],
             deposits: [],
             investments: [],
@@ -170,13 +170,16 @@ class UserController {
         }
 
 
-        const deposits = userInformation.deposits.filter(deposit => deposit.type === "success")
+        const deposits = userInformation.deposits.filter(deposit => deposit.status === "successful")
 
-        const withdrawals = userInformation.withdrawals.filter(withdrawal => withdrawal.type === "success")
+        const withdrawals = userInformation.withdrawals.filter(withdrawal => withdrawal.status === "successful")
 
-        const investments = userInformation.investments.filter(investment => investment.type === "success")
+        const investments = userInformation.investments.filter(investment => investment.status === "successful")
 
-        const earnings = userInformation.earnings.filter(earning => earning.type === "success")
+        const earnings = userInformation.earnings.filter(earning => earning.status === "successful")
+
+        // console.log(deposits, withdrawals, investments, earnings);
+
 
         return res.render('dashboard', { user: userInformation, deposits, withdrawals, investments, earnings });
     }
@@ -185,6 +188,42 @@ class UserController {
         const userInformation = req.user;
         res.render('profile', { user: userInformation })
     }
+
+    async editUserProfile(req, res) {
+
+
+
+        const updateData = {
+            name: req.body.name || req.user.name,
+            account: {
+                bitcoinAddress: req.body.BTCwallet || req.user.account.bitcoinAddress,
+                ethereumAddress: req.body.ethereum || req.user.account.ethereumAddress,
+                bitcoinCashAddress: req.body.bitcoinCash || req.user.account.bitcoinCashAddress,
+                tronAddress: req.body.tron || req.user.account.tronAddress,
+                bnbBEP2Address: req.body.bnbBEP2 || req.user.account.bnbBEP2Address,
+                bnbBEP20Address: req.body.bnbBEP20 || req.user.account.bnbBEP20Address,
+                usdtERC20Address: req.body.usdtERC20 || req.user.account.usdtERC20Address,
+                usdtTRC20Address: req.body.usdtTRC20 || req.user.account.usdtTRC20Address,
+            },
+
+        }
+
+        if (req.body.password) {
+            try {
+                const hash = await bcrypt.hash(req.body.password, saltRounds);
+                updateData.password = hash
+
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        await userService.update({ _id: req.user.id }, updateData);
+
+        res.redirect('/user/profile')
+
+    }
+
     async renderReferral(req, res) {
         const userInformation = req.user;
         res.render('referral', { user: userInformation })
@@ -198,7 +237,7 @@ class UserController {
 
         const transactions = [...userInformation.withdrawals, ...userInformation.deposits, ...userInformation.earnings, ...userInformation.investments]
 
-        transactions.sort((a, b) => a.createdAt - b.createdAt)
+        transactions.sort((a, b) => b.createdAt - a.createdAt)
 
 
         res.render('history', { transactions })
@@ -242,22 +281,27 @@ class UserController {
     async handleDeposit(req, res) {
 
         try {
-            // const transactionData = {
-            //     user: req.user._id,
-            //     type: 'deposit',
-            //     amount: req.body.amount,
-            //     medium: req.body.medium
-            // }
+
+            let wallet;
+
+            switch (req.body.medium) {
+                case "Bitcoin": wallet = "bc1qy92tmad8n4rqmwhp6euesth8d2ww4hcgszgwm4"; break;
+                case "Doge": wallet = "DJAvMADVk1RuH3x6tyTDs7qZ5FG1mBexvw"; break;
+                case "Ethereum": wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde"; break;
+                case "Bitcoin Cash": wallet = "qzfjy34wq9g7wt3z8p3h7xukxtzeug53huxurcd08s"; break;
+                case "Tron": wallet = "TE53wM63cu8TrWKkvyZXrfYQEqoDwYs1xp"; break;
+                case "USDT ERC20": wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde"; break;
+                case "USDT TRC20": wallet = "TE53wM63cu8TrWKkvyZXrfYQEqoDwYs1xp"; break;
+                case "BNB": wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde"; break;
+                case "place": wallet = "place"; break;
+                case "place": wallet = "place"; break;
+                case "place": wallet = "place"; break;
+                case "place": wallet = "place"; break;
+                case "place": wallet = "place"; break;
+            }
 
 
-            // const transaction = await transactionService.create(transactionData);
-            // const user = await userService.findOne({ _id: req.user._id })
-
-            // user.deposits.push(transaction._id)
-            // await user.save()
-
-
-            res.render('checkout', { amount: req.body.amount, medium: req.body.medium, wallet: "48924294242894729" });
+            res.render('checkout', { amount: req.body.amount, medium: req.body.medium, wallet });
 
 
         } catch (error) {
