@@ -107,7 +107,50 @@ const accountSchema = new Schema({ //done
         trim: true,
         default: ""
     },
-    bank: bankSchema
+    bitcoinAddress: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    ethereumAddress: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    bitcoinCashAddress: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    tronAddress: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    bnbBEP2Address: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    bnbBEP20Address: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    usdtERC20Address: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    usdtTRC20Address: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    bank: {
+        type: bankSchema,
+        default: {}
+    }
 });
 
 
@@ -194,6 +237,16 @@ const userSchema = new Schema({
     }]
 
 }, { timestamps: true });
+
+
+userSchema.pre("findOne", async function (next) {
+    try {
+        // console.log("this => ", this.name)
+        next()
+    } catch (error) {
+        console.error(error)
+    }
+})
 
 
 const Withdrawal = model("Withdrawal", withdrawalSchema)

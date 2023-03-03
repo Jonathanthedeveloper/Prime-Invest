@@ -34,6 +34,11 @@ const transactionSchema = new Schema({
 
 }, { timestamps: true });
 
+transactionSchema.post('update', function (transaction, next) {
+    console.log(transaction._id)
+    next()
+})
+
 const Transaction = model('Transaction', transactionSchema);
 
 module.exports = Transaction;

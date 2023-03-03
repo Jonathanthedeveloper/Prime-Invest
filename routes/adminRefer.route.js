@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const { renderReferrals } = require('../controllers/admin.controller');
 
-router.get('/', function(req, res){
-    res.render('adminRefer');
-});
+router.get('/', renderReferrals);
 
 
 module.exports = router;
