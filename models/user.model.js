@@ -135,6 +135,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    username: {
+        type: String,
+        trime: true
+    },
     email: {
         type: String,
         required: true,
