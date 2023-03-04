@@ -206,11 +206,6 @@ const userSchema = new Schema({
         type: accountSchema,
         required: true
     },
-    balance: {
-        type: Number,
-        required: true,
-        default: 0
-    },
     referrals: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -239,13 +234,25 @@ const userSchema = new Schema({
 }, { timestamps: true });
 
 
-userSchema.pre("findOne", async function (next) {
-    try {
-        // console.log("this => ", this.name)
-        next()
-    } catch (error) {
-        console.error(error)
-    }
+
+
+userSchema.virtual("balance").get(function () {
+    console.log(this)
+
+    const withdrawals = this.withdrawals.filter(withdrawal => withdrawal.status === 'successful').reduce((total, current) => {
+        return total + current.amount
+    }, 0)
+    const deposits = this.deposits.filter(deposit => deposit.status === 'successful').reduce((total, current) => {
+        return total + current.amount
+    }, 0)
+    const investments = this.investments.filter(investment => investment.status === 'successful').reduce((total, current) => {
+        return total + current.amount
+    }, 0)
+    const earnings = this.earnings.filter(earning => earning.status === 'successful').reduce((total, current) => {
+        return total + current.amount
+    }, 0)
+
+    return (deposits + earnings) - (withdrawals + investments)
 })
 
 
@@ -261,3 +268,14 @@ const Account = model('Account', accountSchema);
 const User = model('User', userSchema);
 module.exports = { User, Withdrawal, Deposit, Investment };
 
+/*
+ {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+});
+
+
+tourSchema.virtual('durationWeeks').get(function () {
+    return this.duration / 7
+});
+*/
