@@ -164,7 +164,7 @@ class UserController {
 
     async renderDashboard(req, res) {
         const userInformation = req.user
-        console.log(userInformation);
+        // console.log(userInformation);
         if (userInformation.role === 'admin') {
             return res.redirect('/user/admin')
         }
@@ -267,7 +267,7 @@ class UserController {
             user.withdrawals.push(withdrawal._id)
             await user.save()
 
-            console.log(user)
+            // console.log(user)
 
             req.flash('status', 'success');
             res.redirect('/user/withdraw')
