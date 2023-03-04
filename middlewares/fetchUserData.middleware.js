@@ -28,7 +28,7 @@ const fetchUserData = async (req, res, next) => {
 
     // const balance = deposits.reduce((total, deposit) => total + deposit.amount, 0) - withdrawals.reduce((total, withdrawal) => total + withdrawal.amount, 0) - investments.reduce((total, investment) => total + investment.amount, 0) + earnings.reduce((total, earning) => total + earning.amount, 0)
 
-    console.log(balance)
+    // console.log(balance)
 
     req.user = userInformation
     next()
