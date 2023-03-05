@@ -23,6 +23,10 @@ class TransactionService {
     async update(filter, updateData) {
         return await Transaction.findOneAndUpdate(filter, updateData, { new: true })
     }
+
+    async updateMany(filter, updateData) {
+        return await Transaction.updateMany(filter, updateData)
+    }
 }
 
 module.exports = new TransactionService()

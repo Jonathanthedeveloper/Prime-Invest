@@ -10,7 +10,7 @@ const authenticate = (req, res, next) => {
     // console.log("2 "+req.cookie['token']);
 
 
-    console.log(token);
+    // console.log(token);
 
 
 

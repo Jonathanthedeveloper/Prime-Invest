@@ -9,6 +9,7 @@ const methodOverride = require('method-override')
 
 
 const rootRoute = require('./routes/rootRoute.route');
+const notFoundRoute = require('./routes/notfound.route')
 const { PORT } = require('./config')
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(session({
 app.use(flash())
 app.use(express.static("public"));
 app.use('/', rootRoute);
+app.use(notFoundRoute)
 
 // so that mongoose no go disturb my ear with deprecation warning
 mongoose.set('strictQuery', true)

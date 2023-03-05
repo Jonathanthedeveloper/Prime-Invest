@@ -3,7 +3,9 @@ require('dotenv').config()
 // const LocalStrategy = require('passport-local');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
+const scheduler = require('node-schedule')
 const saltRounds = 10;
+const { payoutDuration, starterPercent, platinumPercent, premiumPercent, zenithPercent } = require('../config')
 
 const userService = require('../services/user.service');
 const AdminService = require('../services/admin.service')
@@ -356,14 +358,67 @@ class UserController {
                 user: req.user._id,
                 type: 'investment',
                 amount: req.body.amount,
+                status: "successful",
                 plan: req.body.plan,
-                expires: Date.now() + 604800000,
+                active: true,
+                expiresAt: Date.now() + payoutDuration,
             }
+
+
 
             const investment = await transactionService.create(transactionData);
             const user = await userService.findOne({ _id: req.user._id })
             user.investments.push(investment._id)
             await user.save()
+
+
+
+            const payoutDate = new Date(investment.expiresAt)
+
+            // Schedule user's  investment
+            const job = scheduler.scheduleJob(payoutDate, async function () {
+
+
+                const transaction = await transactionService.update({ _id: investment._id }, { active: false });
+
+                let amount;
+
+
+                switch (transaction.plan) {
+                    case 'starter':
+                        amount = ((starterPercent * transaction.amount) * 7).toFixed(2);
+                        break;
+                    case 'platinum':
+                        amount = ((platinumPercent * transaction.amount) * 7).toFixed(2);
+                        break;
+                    case 'premium':
+                        amount = ((premiumPercent * transaction.amount) * 7).toFixed(2);
+                        break;
+                    case 'zenith':
+                        amount = ((zenithPercent * transaction.amount) * 7).toFixed(2);
+                        break;
+                    default: amount = 0;
+                        break;
+                }
+
+
+                const earningData = {
+                    user: transaction.user._id,
+                    type: 'earning',
+                    amount,
+                    status: 'successful',
+                    plan: transaction.plan
+                }
+
+
+                const earning = await transactionService.create(earningData)
+
+                const user = await userService.findOne({ _id: earning.user._id });
+                user.earnings.push(earning._id)
+                await user.save()
+            });
+
+            console.log("INVESTMENT SUCCESS")
 
             req.flash('status', 'success');
             res.redirect('/user/invest')
@@ -372,6 +427,7 @@ class UserController {
         } catch (error) {
             req.flash('status', 'fail')
             res.redirect('/user/invest')
+            console.error(error)
         }
     }
 
