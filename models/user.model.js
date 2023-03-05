@@ -237,7 +237,6 @@ const userSchema = new Schema({
 
 
 userSchema.virtual("balance").get(function () {
-    console.log(this)
 
     const withdrawals = this.withdrawals.filter(withdrawal => withdrawal.status === 'successful').reduce((total, current) => {
         return total + current.amount

@@ -7,6 +7,7 @@ const { handleInvestment } = require('../controllers/user.controller')
 router.get('/', function (req, res) {
     res.render('invest');
 })
+// router.post('/', fetchUserData)
 
 router.post('/', fetchUserData, handleInvestment)
 

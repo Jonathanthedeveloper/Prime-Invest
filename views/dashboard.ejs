@@ -146,14 +146,14 @@
             <p class="text-xs md:text-base text-white">Last Deposit</p>
             <h1 class="mt-1 text-gold text-xl md:text-2xl">
               ₦
-              <%= deposits.at(-1).amount || 0 %>
+              <%= deposits.length> 0 ? deposits.at(-1).amount : 0 ;%>
             </h1>
           </div>
           <div>
             <p class="text-xs md:text-base text-white">Last Withdraw</p>
             <h1 class="mt-1 text-gold text-xl md:text-2xl">
               ₦
-              <%= withdrawals.at(-1).amount || 0 %>
+              <%= withdrawals.length> 0 ? withdrawals.at(-1).amount : 0; %>
             </h1>
           </div>
           <div>

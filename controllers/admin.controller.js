@@ -84,6 +84,13 @@ class AdminController {
         res.render('adminPersonalProfile', { user });
     }
 
+    async handlePayouts(req, res) {
+
+        // transactionService.updateMany({}, updateData)
+        console.log("USERS PAID SUCCESSFULLY")
+        // res.send("success")
+    }
+
 }
 
 

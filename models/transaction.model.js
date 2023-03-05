@@ -13,7 +13,7 @@ const transactionSchema = new Schema({
     },
     type: {
         type: String,
-        enum: ['withdrawal', 'deposit', 'investment', 'interest'],
+        enum: ['withdrawal', 'deposit', 'investment', 'earning'],
         required: true
     },
     amount: {
@@ -30,14 +30,14 @@ const transactionSchema = new Schema({
         type: String,
         enum: ["pending", "successful", "failed"],
         default: "pending"
+    },
+    expiresAt: {
+        type: Date,
     }
 
 }, { timestamps: true });
 
-transactionSchema.post('update', function (transaction, next) {
-    console.log(transaction._id)
-    next()
-})
+
 
 const Transaction = model('Transaction', transactionSchema);
 
