@@ -98,12 +98,13 @@ class UserController {
         const token = jwt.sign({ _id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
 
 
-
+        var message = "This is for sample purposes";
+        var message1 = "This is the second one"
 
         // sendMail({
         //     to: user.email,
         //     subject: 'Welcome',
-        //     text: "WE SEE you have registered"
+        //     text: message
         // })
 
         res

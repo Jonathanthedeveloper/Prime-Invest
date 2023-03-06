@@ -53,17 +53,9 @@
             <input class="mt-4 ml-4 px-8 py-2 placeholder:text-center placeholder:text-sm w-72 md:w-96 md:ml-0"
               type="text" name="transactionID" id="transaction-ID" placeholder="Input Your Transaction Hash" />
         </div>
-        <div class="flex flex-row space-x-6">
-          <a href="/user/dashboard"
-            class="px-8 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold md:ml-0"><button>Cancel</button></a>
-          <!-- <a
-            href="#"
-            class="px-8 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold"
-            > </a>-->
-          <!-- <button type="submit">Confirm</button>
-           -->
-          <input type="submit" value="cancel" name="action">
-          <input type="submit" value="confirm" name="action">
+        <div class="flex flex-row space-x-6 mt-16 text-white">
+          <input class="px-10 ml-4 py-3 rounded-lg duration-700  bg-red-600 hover:bg-white hover:text-gold" type="submit" value="cancel" name="action">
+          <input class="px-10 ml-4 py-3 rounded-lg duration-700 bg-green-600 hover:bg-white hover:text-gold" type="submit" value="confirm" name="action">
           </form>
         </div>
       </div>

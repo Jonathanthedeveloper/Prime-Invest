@@ -30,7 +30,7 @@
         <div class="mt-20 text-center">
           <h1 class="text-2xl text-gold font-bold md:text-4xl">Withdrawal</h1>
           <h4 class="text-sm mt-2 text-gray-500 ml-14 md:text-base md:ml-0">
-            Total Of <%= withdrawals.length %> Transactions.
+            Total Of <span class="text-white"><%= withdrawals.length %></span> Transactions.
           </h4>
           <h3 class="mt-10 text-white font-bold text-base md:text-2xl">
             All Orders
@@ -68,15 +68,15 @@
 
                     <form action="/user/admin/withdraw?_method=patch" method="post">
                       <input type="hidden" name="id" value="<%= withdrawal._id %>">
-                      <input type="submit" value="confirm" name="approve">
-                      <input type="submit" value="reject" name="approve">
+                      <input class="text-green-600 mr-2 font-light capitalize hover:underline" type="submit" value="confirm" name="approve">
+                      <input class="text-red-600 font-light capitalize hover:underline" type="submit" value="reject" name="approve">
                     </form>
                     <!-- <div class="flex flex-row items-center justify-center mt-1.5">
                         <a href="" class="text-green-600 mr-2 hover:text-black duration-500 text-xs md:text-sm">Confirm</a>
                         <a href="" class="text-red-600 mr-6 hover:text-black duration-500 md:mr-0 text-xs md:text-sm">Reject</a>
                       </div> -->
                     <% } else {%>
-                      <h4 class="text-<%= withdrawal.status===" successful".trim() ? "green" : "red" %>-600 mt-1.5
+                      <h4 class="text-<%= withdrawal.status==="successful" ? "green" : "red" %>-600 mt-1.5
                         text-xs
                         md:text-sm">
                         <%= withdrawal.status==="successful" ? "Completed" : "Rejected" %>

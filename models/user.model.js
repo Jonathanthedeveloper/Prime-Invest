@@ -180,7 +180,7 @@ const userSchema = new Schema({
     },
     username: {
         type: String,
-        trime: true
+        trim: true
     },
     email: {
         type: String,
@@ -204,7 +204,7 @@ const userSchema = new Schema({
     },
     account: {
         type: accountSchema,
-        required: true
+        default: {},
     },
     referrals: [{
         type: mongoose.Schema.Types.ObjectId,
