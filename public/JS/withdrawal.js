@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', function () {
         swal({
             icon: "success",
             title: "Success",
-            text: "Your request has been summitted successfully",
+            text: "Your investment Was Successful",
             button: "Go To dashboard"
         })
     } else if (withdrawalStatus === 'fail') {
         swal({
             icon: "error",
             title: "Failed",
-            text: "Payment failed, please try again later",
+            text: "Investment Failed, Please try again",
             buttons: ["Retry", "Go To Dashboard"]
         })
     }

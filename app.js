@@ -4,7 +4,8 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+const helmet = require('helmet')
 
 
 
@@ -17,8 +18,11 @@ const app = express();
 
 
 // configurations
-
 app.set("view engine", "ejs");
+app.use(helmet({
+    contentSecurityPolicy: false,
+    frameguard: false
+}))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(cookieParser('secret'));

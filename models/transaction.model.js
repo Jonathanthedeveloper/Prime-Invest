@@ -13,7 +13,7 @@ const transactionSchema = new Schema({
     },
     type: {
         type: String,
-        enum: ['withdrawal', 'deposit', 'investment', 'earning'],
+        enum: ['withdrawal', 'deposit', 'investment', 'earning', 'referral earnings'],
         required: true
     },
     amount: {
@@ -33,6 +33,10 @@ const transactionSchema = new Schema({
     },
     expiresAt: {
         type: Date,
+    },
+    from: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
     }
 
 }, { timestamps: true });
