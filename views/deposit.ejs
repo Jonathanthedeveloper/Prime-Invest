@@ -16,7 +16,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../CSS/main.css" />
   <!-- Custom JavaScript -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" crossorigin="anonymous"></script>
   <script defer src="../JS/dashboard.js"></script>
   <script defer src="../JS/getDepositData.js"></script>
 </head>
@@ -64,8 +64,7 @@
         </div>
         <div class="custom-select mt-2 ml-14 md:ml-0 w-72 md:w-96">
           <select name="medium">
-            <option value="0">Select The Deposit Channel</option>
-            <option value="Bitcoin">Bitcoin</option>
+            <option value="Bitcoin" selected>Bitcoin</option>
             <option value="Ethereum">Ethereum</option>
             <option value="Bitcoin Cash">Bitcoin Cash</option>
             <option value="Tron">Tron(TRX)</option>
@@ -80,7 +79,7 @@
             Amount To Deposit
           </h4>
           <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
-            type="number" name="amount" id="amount" placeholder="Minimum Of $200 " />
+            type="number" name="amount" id="amount" placeholder="Minimum Of $200 " required min="200" />
         </div>
         <button type="submit" class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold">
           Deposit

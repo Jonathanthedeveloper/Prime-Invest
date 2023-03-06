@@ -21,7 +21,7 @@ class TransactionService {
     }
 
     async update(filter, updateData) {
-        return await Transaction.findOneAndUpdate(filter, updateData, { new: true })
+        return await Transaction.findOneAndUpdate(filter, updateData, { new: true }).populate('user')
     }
 
     async updateMany(filter, updateData) {

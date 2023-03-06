@@ -15,8 +15,10 @@
     rel="stylesheet" />
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../CSS/main.css" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" crossorigin="anonymous"></script>
   <!-- Custom JavaScript -->
   <script defer src="../JS/dashboard.js"></script>
+  <script src="../JS/invest.js"></script>
 </head>
 
 <body class="bg-darkNavy">
@@ -29,11 +31,13 @@
           </h1>
           <h4 class="text-sm mt-10 text-gray-500 md:base">Select Your Plan.</h4>
         </div>
+        <p class="invest-status" hidden>
+          <%=status%>
+        </p>
         <form action="/user/invest" method="post">
           <div class="custom-select mt-2 ml-14 w-72 md:w-96 md:ml-0">
             <select name="plan">
-              <option value="">Select Your Plan</option>
-              <option value="starter">Starter Plan</option>
+              <option value="starter" selected>Starter Plan</option>
               <option value="platinum">Platinum Plan</option>
               <option value="premium">Premium Plan</option>
               <option value="zenith">Zenith Plan</option>
@@ -44,7 +48,7 @@
               Amount To Invest.
             </h4>
             <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 w-72 md:w-96 md:ml-0"
-              type="number" name="amount" id="amount" placeholder="Minimum Of $200 " />
+              type="number" name="amount" id="amount" placeholder="Minimum Of $200" required min="200" />
           </div>
           <button type="submit" class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold">
             Invest

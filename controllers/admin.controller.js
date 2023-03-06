@@ -3,6 +3,7 @@ const userService = require('../services/user.service');
 const depositService = require('../services/deposit.service');
 const transactionService = require('../services/transaction.service');
 const { User } = require('../models/user.model');
+const { referralEarningPercent } = require('../config');
 
 
 
@@ -35,7 +36,9 @@ class AdminController {
         const transactions = await transactionService.findAll({});
         const deposits = transactions.filter(transaction => {
             return transaction.type === "deposit"
-        })
+        });
+
+        deposits.sort((a, b) => b.createdAt - a.createdAt)
 
         res.render('adminDeposit', { deposits })
     }
@@ -56,6 +59,22 @@ class AdminController {
         const transaction = await transactionService.update({ _id: id }, { status });
 
         if (transaction.type === 'deposit') {
+            // console.log("REF =>", transaction.user.referredBy)
+            if (transaction.user.referredBy) {
+                const referralEarnings = {
+                    from: transaction.user._id,
+                    user: transaction.user.referredBy,
+                    type: "referral earnings",
+                    status: "successful",
+                    amount: referralEarningPercent * transaction.amount,
+                }
+
+                const refEarnings = await transactionService.create(referralEarnings);
+                await User.findByIdAndUpdate(transaction.user.referredBy, { $push: { earnings: refEarnings._id } });
+                console.log("Upstream credited ")
+            }
+
+
             res.redirect('/user/admin/deposit')
         } else if (transaction.type === 'withdrawal') {
             res.redirect('/user/admin/withdraw')

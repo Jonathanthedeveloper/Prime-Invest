@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const scheduler = require('node-schedule')
 const saltRounds = 10;
-const { payoutDuration, starterPercent, platinumPercent, premiumPercent, zenithPercent } = require('../config')
+const { payoutDuration, starterPercent, platinumPercent, premiumPercent, zenithPercent, referralEarning } = require('../config')
 
 const userService = require('../services/user.service');
 const AdminService = require('../services/admin.service')
@@ -50,15 +50,6 @@ class UserController {
                 answer: req.body.secretAnswer
             },
             role: req.body.role || 'user',
-            // account: {
-            //     bitcoinAddress: req.body.BTCwallet,
-            //     bank: {
-            //         bankName: req.body.bankName,
-            //         bankAddress: req.body.bankAddress,
-            //         accountNumber: req.body.accountNumber,
-            //         sortCode: req.body.sortCode
-            //     }
-            // },
             withdrawals: [],
             deposits: [],
             investments: [],
@@ -69,7 +60,6 @@ class UserController {
         const referral = await userService.findOne({ userId: req.body.referredBy })
         if (referral) {
             userData.referredBy = referral._id;
-
         }
 
         // checking if user already exists
@@ -333,6 +323,8 @@ class UserController {
             user.deposits.push(deposit._id)
             await user.save()
 
+
+
             req.flash('status', 'success')
             res.redirect('/user/deposit')
 
@@ -386,16 +378,16 @@ class UserController {
 
                 switch (transaction.plan) {
                     case 'starter':
-                        amount = ((starterPercent * transaction.amount) * 7).toFixed(2);
+                        amount = (transaction.amount + ((starterPercent * transaction.amount) * 7)).toFixed(2);
                         break;
                     case 'platinum':
-                        amount = ((platinumPercent * transaction.amount) * 7).toFixed(2);
+                        amount = (transaction.amount + ((platinumPercent * transaction.amount) * 7)).toFixed(2);
                         break;
                     case 'premium':
-                        amount = ((premiumPercent * transaction.amount) * 7).toFixed(2);
+                        amount = (transaction.amount + ((premiumPercent * transaction.amount) * 7)).toFixed(2);
                         break;
                     case 'zenith':
-                        amount = ((zenithPercent * transaction.amount) * 7).toFixed(2);
+                        amount = (transaction.amount + ((zenithPercent * transaction.amount) * 7)).toFixed(2);
                         break;
                     default: amount = 0;
                         break;
@@ -417,8 +409,6 @@ class UserController {
                 user.earnings.push(earning._id)
                 await user.save()
             });
-
-            console.log("INVESTMENT SUCCESS")
 
             req.flash('status', 'success');
             res.redirect('/user/invest')
