@@ -1,6 +1,5 @@
 require('dotenv').config()
-// const passport = require('passport')
-// const LocalStrategy = require('passport-local');
+const crypto = require('crypto');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const scheduler = require('node-schedule')
@@ -101,11 +100,7 @@ class UserController {
         var message = "This is for sample purposes";
         var message1 = "This is the second one"
 
-        // sendMail({
-        //     to: user.email,
-        //     subject: 'Welcome',
-        //     text: message
-        // })
+        sendMail({ type: 'welcome', to: user.email })
 
         res
             .cookie('token', token, { expire: new Date() + 3600000 })
@@ -326,6 +321,8 @@ class UserController {
 
 
 
+
+
             req.flash('status', 'success')
             res.redirect('/user/deposit')
 
@@ -411,6 +408,8 @@ class UserController {
                 await user.save()
             });
 
+            sendMail({ type: 'investment', to: user.email })
+
             req.flash('status', 'success');
             res.redirect('/user/invest')
 
@@ -422,7 +421,33 @@ class UserController {
         }
     }
 
+    async handleForgotPassword(req, res) {
+        const user = await userService.findOne({ email: req.body.email });
+        if (!user) {
+            req.flash('status', 'fail')
+            return res.redirect('/user/forgot-password')
+        }
 
+        const token = crypto.randomBytes(20).toString('hex');
+        user.passwordResetToken = token;
+        user.passwordResetExpires = Date.now() + 1000 * 60 * 10;
+        await user?.save();
+
+
+        const link = `${req.protocol}://${req.get('host')}/user/reset-password/${token}`;
+        sendMail({ type: 'resetPassword', to: user.email, link })
+
+        res.redirect('/user/forgot-password')
+    }
+
+
+    async handlePasswordReset() {
+
+    }
+
+    async renderPasswordReset() {
+
+    }
 
 
 

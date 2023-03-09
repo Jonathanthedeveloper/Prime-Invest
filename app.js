@@ -35,7 +35,7 @@ app.use(session({
 app.use(flash())
 app.use(express.static("public"));
 app.use('/', rootRoute);
-app.use(notFoundRoute)
+app.use('*', notFoundRoute)
 
 // so that mongoose no go disturb my ear with deprecation warning
 mongoose.set('strictQuery', true)

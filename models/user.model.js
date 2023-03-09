@@ -1,3 +1,5 @@
+
+
 const { Schema, model, default: mongoose } = require('mongoose');
 const { generateUserId } = require('../utils/utils');
 
@@ -229,7 +231,9 @@ const userSchema = new Schema({
     earnings: [{
         type: Schema.Types.ObjectId,
         ref: 'Transaction'
-    }]
+    }],
+    passwordResetExpires: Date,
+    passwordResetToken: String,
 
 }, { timestamps: true });
 
