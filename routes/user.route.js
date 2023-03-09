@@ -19,6 +19,7 @@ const profileRoute = require("./profile.route");
 const referralRoute = require("./referral.route");
 const logoutRoute = require('./logout.route');
 const adminRoute = require('./admin.route');
+const resetPasswordRoute = require('./reset-password.route');
 
 
 
@@ -30,6 +31,7 @@ router.use("/dashboard", authenticate, dashboardRoute);
 router.use("/login", loginRoute);
 router.use("/logout", logoutRoute);
 router.use("/forgot-password", forgotPasswordRoute);
+router.use("/reset-password", resetPasswordRoute);
 router.use("/create", registerRoute);
 router.use("/notfound", notFoundRoute);
 

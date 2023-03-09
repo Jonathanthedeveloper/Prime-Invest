@@ -37,6 +37,9 @@ const transactionSchema = new Schema({
     from: {
         type: Schema.Types.ObjectId,
         ref: "User",
+    },
+    transactionID: {
+        type: String
     }
 
 }, { timestamps: true });
