@@ -4,6 +4,7 @@ const depositService = require('../services/deposit.service');
 const transactionService = require('../services/transaction.service');
 const { User } = require('../models/user.model');
 const { referralEarningPercent } = require('../config');
+const sendMail = require('../utils/mail.util');
 
 
 
@@ -57,6 +58,8 @@ class AdminController {
         const { id, approve } = req.body;
         const status = approve === "confirm" ? "successful" : "failed";
         const transaction = await transactionService.update({ _id: id }, { status });
+
+        sendMail({ type: transaction.type, to: transaction.user.email })
 
         if (transaction.type === 'deposit') {
             // console.log("REF =>", transaction.user.referredBy)

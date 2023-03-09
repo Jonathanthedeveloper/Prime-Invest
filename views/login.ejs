@@ -50,46 +50,45 @@
 <body class="bg-darkNavy">
   <section id="main-section">
     <div class="flex items-center justify-center w-screen h-screen">
-      <div
-        class="w-96 pb-2 bg-lightGray text-center rounded-lg shadow-2xl ease-in-out duration-1000 hover:shadow-none">
+      <div class="w-96 pb-2 bg-lightGray text-center rounded-lg shadow-2xl ease-in-out duration-1000 hover:shadow-none">
         <img class="w-16 mx-auto mt-4" src="../Images/Logo.png" alt="Millennium Investment Logo" />
         <h1 class="text-3xl mt-4 text-darkNavy font-extrabold">Login</h1>
         <p class="text-sm text-gold">Welcome Back</p>
 
 
-          <% if( alert?.message ){ %>
-            <div class="toast <%= alert.status %> ">
-              <p class="toast__message">
-                <%= alert.message %>
+        <% if( alert?.message ){ %>
+          <div class="toast <%= alert.status %> ">
+            <p class="toast__message">
+              <%= alert.message %>
+            </p>
+            <button>&times;</button>
+          </div>
+          <% } %>
+
+            <form action="/user/login" method="post" id="login">
+              <p class="mt-10">
+                <input
+                  class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                  type="email" id="email" name="email" placeholder="Enter Your Email Address" required />
               </p>
-              <button>&times;</button>
-            </div>
-            <% } %>
 
-              <form action="/user/login" method="post" id="login">
-                <p class="mt-10">
-                  <input
-                    class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-                    type="email" id="email" name="email" placeholder="Enter Your Email Address" required />
-                </p>
+              <p class="mt-4 flex justify-center mr-2">
+                <input
+                  class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                  type="password" id="myPassword" name="password" placeholder="Enter Your Password" required />
+                <i class="fas fa-eye -ml-6 mt-3.5" id="eye" onclick="myFunction()"></i>
+              </p>
 
-                <p class="mt-4 flex justify-center mr-2">
-                  <input
-                    class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
-                    type="password" id="myPassword" name="password" placeholder="Enter Your Password" required />
-                  <i class="fas fa-eye -ml-6 mt-3.5" id="eye" onclick="myFunction()"></i>
-                </p>
+              <p class="mt-6">
+                <button type="submit"
+                  class="py-2 px-10 duration-1000 text-darkNavy border-2 border-darkNavy rounded-lg baseline hover:bg-darkNavy hover:text-gold">Login</button>
+              </p>
 
-                <p class="mt-6">
-                  <button type="submit"
-                    class="py-2 px-10 duration-1000 text-darkNavy border-2 border-darkNavy rounded-lg baseline hover:bg-darkNavy hover:text-gold">Login</button>
-                </p>
-
-                <p class="mt-4">
-                  <a class="text-sm hover: text-darkNavy hover:text-gold" href="/user/forgot">Forgot Password</a>
-                  <a class="text-sm hover: text-darkNavy ml-4 hover:text-gold" href="/user/create">Sign Up</a>
-                </p>
-              </form>
+              <p class="mt-4">
+                <a class="text-sm hover: text-darkNavy hover:text-gold" href="/user/forgot-password">Forgot Password</a>
+                <a class="text-sm hover: text-darkNavy ml-4 hover:text-gold" href="/user/create">Sign Up</a>
+              </p>
+            </form>
 
       </div>
     </div>
