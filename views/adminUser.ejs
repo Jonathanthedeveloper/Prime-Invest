@@ -33,41 +33,31 @@
           </h4>
         </div>
 
-        <table class="mx-auto mt-12 mb-1 border-collapse w-3/4 text-sm bg-veryDarkWhite rounded-md">
+        <table class="ml-10 mt-12 mb-1 border-collapse w-3/4 text-xs md:text-sm bg-veryDarkWhite md:ml-0 rounded-md">
           <thead class="">
-            <tr class=" text-left h-16 border-b-2 border-cyan-500">
-              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+            <tr class=" text-center h-16 border-b-2 border-cyan-500">
+              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                 Username</th>
-              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                 Account balance</th>
-              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
-                Registraton Date</th>
-              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
-                Action</th>
+              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
+                Registration Date</th>
             </tr>
           </thead>
           <tbody>
 
             <% users.forEach(user=> {%>
               <tr class="border-b-1 h-10">
-                <td class="border p-4 capitalize">
+                <td class="border capitalize text-center">
                   <a href="/user/admin/profile/<%= user._id %>">
                     <%= user.username || user.name%>
                   </a>
                 </td>
-                <td class="border p-4">
+                <td class="border text-center">
                   $<%= user.balance %>
                 </td>
-                <td class="border p-4 capitalize">
+                <td class="border capitalize text-center">
                   <%= user.createdAt.toLocaleDateString() %>
-                </td>
-                <td class="border p-4 capitalize">
-                  <form action="/user/admin/user?_method=patch" method="post">
-                    <input type="hidden" name="user" value="<%= user._id %>">
-                    <button type="submit"
-                      class="text-red-600 mr-6 hover:text-black duration-500 md:mr-0 text-xs md:text-sm">Delete
-                      Account</button>
-                  </form>
                 </td>
               </tr>
               <% }) %>

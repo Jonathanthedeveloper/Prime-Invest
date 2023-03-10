@@ -38,74 +38,49 @@
             All Orders
           </h3>
         </div>
-        <!-- <div
-          class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center space-x-1 px-1 justify-between md:px-4 md:ml-0">
-          <div class="flex flex-row">
-            <ion-icon class="text-3xl mr-1 text-blue-500" name="arrow-down-circle-outline"></ion-icon>
-            <h4 class="text-darkNavy text-sm mt-1.5 md:text-base">Username</h4>
-          </div>
-          <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Amount</h4>
-          <h4 class="text-gray-500 mt-1.5 text-xs md:text-sm">Pending</h4>
-          <div class="flex flex-row items-center justify-center mt-1.5">
-            <a href="" class="text-green-600 mr-2 hover:text-black duration-500 text-xs md:text-sm">Confirm</a>
-            <a href="" class="text-red-600 mr-6 hover:text-black duration-500 md:mr-0 text-xs md:text-sm">Reject</a>
-          </div>
-        </div> -->
+      
 
-        <% deposits.forEach( (deposit, index)=> { %>
+        <!-- <% deposits.forEach( (deposit, index)=> { %>
           <div
-            class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center space-x-1 px-1 justify-between md:px-4 md:ml-0">
-            <div class="flex flex-row">
-              <ion-icon class="text-3xl mr-1 text-blue-500" name="arrow-down-circle-outline"></ion-icon>
-              <h4 class="text-darkNavy text-sm mt-1.5 md:text-base">Username</h4>
-            </div>
-            <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">
-              $ <%= deposit.transactionID || "" %>
+            class="bg-veryDarkWhite ml-16 mt-4 h-10 flex flex-row items-center space-x-2 px-1 justify-center md:ml-0">
+              <h4 class="text-darkNavy text-xs mt-1.5 md:text-sm"><%= deposit.user.name %></h4>
+            <h4 class="text-darkNavy mt-1.5 text-xs md:text-sm">
+              <%= deposit.transactionID || "" %>
             </h4>
-            <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">
+            <h4 class="text-darkNavy mt-1.5 text-xs md:text-sm">
               $ <%= deposit.amount %>
             </h4>
-            <!-- <h4 class="text-gray-500 mt-1.5 text-xs md:text-sm">Pending</h4> -->
+
             <% if(deposit.status==='pending' ){ %>
 
               <form action="/user/admin/deposit?_method=patch" method="post">
                 <input type="hidden" name="id" value="<%= deposit._id %>">
-                <input class="text-green-600 mr-2 font-light" type="submit" value="confirm" name="approve">
-                <input class="text-red-600 font-light" type="submit" value="reject" name="approve">
+                <input class="text-green-600 text-xs mr-2 font-light capitalize hover:cursor-pointer hover:underline" type="submit" value="confirm" name="approve">
+                <input class="text-red-600 text-xs font-light capitalize hover:cursor-pointer hover:underline" type="submit" value="reject" name="approve">
               </form>
-              <!-- <div class="flex flex-row items-center justify-center mt-1.5">
-                <a href="" class="text-green-600 mr-2 hover:text-black duration-500 text-xs md:text-sm">Confirm</a>
-                <a href="" class="text-red-600 mr-6 hover:text-black duration-500 md:mr-0 text-xs md:text-sm">Reject</a>
-              </div> -->
+              
               <% } else {%>
-                <h4 class="text-<%= deposit.status===" successful".trim() ? "green" : "red" %>-600 mt-1.5 text-xs
-                  md:text-sm">
+                <h4 class="text-<%= deposit.status==="successful" ? "green" : "red" %>-600 mt-1.5
+                  text-xs">
                   <%= deposit.status==="successful" ? "Completed" : "Rejected" %>
                 </h4>
                 <% }%>
           </div>
-          <% }) %>
-            <!-- For Completed Deposits, The Button should be removed. If there is a better way, it is fine. -->
-            <!-- For Completed -->
-            <!-- <div
-              class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0">
-              <div class="flex flex-row">
-                <ion-icon class="text-3xl mr-1 text-blue-500" name="arrow-down-circle-outline"></ion-icon>
-                <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Username</h4>
-              </div>
-              <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Amount</h4>
-              <h4 class="text-green-600 mt-1.5 text-xs md:text-sm">Completed</h4>
-            </div> -->
-            <!-- For Rejected -->
-            <!-- <div
-              class="bg-veryDarkWhite ml-16 w-4/5 mt-4 h-16 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0">
-              <div class="flex flex-row">
-                <ion-icon class="text-3xl mr-1 text-blue-500" name="arrow-down-circle-outline"></ion-icon>
-                <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Username</h4>
-              </div>
-              <h4 class="text-darkNavy mt-1.5 text-sm md:text-base">Amount</h4>
-              <h4 class="text-red-600 mt-1.5 text-xs md:text-sm">Rejected</h4>
-            </div> -->
+          <% }) %> -->
+          <table class="ml-12 mt-12 text-center mb-1 border-collapse w-3/4 bg-veryDarkWhite rounded-md md:ml-0">
+            <thead class="">
+              <tr class="h-16 border-b-2 border-cyan-500">
+                <th class="w-1/4 px-1 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
+                  Username</th>
+                <th class="w-1/4 px-1 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
+                  Transaction ID</th>
+                <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
+                  Amount</th>
+                <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
+                  Status</th>
+              </tr>
+            </thead>
+          </table>
       </div>
     </section>
     <%- include ("partials/script"); -%>

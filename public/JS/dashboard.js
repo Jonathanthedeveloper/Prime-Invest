@@ -13,3 +13,10 @@ function activeLink(){
 }
 list.forEach((item) =>
     item.addEventListener("click", activeLink))
+
+//Toast
+const toast = document.getElementById('toast');
+const removeBtn = document.getElementById('removeBtn');
+toast.onclick = function () {
+    toast.style.display = "none";
+}

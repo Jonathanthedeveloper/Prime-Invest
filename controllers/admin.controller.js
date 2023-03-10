@@ -97,7 +97,7 @@ class AdminController {
 
     async renderAdminUsers(req, res) {
         const users = await User.find({}).populate('referredBy')
-
+        console.log(users);
         res.render('adminUser', { users })
     }
 

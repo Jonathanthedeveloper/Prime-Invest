@@ -33,34 +33,34 @@
               </h4>
             </div>
 
-            <table class="mx-auto mt-12 mb-1 border-collapse w-3/4 text-sm bg-veryDarkWhite rounded-md">
+            <table class="ml-12 mt-12 mb-1 border-collapse w-3/4 text-sm bg-veryDarkWhite rounded-md">
               <thead class="">
-                <tr class=" text-left h-16 border-b-2 border-cyan-500">
-                  <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+                <tr class=" text-xs h-16 border-b-2 border-cyan-500 md:text-sm">
+                  <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                     Username</th>
-                  <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+                  <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                     Account Balance</th>
-                  <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+                  <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                     Registration Date</th>
-                  <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+                  <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                     Referred By</th>
                 </tr>
               </thead>
               <tbody>
                 <% referredUsers.forEach(user=> {%>
                   <tr class="border-b-1 h-10">
-                    <td class="border p-4 capitalize">
+                    <td class="border capitalize text-center">
                       <a href="/user/admin/profile/<%= user._id %>">
                         <%= user.username || user.name%>
                       </a>
                     </td>
-                    <td class="border p-4">
+                    <td class="border text-center">
                       $<%= user.balance %>
                     </td>
-                    <td class="border p-4 capitalize">
+                    <td class="border capitalize text-center">
                       <%= user.createdAt.toLocaleDateString() %>
                     </td>
-                    <td class="border p-4 capitalize">
+                    <td class="border capitalize text-center">
                       <a href="/user/admin/profile/<%= user.referredBy._id %>">
                         <%= user.referredBy.username || user.referredBy.name %>
                       </a>
