@@ -30,7 +30,9 @@
         <div class="mt-20 text-center">
           <h1 class="text-2xl text-gold font-bold md:text-4xl">Withdrawal</h1>
           <h4 class="text-sm mt-2 text-gray-500 ml-14 md:text-base md:ml-0">
-            Total Of <span class="text-white"><%= withdrawals.length %></span> Transactions.
+            Total Of <span class="text-white">
+              <%= withdrawals.length %>
+            </span> Transactions.
           </h4>
           <h3 class="mt-10 text-white font-bold text-base md:text-2xl">
             All Orders
@@ -40,13 +42,17 @@
         <table class="ml-12 mt-12 text-center mb-1 border-collapse w-3/4 bg-veryDarkWhite rounded-md md:ml-0">
           <thead class="">
             <tr class="h-16 border-b-2 border-cyan-500">
-              <th class="w-1/4 px-1 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
+              <th
+                class="w-1/4 px-1 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
                 Username</th>
-              <th class="w-1/4 px-1 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
+              <th
+                class="w-1/4 px-1 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
                 Amount</th>
-              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
+              <th
+                class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
                 Date</th>
-              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
+              <th
+                class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center text-xs md:text-sm">
                 Status</th>
             </tr>
           </thead>
@@ -55,7 +61,7 @@
             <% withdrawals.forEach( (withdrawal, index)=> { %>
               <tr class="border-b-1 h-10">
                 <td class="border capitalize text-xs md:text-sm">
-                  <%= withdrawal.user.username %>
+                  <%= withdrawal.user.username || withdrawal.user.name %>
                 </td>
                 <td class="border capitalize text-xs md:text-sm">
                   $<%= withdrawal.amount %>
@@ -68,11 +74,15 @@
 
                     <form action="/user/admin/withdraw?_method=patch" method="post">
                       <input type="hidden" name="id" value="<%= withdrawal._id %>">
-                      <input class="text-green-600 text-xs mr-2 font-light capitalize hover:underline hover:cursor-pointer md:text-sm" type="submit" value="confirm" name="approve">
-                      <input class="text-red-600 text-xs mt-1 font-light capitalize hover:underline hover:cursor-pointer md:text-sm md:mt-0" type="submit" value="reject" name="approve">
+                      <input
+                        class="text-green-600 text-xs mr-2 font-light capitalize hover:underline hover:cursor-pointer md:text-sm"
+                        type="submit" value="confirm" name="approve">
+                      <input
+                        class="text-red-600 text-xs mt-1 font-light capitalize hover:underline hover:cursor-pointer md:text-sm md:mt-0"
+                        type="submit" value="reject" name="approve">
                     </form>
                     <% } else {%>
-                      <h4 class="text-<%= withdrawal.status==="successful" ? "green" : "red" %>-600 mt-1.5
+                      <h4 class="text-<%= withdrawal.status===" successful".trim() ? "green" : "red" %>-600 mt-1.5
                         text-xs
                         md:text-sm">
                         <%= withdrawal.status==="successful" ? "Completed" : "Rejected" %>

@@ -4,7 +4,14 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const scheduler = require('node-schedule')
 const saltRounds = 10;
-const { payoutDuration, starterPercent, platinumPercent, premiumPercent, zenithPercent, referralEarning } = require('../config')
+const {
+    payoutDuration,
+    starterPercent,
+    platinumPercent,
+    premiumPercent,
+    zenithPercent,
+    referralEarning
+} = require('../config')
 
 const userService = require('../services/user.service');
 const AdminService = require('../services/admin.service')
@@ -17,7 +24,6 @@ class UserController {
 
     // registering a user 
     async registerUser(req, res) {
-
 
 
         // const userData = req.body;
@@ -71,8 +77,6 @@ class UserController {
         }
 
 
-
-
         // hashing users password
         const hash = await bcrypt.hash(userData.password, saltRounds);
 
@@ -93,17 +97,17 @@ class UserController {
         // await admin.save()
 
 
+        const token = jwt.sign({
+            _id: user._id,
+            email: user.email,
+            role: user.role
+        }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
 
-        const token = jwt.sign({ _id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
 
-
-        var message = "This is for sample purposes";
-        var message1 = "This is the second one"
-
-        sendMail({ type: 'welcome', to: user.email })
+        await sendMail({ type: 'welcome', to: user.email })
 
         res
-            .cookie('token', token, { expire: new Date() + 3600000 })
+            .cookie('token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 })
             .header('Authorization', token)
             .redirect('/user/dashboard')
 
@@ -135,12 +139,16 @@ class UserController {
             return;
         }
 
-        const token = jwt.sign({ _id: foundUser._id, email: foundUser.email, role: foundUser.role }, process.env.JWT_SECRET_KEY);
+        const token = jwt.sign({
+            _id: foundUser._id,
+            email: foundUser.email,
+            role: foundUser.role
+        }, process.env.JWT_SECRET_KEY);
         console.log('login successful')
 
 
         res
-            .cookie('token', token, { expire: new Date() + 3600000 })
+            .cookie('token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 })
             .header('Authorization', token)
             .redirect('/user/dashboard')
 
@@ -178,7 +186,6 @@ class UserController {
     }
 
     async editUserProfile(req, res) {
-
 
 
         const updateData = {
@@ -259,8 +266,7 @@ class UserController {
 
             req.flash('status', 'success');
             res.redirect('/user/withdraw')
-        }
-        catch (error) {
+        } catch (error) {
             req.flash('status', 'fail')
             res.redirect('/user/withdraw')
         }
@@ -273,19 +279,45 @@ class UserController {
             let wallet;
 
             switch (req.body.medium) {
-                case "Bitcoin": wallet = "bc1qy92tmad8n4rqmwhp6euesth8d2ww4hcgszgwm4"; break;
-                case "Doge": wallet = "DJAvMADVk1RuH3x6tyTDs7qZ5FG1mBexvw"; break;
-                case "Ethereum": wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde"; break;
-                case "Bitcoin Cash": wallet = "qzfjy34wq9g7wt3z8p3h7xukxtzeug53huxurcd08s"; break;
-                case "Tron": wallet = "TE53wM63cu8TrWKkvyZXrfYQEqoDwYs1xp"; break;
-                case "USDT ERC20": wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde"; break;
-                case "USDT TRC20": wallet = "TE53wM63cu8TrWKkvyZXrfYQEqoDwYs1xp"; break;
-                case "BNB": wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde"; break;
-                case "place": wallet = "place"; break;
-                case "place": wallet = "place"; break;
-                case "place": wallet = "place"; break;
-                case "place": wallet = "place"; break;
-                case "place": wallet = "place"; break;
+                case "Bitcoin":
+                    wallet = "bc1qy92tmad8n4rqmwhp6euesth8d2ww4hcgszgwm4";
+                    break;
+                case "Doge":
+                    wallet = "DJAvMADVk1RuH3x6tyTDs7qZ5FG1mBexvw";
+                    break;
+                case "Ethereum":
+                    wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde";
+                    break;
+                case "Bitcoin Cash":
+                    wallet = "qzfjy34wq9g7wt3z8p3h7xukxtzeug53huxurcd08s";
+                    break;
+                case "Tron":
+                    wallet = "TE53wM63cu8TrWKkvyZXrfYQEqoDwYs1xp";
+                    break;
+                case "USDT ERC20":
+                    wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde";
+                    break;
+                case "USDT TRC20":
+                    wallet = "TE53wM63cu8TrWKkvyZXrfYQEqoDwYs1xp";
+                    break;
+                case "BNB":
+                    wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde";
+                    break;
+                case "place":
+                    wallet = "place";
+                    break;
+                case "place":
+                    wallet = "place";
+                    break;
+                case "place":
+                    wallet = "place";
+                    break;
+                case "place":
+                    wallet = "place";
+                    break;
+                case "place":
+                    wallet = "place";
+                    break;
             }
 
 
@@ -320,13 +352,8 @@ class UserController {
             await user.save()
 
 
-
-
-
             req.flash('status', 'success')
             res.redirect('/user/deposit')
-
-
 
 
         } catch (error) {
@@ -355,12 +382,10 @@ class UserController {
             }
 
 
-
             const investment = await transactionService.create(transactionData);
             const user = await userService.findOne({ _id: req.user._id })
             user.investments.push(investment._id)
             await user.save()
-
 
 
             const payoutDate = new Date(investment.expiresAt)
@@ -387,7 +412,8 @@ class UserController {
                     case 'zenith':
                         amount = (transaction.amount + ((zenithPercent * transaction.amount) * 7)).toFixed(2);
                         break;
-                    default: amount = 0;
+                    default:
+                        amount = 0;
                         break;
                 }
 
@@ -408,7 +434,7 @@ class UserController {
                 await user.save()
             });
 
-            sendMail({ type: 'investment', to: user.email })
+            await sendMail({ type: 'investment', to: user.email })
 
             req.flash('status', 'success');
             res.redirect('/user/invest')
@@ -435,22 +461,61 @@ class UserController {
 
 
         const link = `${req.protocol}://${req.get('host')}/user/reset-password/${token}`;
-        sendMail({ type: 'resetPassword', to: user.email, link })
+        await sendMail({ type: 'resetPassword', to: user.email, link })
 
         res.redirect('/user/forgot-password')
     }
 
 
-    async handlePasswordReset() {
+    async handlePasswordReset(req, res) {
+        try {
 
+            const user = userService.findOne({
+                $and: [{ passwordResetToken: req.body.resetToken }, { passwordResetExpires: { $gte: Date.now() } }]
+            })
+
+            if (!user) {
+                req.flash('status', 'fail')
+                return res.redirect('/user/forgot-password')
+            }
+
+            const hash = await bcrypt.hash(req.body.password, saltRounds)
+
+            user.password = hash;
+            user.passwordResetToken = undefined;
+            user.passwordResetExpires = undefined;
+            await user.save();
+
+            const token = jwt.sign({
+                _id: user._id,
+                email: user.email,
+                role: user.role
+            }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
+
+            cookie('token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 })
+            req.flash('status', 'success')
+            res
+                .cookie('token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 })
+                .redirect('/user/dashboard')
+
+        } catch (error) {
+            req.flash('status', 'fail')
+            res.redirect('/user/dashboard')
+            console.error(error)
+        }
     }
 
-    async renderPasswordReset() {
+    async renderPasswordReset(req, res) {
 
+        try {
+            console.log(req.params.token)
+            res.render('resetPassword', { resetToken: req.params.token })
+        } catch (error) {
+            req.flash('status', 'fail')
+            res.redirect('/user/dashboard')
+            console.error(error)
+        }
     }
-
-
-
 
 
 }

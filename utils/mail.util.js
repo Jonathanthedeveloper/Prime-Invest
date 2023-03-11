@@ -32,7 +32,7 @@ async function sendMail(options) {
 
     // send mail with defined transport object
     const info = await transporter.sendMail({
-      from: '"Fred Foo 👻" <foo@example.com>', // sender address
+      from: 'admin@millenniuminvestment.net', // sender address
       to: options.to, // list of receivers
       subject: options.subject, // Subject line
       // text: options.text, // plain text body

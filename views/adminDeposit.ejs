@@ -38,35 +38,6 @@
             All Orders
           </h3>
         </div>
-      
-
-        <!-- <% deposits.forEach( (deposit, index)=> { %>
-          <div
-            class="bg-veryDarkWhite ml-16 mt-4 h-10 flex flex-row items-center space-x-2 px-1 justify-center md:ml-0">
-              <h4 class="text-darkNavy text-xs mt-1.5 md:text-sm"><%= deposit.user.name %></h4>
-            <h4 class="text-darkNavy mt-1.5 text-xs md:text-sm">
-              <%= deposit.transactionID || "" %>
-            </h4>
-            <h4 class="text-darkNavy mt-1.5 text-xs md:text-sm">
-              $ <%= deposit.amount %>
-            </h4>
-
-            <% if(deposit.status==='pending' ){ %>
-
-              <form action="/user/admin/deposit?_method=patch" method="post">
-                <input type="hidden" name="id" value="<%= deposit._id %>">
-                <input class="text-green-600 text-xs mr-2 font-light capitalize hover:cursor-pointer hover:underline" type="submit" value="confirm" name="approve">
-                <input class="text-red-600 text-xs font-light capitalize hover:cursor-pointer hover:underline" type="submit" value="reject" name="approve">
-              </form>
-              
-              <% } else {%>
-                <h4 class="text-<%= deposit.status==="successful" ? "green" : "red" %>-600 mt-1.5
-                  text-xs">
-                  <%= deposit.status==="successful" ? "Completed" : "Rejected" %>
-                </h4>
-                <% }%>
-          </div>
-          <% }) %> -->
           <table class="ml-12 mt-12 text-center mb-1 border-collapse w-3/4 bg-veryDarkWhite rounded-md md:ml-0">
             <thead class="">
               <tr class="h-16 border-b-2 border-cyan-500">
@@ -80,6 +51,36 @@
                   Status</th>
               </tr>
             </thead>
+            <tbody>
+            <% deposits.forEach( (deposit, index)=> { %>
+            <tr>
+              <td>
+                <%=deposit.user.username || deposit.user.name%>
+              </td>
+              <td>
+                <%=deposit.transactionID%>
+              </td>
+              <td>
+                $<%=deposit.amount%>
+              </td>
+              <td>
+                <%if(deposit.status === "pending"){%>
+                  <form action="/user/admin/deposit?_method=patch" method="post">
+                    <input type="hidden" name="id" value="<%= deposit._id %>">
+                    <input class="text-green-600 text-xs mr-2 font-light capitalize hover:underline hover:cursor-pointer md:text-sm" type="submit" value="confirm" name="approve">
+                    <input class="text-red-600 text-xs mt-1 font-light capitalize hover:underline hover:cursor-pointer md:text-sm md:mt-0" type="submit" value="reject" name="approve">
+                  </form>
+                <% } else {%>
+                  <h4 class="text-<%= deposit.status==="successful" ? "green" : "red" %>-600 mt-1.5
+                        text-xs
+                        md:text-sm">
+                    <%= deposit.status==="successful" ? "Completed" : "Rejected" %>
+                  </h4>
+                <% }%>
+              </td>
+            </tr>
+            <%})%>
+            </tbody>
           </table>
       </div>
     </section>

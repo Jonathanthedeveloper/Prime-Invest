@@ -235,11 +235,13 @@ const userSchema = new Schema({
     passwordResetExpires: Date,
     passwordResetToken: String,
 
-}, { timestamps: true, toObject: {
-    virtual: true
-}, toJSON: {
-    virtual: true
-}, });
+}, {
+    timestamps: true, toObject: {
+        virtual: true
+    }, toJSON: {
+        virtual: true
+    },
+});
 
 
 
