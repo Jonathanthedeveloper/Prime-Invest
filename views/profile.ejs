@@ -19,92 +19,92 @@
   <script defer src="../JS/dashboard.js"></script>
 </head>
 
-<body class="bg-darkNavy">
+<body class="bg-darkGray">
   <%- include ("partials/sidebar"); -%>
     <%- include ("partials/script"); -%>
       <section>
-        <div class="flex flex-col-reverse space-x-4 items-center justify-center ml-20 md:flex-row md:justify-evenly">
+        <div class="flex flex-col-reverse space-x-4 mb-10 items-center justify-center ml-16 md:flex-row md:justify-evenly">
           <div class="mt-32">
 
-            <h4 class="text-sm text-gray-500 md:base">Your Profile</h4>
-            <h1 class="text-2xl mt-2 text-gold font-bold md:text-4xl">
+            <h4 class="text-sm text-darkBlue md:base">Your Profile</h4>
+            <h1 class="text-2xl mt-2 text-brightBlue font-bold md:text-4xl">
               Update Your Profile
             </h1>
             <form action="/user/profile?_method=patch" method="post">
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="name" id="name"
+              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="name" id="name"
                   placeholder="Update Your Name" /></p>
 
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="bitcoin" id="bitcoin"
+              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="bitcoin" id="bitcoin"
                   placeholder="Update Your BTC wallet" /></p>
 
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="ethereum"
+              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="ethereum"
                   id="ethereum" placeholder="Update Your Ethereum wallet" /></p>
 
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="bitcoinCash"
+              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="bitcoinCash"
                   id="Bitcoin-cashwallet" placeholder="Update Your Bitcoin Cash wallet" /></p>
 
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="tron" id="tron"
+              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="tron" id="tron"
                   placeholder="Update Your Tron wallet" /></p>
 
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="bnbBEP2"
+              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="bnbBEP2"
                   id="bnbBEP20" placeholder="Update Your BNB (BEP2) wallet" /></p>
 
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="bnbBEP20"
+              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="bnbBEP20"
                   id="bnbBEP20" placeholder="Update Your BNB(BEP20) wallet" /></p>
 
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="usdtERC20"
+              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="usdtERC20"
                   id="usdtERC20" placeholder="Update Your USDT (ERC20) wallet" /></p>
 
-              <p><input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="usdtTRC20"
+              <p><input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="usdtTRC20"
                   id="usdtTRC20" placeholder="Update Your USDT (TRC20) wallet" /></p>
 
-              <p><input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm" type="text" name="password"
+              <p><input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="password"
                   id="password" placeholder="Update Your Password" /></p>
 
-              <button type="submit" class="px-10 ml-4 mt-4 py-3 duration-700 bg-gold hover:bg-white hover:text-gold">
+              <button type="submit" class="px-10 ml-4 mt-4 py-3 duration-700 text-lightGray rounded-xl border-2 border-brightBlue bg-brightBlue hover:bg-lightGray hover:text-darkBlue">
                 Update
               </button>
             </form>
           </div>
           <div class="mt-10 md:mt-0">
-            <h4 class="text-sm text-gray-500 md:text-base">Your Profile</h4>
-            <h1 class="text-2xl mt-2 text-gold font-bold md:text-4xl">
+            <h4 class="text-sm text-darkBlue md:text-base">Your Profile</h4>
+            <h1 class="text-2xl mt-2 text-brightBlue font-bold md:text-4xl">
               Details
             </h1>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Full Name <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base md:mt-10">Your Full Name: <span class="text-brightBlue">
                 <%= user.name %>
               </span>
             </h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Email Address <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your Email Address: <span class="text-brightBlue">
                 <%= user.email %>
               </span></h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Username <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your Username: <span class="text-brightBlue">
                 <%= user.username %>
               </span>
             </h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Bitcoin Wallet Address <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your Bitcoin Wallet Address: <span class="text-brightBlue">
                 <%= user.account.bitcoinAddress %>
               </span></h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Ethereum Wallet Address <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your Ethereum Wallet Address: <span class="text-brightBlue">
                 <%= user.account.ethereumAddress %>
               </span></h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Bitcoin Cash Wallet Address <span
-                class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your Bitcoin Cash Wallet Address: <span
+                class="text-brightBlue">
                 <%= user.account.bitcoinCashAddress %>
               </span></h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your Tron (TRX) Wallet Address <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your Tron (TRX) Wallet Address: <span class="text-brightBlue">
                 <%= user.account.tronAddress %>
               </span></h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your BNB Wallet Address <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your BNB Wallet Address: <span class="text-brightBlue">
                 <%= user.account.bnbBEP2Address %>
               </span></h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your BNB Wallet Address <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your BNB Wallet Address: <span class="text-brightBlue">
                 <%= user.account.bnbBEP20Address%>
               </span></h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your USDT Wallet Address <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your USDT Wallet Address: <span class="text-brightBlue">
                 <%= user.account.usdtERC20Address %>
               </span></h4>
-            <h4 class="text-sm mt-4 text-gray-500 md:text-base">Your USDT Wallet Address <span class="text-gold">
+            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your USDT Wallet Address: <span class="text-brightBlue">
                 <%= user.account.usdtTRC20Address %>
               </span></h4>
           </div>

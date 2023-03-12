@@ -7,3 +7,20 @@ btn.addEventListener("click", () => [
   nav.classList.toggle("flex"),
   nav.classList.toggle("hidden"),
 ]);
+//For the moving particles
+var particles = Particles.init({
+  selector: ".background",
+  maxParticles: 100,
+  sizeVariations: 7,
+  connectParticles: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      options: {
+        maxParticles: 50,
+        sizeVariations: 2,
+        connectParticles: true,
+      },
+    },
+  ],
+});

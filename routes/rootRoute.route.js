@@ -13,8 +13,9 @@ const contactRoute = require("./contact.route");
 const faqRoute = require("./faq.route");
 const servicesRoute = require("./service.route");
 const indexRoute = require("./index.route");
-const policyRoute = require("./policy.route");
 const helpRoute = require("./help.route");
+const legalRoute = require("./legal.route");
+const marketRoute = require("./market.route");
 const payInvestorsRoute = require('./payInvestors');
 const { handlePayouts } = require("../controllers/admin.controller");
 
@@ -33,9 +34,10 @@ router.use("/aboutUs", aboutRoute);
 router.use("/contact", contactRoute);
 router.use("/faq", faqRoute);
 router.use("/services", servicesRoute);
-router.use("/policy", policyRoute);
 router.use('/payinvestors', payInvestorsRoute)
 router.use('/support', helpRoute)
+router.use("/legal", legalRoute);
+router.use("/market", marketRoute);
 
 
 

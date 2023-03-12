@@ -29,76 +29,66 @@
     }
 
     .pending {
-      color: #FDD36A;
+      color: #e2a50c;
     }
   </style>
 </head>
 
-<body class="bg-darkNavy box-border">
+<body class="bg-darkGray box-border">
   <%- include ("partials/sidebar"); -%>
     <section>
       <div class="flex flex-col justify-center items-center md:justify-around md:ml-20 md:flex-row">
         <div class="mt-32">
-          <h4 class="text-sm text-gray-500 md:base">History</h4>
-          <h1 class="text-2xl mt-2 text-gold font-bold md:text-4xl">
+          <h4 class="text-sm text-darkBlue md:base">History</h4>
+          <h1 class="text-2xl mt-2 text-brightBlue font-bold md:text-4xl">
             Transactions
           </h1>
-          <h4 class="text-sm mt-2 text-gray-500 md:base">
+          <h4 class="text-sm mt-2 text-darkBlue md:base">
             List Of All Your Transactions
           </h4>
         </div>
         <div class="mt-10 md:mt-36">
           <a href="/user/deposit"
-            class="cursor-pointer duration-700 mr-2 text-xs md:text-base rounded-lg bg-paleGreen px-4 py-2 text-black hover:bg-white">
+            class="cursor-pointer mr-2 text-xs md:text-base rounded-lg bg-lightGreen px-4 py-2 text-darkBlue">
             <button>
               <span class="mr-1"><ion-icon name="download"></ion-icon></span>Deposit
             </button>
           </a>
           <a href="/user/withdraw"
-            class="cursor-pointer duration-700 text-xs md:text-base rounded-lg bg-gold px-4 py-2 text-black hover:bg-white">
+            class="cursor-pointer text-xs md:text-base rounded-lg bg-orange-400 px-4 py-2 text-darkBlue">
             <button class="">
               <span class="mr-1"><ion-icon name="share"></ion-icon></span>Withdraw
             </button>
           </a>
         </div>
       </div>
-      <!-- <div class="flex flex-col items-center justify-center mt-10">
-        <div
-          class="bg-white mt-4 border-1 w-3/4 h-16 ml-16 border-gray-500 flex flex-row items-center px-1 justify-between md:px-4 md:ml-0">
-          <h4 class=" text-darkNavy">Transaction Made</h4>
-          <h4 class="text-darkNavy">Amount</h4>
-          <h4 class="text-sm text-gray-500 md:base">Status</h4>
 
-        </div> -->
-
-      </div>
-
-      <table class="mx-auto mt-12 mb-1 border-collapse w-3/4 text-sm bg-white rounded-md">
+      <table class="ml-20 mt-12 mb-1 border-collapse w-3/4 text-xs bg-white shadow-xl md:text-sm md:mx-auto">
         <thead class="">
           <tr class=" text-left h-16 border-b-2 border-cyan-500">
-            <th class="w-1/2 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+            <th class="w-1/2 border border-slate-300 dark:border-slate-600 font-semibold text-center">
               Transaction Made</th>
-            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
               Amount</th>
-            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
               Date</th>
-            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-left">
+            <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
               Status</th>
           </tr>
         </thead>
         <tbody>
           <% transactions.forEach(transaction=> {%>
             <tr class="border-b-1 h-10">
-              <td class="border p-4 capitalize">
+              <td class="border text-center capitalize">
                 <%= transaction.type %>
               </td>
-              <td class="border p-4">
+              <td class="border text-center">
                 $<%= transaction.amount %>
               </td>
-              <td class="border p-4 capitalize">
+              <td class="border text-center capitalize">
                 <%= transaction.createdAt.toLocaleDateString() %>
               </td>
-              <td class="border p-4 <%= transaction.status %> capitalize">
+              <td class="border text-center <%= transaction.status %> capitalize">
                 <%= transaction.status %>
               </td>
             </tr>

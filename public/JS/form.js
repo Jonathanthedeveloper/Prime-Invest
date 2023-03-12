@@ -22,37 +22,37 @@ myFunction1 = () => {
 }
 
 
-const registerForm = document.querySelector("#register")
+// const registerForm = document.querySelector("#register")
 
-registerForm.addEventListener('submit', function (e) {
-  // geting form data
-  const formData = Object.fromEntries([...new FormData(this)])
+// registerForm.addEventListener('submit', function (e) {
+//   // geting form data
+//   const formData = Object.fromEntries([...new FormData(this)])
 
 
-  // validating email
-  if (formData.email !== formData.confirmEmail) {
-    swal({
-      text: "The email and confirm email do not match. Please try again.",
-      icon: "error",
-    })
-      .then(() => {
-        document.querySelector('#email').scrollIntoView({ behavior: "smooth" })
-      })
+//   // validating email
+//   if (formData.email !== formData.confirmEmail) {
+//     swal({
+//       text: "The email and confirm email do not match. Please try again.",
+//       icon: "error",
+//     })
+//       .then(() => {
+//         document.querySelector('#email').scrollIntoView({ behavior: "smooth" })
+//       })
 
-    return e.preventDefault();
+//     return e.preventDefault();
 
-    // validating password
-  } else if (formData.password !== formData.confirmPassword) {
-    swal({
-      text: "The password and confirm password do not match. Please try again.",
-      icon: "error",
-    })
-      .then(() => {
-        document.querySelector('#email').scrollIntoView({ behavior: "smooth" })
-      })
-    return e.preventDefault()
-  }
-})
+//     // validating password
+//   } else if (formData.password !== formData.confirmPassword) {
+//     swal({
+//       text: "The password and confirm password do not match. Please try again.",
+//       icon: "error",
+//     })
+//       .then(() => {
+//         document.querySelector('#email').scrollIntoView({ behavior: "smooth" })
+//       })
+//     return e.preventDefault()
+//   }
+// })
 // Password Validation
   // required = () =>{
   //  const input = document.getElementById("myPassword");
@@ -60,7 +60,23 @@ registerForm.addEventListener('submit', function (e) {
   //   let reg = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$")
   //   reg.test(password) ? alert("Password is valid") : alert("Password is not valid");
 
-
+//For the moving particles
+var particles = Particles.init({
+  selector: ".background",
+  maxParticles: 100,
+  sizeVariations: 7,
+  connectParticles: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      options: {
+        maxParticles: 50,
+        sizeVariations: 2,
+        connectParticles: true,
+      },
+    },
+  ],
+});
 
 
 

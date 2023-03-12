@@ -5,16 +5,12 @@
 body {
   font-family: "Merriweather Sans", sans-serif;
 }
-.index-body {
-  background-color: #0f2331;
-}
 html {
   scroll-behavior: smooth;
 }
 .main-body {
   margin-left: 80px;
 }
-
 /* The Nav Bar For Small Screen */
 .hamburger {
   cursor: pointer;
@@ -31,7 +27,7 @@ html {
   left: 0;
   width: 24px;
   height: 2px;
-  background-color: #dcdcdc;
+  background-color: #4285F4;
   transform: rotate(0);
   transition: all 0.5s;
 }
@@ -59,204 +55,8 @@ html {
 .open .hamburger-down {
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
-
-/* Scroll Bar */
-/* width */
-body::-webkit-scrollbar {
-  width: 10px;
-}
-/* Track */
-body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
-
-/* Handle */
-body::-webkit-scrollbar-thumb {
-  background-color: #0f2331;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-body::-webkit-scrollbar-thumb:hover {
-  background-color: #31286e;
-}
-/* Top Section */
-.top .swiper1 {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.top .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.top .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-/* First Card, Second Section */
-.fas {
-  color: #0f2331;
-}
-.far {
-  color: #0f2331;
-}
-/* Second Card */
-.card {
-  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-}
-.card:hover {
-  box-shadow: none;
-}
-.card:hover .card-button {
-  transform: translate(-50%, 50%);
-  opacity: 1;
-}
-.card:hover .me {
-  color: #d4af37;
-  transition-duration: 1s;
-}
-.card:hover .me-holder {
-  background-color: #0f2331;
-  transition-duration: 1s;
-}
-.me-holder {
-  background-color: #84d2c5;
-}
-.me {
-  color: #0f2331;
-  margin-top: 18px;
-}
-
-
-/* Investment Tag */
-.premiumTag::before {
-  content: "optimal selection";
-  position: absolute;
-  width: 150%;
-  height: 50px;
-  background-image: linear-gradient(
-    45deg,
-    #ff6547 0%,
-    #ffb144 51%,
-    #ff7053 100%
-  );
-  transform: rotate(-45deg) translateY(-25px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
-}
-
-.premiumTag::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  bottom: 0;
-  left: 0;
-  height: 10px;
-  z-index: -1;
-  box-shadow: 140px -140px #cc3f47;
-  background-image: linear-gradient(
-    45deg,
-    #ff512f 0%,
-    #f09819 51%,
-    #ff512f 100%
-  );
-}
-
-/* Testimonial */
-#testimonial .swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-#testimonial .swiper .swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
-}
-/* Frequently Asked Questions */
-.collapsible {
-  background-color: #dcdcdc;
-  color: #0f2331;
-  cursor: pointer;
-  padding: 18px;
-  width: 90%;
-  border: none;
-  border-radius: 1rem;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-.active,
-.collapsible:hover {
-  background-color: #d4af37;
-  transition-duration: 500ms;
-}
-
-.collapsible:after {
-  content: "\002B";
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.content {
-  border: 2px solid #d4af37;
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #0f2331;
-  border-radius: 1rem;
-  width: 90%;
-}
-.faq-cta {
-  background-image: url(../Images/CryptoOnPhone.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-/* About Us */
-.top {
-  width: 90%;
-  text-align: center;
-}
-.video {
-  width: 60%;
-}
-/* Services */
-.service .fas {
-  color: #d4af37;
-}
-.servicesIcon .icon {
-  color: #0f2331;
-}
-/* Contact */
-.body {
-  width: 80vw;
-}
-/* Acceptable Investment Currency */
-/* BTC */
-.btc-coin {
+/* Hero Section Coin */
+.coin {
   font-size: 200px;
   width: 0.1em;
   height: 1em;
@@ -266,9 +66,7 @@ body::-webkit-scrollbar-thumb:hover {
   transform-style: preserve-3d;
 }
 
-.btc-coin .side,
-.btc-coin:before,
-.btc-coin:after {
+.coin .side, .coin:before, .coin:after {
   content: "";
   position: absolute;
   width: 1em;
@@ -284,20 +82,18 @@ body::-webkit-scrollbar-thumb:hover {
   backface-visibility: hidden;
 }
 
-.btc-coin .tails,
-.btc-coin:after {
+.coin .tails, .coin:after {
   left: -0.4em;
   transform: rotateY(90deg);
 }
 
-.btc-coin:before,
-.btc-coin:after {
+.coin:before, .coin:after {
   background: linear-gradient(#faa504, #141001);
   backface-visibility: hidden;
   transform: rotateY(90deg);
 }
 
-.btc-coin:after {
+.coin:after {
   transform: rotateY(-90deg);
 }
 
@@ -310,23 +106,23 @@ body::-webkit-scrollbar-thumb:hover {
 .svg_back {
   transform: scaleX(-1);
 }
-/* Ethereum */
-.e-card {
+/* Hero Section Eth Card */
+.card {
   width: 195px;
   height: 285px;
-  background: #0f2331;
+  background: #F8F8F8;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #d4af37;
+  color: white;
   transition: 0.2s ease-in-out;
-  border-radius: 1rem;
+  position: absolute;
 }
 
 .img {
-  margin-top: 15px;
-  height: 70%;
+  height: 50%;
+  position: absolute;
   transition: 0.2s ease-in-out;
   z-index: 1;
 }
@@ -350,11 +146,20 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 20px;
 }
 
-.e-card:hover > .textBox {
+.textBox > .price {
+  font-size: 17px;
+}
+
+.textBox > span {
+  font-size: 12px;
+  color: lightgrey;
+}
+
+.card:hover > .textBox {
   opacity: 1;
 }
 
-.e-card:hover > .img {
+.card:hover > .img {
   height: 65%;
   filter: blur(7px);
   animation: anim 3s infinite;
@@ -373,48 +178,114 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateY(0);
   }
 }
-.e-card:hover {
+
+.card:hover {
   transform: scale(1.04) rotate(-1deg);
 }
-/* Buy Section */
-.buy-button {
-  padding: 10px;
-  font-size: 14px;
-  outline: none;
-  border: none;
+
+
+
+/* Scroll Bar */
+/* width */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
-  transition: 0.5s;
-  background: #d4af37;
-  color: #0f2331;
 }
 
-.buy-button:hover {
-  animation: a 0.5s 1 linear;
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background-color: #A9A9A9;
+  border-radius: 10px;
 }
 
-@keyframes a {
-  0% {
-    transform: scale(0.7, 1.3);
-  }
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover { 
+  background-color: #555555;
+}
+.background::before {
+  background-color:#4285F4;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: rotate(-8deg);
+  border-radius: 10px;
+  opacity: 0.8;
+}
 
-  25% {
-    transform: scale(1.3, 0.7);
-  }
+/* Frequently Asked Questions */
+.collapsible {
+  background-color: #4285F4;
+  color: #F8F8F8;
+  cursor: pointer;
+  padding: 18px;
+  width: 90%;
+  border: none;
+  border-radius: 1rem;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border: 2px solid #4285F4;
+}
 
-  50% {
-    transform: scale(0.7, 1.3);
-  }
+.active,
+.collapsible:hover {
+  background-color: white;
+  transition-duration: 500ms;
+  color:black;
+}
 
-  75% {
-    transform: scale(1.3, 0.7);
-  }
+.collapsible:after {
+  content: "\002B";
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
 
-  100% {
-    transform: scale(1, 1);
-  }
+.active:after {
+  content: "\2212";
+}
+.active .content{
+  padding-top: 18px;
+}
+.content {
+  padding: 0 18px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  background-color: white;
+  border-bottom-left-radius: 1rem ;
+  border-bottom-right-radius: 1rem ;
+  width: 90%;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+/* Testimonial */
+#testimonial .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#testimonial .swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+/* Footer Text */
+.text-footer{
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
 /* The Animation */
-.hide {
+/* .hide {
   opacity: 0;
   filter: blur(5px);
   transform: translateX(-100%);
@@ -424,15 +295,9 @@ body::-webkit-scrollbar-thumb:hover {
   opacity: 1;
   filter: blur(0);
   transform: translateX(0);
-}
-@media screen and (max-width: 767px) {
-  .video {
-    width: 100%;
-  }
-}
+} */
+
 /* User Dashboard */
-
-
 .navigation{
   position: fixed;
   width: 60px;
@@ -523,7 +388,7 @@ body::-webkit-scrollbar-thumb:hover {
   transition: 0.5s;
   border-radius: 10px;
   font-size: 1.75rem;
-  color:#0f2331
+  color:#030346;
 }
 .navigation ul li.chosen a .icon{
   color: white;
@@ -550,7 +415,7 @@ body::-webkit-scrollbar-thumb:hover {
   height: 60px;
   display: flex;
   align-items: center;
-  color:#0f2331;
+  color:#0085FE;
   opacity: 0;
   visibility: hidden;
   transition: 0.5;

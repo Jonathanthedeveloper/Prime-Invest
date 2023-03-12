@@ -22,21 +22,21 @@
   <script defer src="../JS/withdrawal.js"></script>
 </head>
 
-<body class="bg-darkNavy">
+<body class="bg-darkGray">
   <%- include ("partials/sidebar"); -%>
     <section>
       <div class="flex flex-col justify-center items-center">
-        <div class="text-center text-gold mt-32">
+        <div class="text-center text-brightBlue mt-32">
           <h1 class="text-2xl font-bold ml-4 md:ml-0 md:text-4xl">Make A Withdrawal</h1>
-          <h4 class="text-sm mt-4 text-gray-500 md:base">
-            Account Balance <span class="text-base ml-1 text-white md:text-xl">
+          <h4 class="text-sm mt-4 text-darkBlue md:base">
+            Account Balance <span class="text-base ml-1 text-brightBlue md:text-xl">
               $<%= user.balance %>
 
             </span>
           </h4>
         </div>
         <div>
-          <h4 class="text-sm mt-10 text-gray-500 md:base">
+          <h4 class="text-sm mt-10 text-darkBlue md:base">
             Choose Type Of Withdrawal
           </h4>
         </div>
@@ -44,7 +44,7 @@
           <%=status%>
         </p>
         <form onsubmit="displayLoader()" action="/user/withdraw" method="post" class="mx-auto flex flex-col items-center justify-center">
-          <div class="custom-select mt-2 ml-14 md:ml-0 w-72 md:w-96">
+          <div class="custom-select mt-2 ml-14 md:ml-0 w-72 md:w-96 border-2 border-brightBlue rounded-xl">
             <select name="wallet">
               <option value="Bitcoin" selected>Bitcoin</option>
               <option value="Ethereum">Ethereum</option>
@@ -57,19 +57,19 @@
             </select>
           </div>
           <div class="mt-4">
-            <h4 class="text-sm text-center text-gray-500 md:base">
+            <h4 class="text-sm text-center text-darkBlue md:base">
               Amount To Withdraw
             </h4>
-            <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
+            <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96 border-2 border-brightBlue rounded-xl"
               type="number" name="amount" id="amount" placeholder="Minimum Of $5" min="5" required />
-            <h4 class="text-sm mt-4 text-center text-gray-500 md:base">
+            <h4 class="text-sm mt-4 text-center text-darkBlue md:base">
               Wallet Address
             </h4>
-            <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96"
+            <input class="px-8 py-3 mt-2 placeholder:text-center placeholder:text-sm ml-14 md:ml-0 w-72 md:w-96 border-2 border-brightBlue rounded-xl"
               type="text" name="address" id="address" placeholder="Input Your Wallet Address" required />
           </div>
           <button type="submit"
-            class="px-10 ml-4 py-3 mt-10 duration-700 bg-gold hover:bg-white hover:text-gold flex items-center disabled:opacity-50 disabled:cursor-not-allowed load">
+            class="px-10 ml-4 py-3 mt-10 duration-700 text-lightGray bg-brightBlue border-2 border-brightBlue rounded-xl hover:bg-lightGray hover:text-darkBlue flex items-center disabled:opacity-50 disabled:cursor-not-allowed load">
             Withdraw
           </button>
         </form>

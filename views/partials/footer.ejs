@@ -1,82 +1,25 @@
  <!-- Footer -->
- <footer class="bg-darkNavy">
+ <footer class="bg-darkGray">
+  <div class="mt-20 mb-10 pt-1 ml-10 md:ml-20 text-darkBlue">
+    <img class="h-16 md:mt-10" src="../Images/Logo.png" alt="This is the company's logo">
+    <p class="mt-2 text-footer">Crypto Trust Limited</p>
+  </div>
+  
     <!-- Flex Container -->
-    <div
-      class="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md-space-y-0"
-    >
-      <!-- Logo and Social link Container -->
-      <div
-        class="flex flex-col-reverse items-center justify-between space-y-12 md:flex-col md:space-y-0 md:items-start"
-      >
-        <div class="mx-auto my-6 text-center text-gold md:hidden">
-          Copy &copy; 2023, All Rights Fully Reserved.
-        </div>
-        <div>
-          <img
-            class="h-16"
-            src="../Images/Logo.png"
-            alt="Millennium Investment company's logo"
-          />
-          <p class="mt-10 text-sm w-48 text-gold">
-            Unit 24 Highcroft Industrial Estate Enterprise Road, Horndean,
-            Waterlooville, United Kingdom, PO8 0BT.
-          </p>
-          <p class="mt-10 text-sm w-48 text-gold">
-            admin@millenniuminvestment.net
-            support@millenniuminvestment.net
-          </p>
-        </div>
+    <div class="container flex flex-col items-center justify-between px-6 mx-auto space-y-6 md:flex-row md-space-y-0 md:items-start">
+      <div class="flex flex-col space-y-2 md:w-1/4 text-darkblue md:mt-4">
+        <h4 class="font-bold text-base mt-2 md:text-xl">Our Company</h4>
+        <a class="text-brightBlue hover:underline" href=""><p>About Us</p></a> 
+        <a class="text-brightBlue hover:underline" href=""><p>What We Offer</p></a> 
+        <a class="text-brightBlue hover:underline" href=""><p>FAQs</p></a> 
+        <a class="text-brightBlue hover:underline" href=""><p>Contact Us</p></a> 
       </div>
-      <!-- List Container -->
-      <div class="flex justify-around space-x-4 md:space-x-20">
-        <div class="flex flex-col space-y-3 text-white">
-          <a
-            href="/
-          "
-            class="hover:text-lightGray text-gold"
-            >Home</a
-          >
-          <a
-            href="/aboutUS
-        "
-            class="hover:text-lightGray text-gold"
-            >About Us</a
-          >
-          <a
-            href="/services
-      "
-            class="hover:text-lightGray text-gold"
-            >Service</a
-          >
-          <a
-            href="/faq
-    "
-            class="hover:text-lightGray text-gold"
-            >FAQ</a
-          >
-        </div>
-        <div class="flex flex-col space-y-3 text-white">
-          <a
-            href="/login
-          "
-            class="hover:text-lightGray text-gold"
-            >Login</a
-          >
-          <a
-            href="/create
-        "
-            class="hover:text-lightGray text-gold"
-            >Sign-up</a
-          >
-          <a
-            href="/policies
-      "
-            class="hover:text-lightGray text-gold"
-            >Privacy Policy</a
-          >
-        </div>
+      <div class="flex flex-col space-y-2 md:w-1/4 text-darkblue">
+        <h4 class="font-bold text-base md:text-xl">Account</h4>
+        <a class="text-brightBlue hover:underline" href=""><p>Create Account</p></a> 
+        <a class="text-brightBlue hover:underline" href=""><p>Login</p></a> 
+        <a class="text-brightBlue hover:underline" href=""><p>Forgot Password</p></a> 
       </div>
-      <!-- Input Container-->
       <div class="flex flex-col justify-between">
         <h4 class="text-2xl font-semibold text-gold text-center md:text-left">
           Subscribe To Our Newsletter.
@@ -90,100 +33,22 @@
             />
             <a
               href="#"
-              class="duration-1000 mt-4 p-3 px-6 pt-3 text-darkNavy bg-gold rounded-lg hover:bg-darkNavy hover:text-lightGray"
+              class="duration-700 mt-4 p-3 px-6 text-lightGray pt-3 border border-brightBlue rounded-lg bg-brightBlue hover:bg-lightGray  hover:text-darkBlue"
               >Subscribe</a
             >
           </div>
         </form>
-        <div class="hidden mt-4 text-gold md:block">
-          Copy &copy; 2023, All Rights Fully Reserved.
-        </div>
       </div>
     </div>
+    <div class="flex flex-row items-center justify-center space-x-4 p-5 mt-5 border-t-2 border-brightBlue">
+      <h4 class="text-xs text-opacity-80 md:text-sm">Copy &copy; 2023, All Rights Fully Reserved.</h4>
+      <h4 class="flex flex-row md:items-center text-xs text-opacity-80 font-bold md:text-sm"> <ion-icon class="text-5xl mr-1 md:text-lg" name="location-outline"></ion-icon>70 Molesworth street, Thorndon Wellington 6130, New Zealand.</h4>
+      <a class="text-brightBlue text-xs md:text-sm hover:underline" href="/legal">Legal</a>
+      <a class="text-brightBlue text-xs md:text-sm hover:underline" href="/market">Market</a>
+  </div>
   </footer>
   <!-- Google Translator -->
-  <script
+  <!-- <script
   type="text/javascript"
   src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-></script>
-<!-- Whatsapp Chat Icon -->
-<script src="https://getchat.app/assets/js/min/getchatapp.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var gcaMain = new GetChatApp({
-      mobileNumber: "+447458948030",
-      titleMessage: "👋 Get Instant Support!",
-      welcomeMessage:
-        "Hey there!🙌<br /> <br /> Welcome! How may I assist you today?<br /> <br /> ~Your Name",
-      position: "left",
-      platforms: {
-        whatsapp: true,
-        facebook: false,
-        email: false,
-        instagram: false,
-        telegram: false,
-      },
-      facebookPageId: "",
-      gcaEmailAddress: "",
-      gcaEmailSubject: "",
-      gcaInstagramUsername: "",
-      gcaTelegramUsername: "",
-    });
-  });
-</script>
-<!-- Other Chat -->
-<call-us
-  phonesystem-url="https://1213.3cx.cloud"
-  style="
-    position: fixed;
-    font-size: 16px;
-    line-height: 17px;
-    z-index: 99999;
-    --call-us-main-accent-color: #3397d4;
-    --call-us-main-background-color: #ffffff;
-    --call-us-plate-background-color: #373737;
-    --call-us-plate-font-color: #e6e6e6;
-    --call-us-main-font-color: #000000;
-    --call-us-agent-bubble-color: #00000010;
-    right: 20px;
-    bottom: 20px;
-  "
-  id="wp-live-chat-by-3CX"
-  minimized="true"
-  animation-style="slidefromside"
-  party="millenniuminvestment"
-  minimized-style="bubbleright"
-  allow-call="false"
-  allow-video="false"
-  allow-soundnotifications="true"
-  enable-mute="true"
-  enable-onmobile="true"
-  offline-enabled="true"
-  enable="true"
-  ignore-queueownership="false"
-  authentication="none"
-  operator-name="Katie Robertson"
-  show-operator-actual-name="false"
-  aknowledge-received="true"
-  gdpr-enabled="false"
-  message-userinfo-format="both"
-  message-dateformat="both"
-  lang="browser"
-  button-icon-type="doublebubble"
-  invite-message="Hello!, How Can I Help You Today?"
-  unavailable-message="Hello!, How Can I Help You Today?"
-  ending-message="Your Session Is Over, Please Feel Free To Contact Us Anytime."
-  greeting-visibility="both"
-  greeting-offline-visibility="both"
-  greeting-message="Need Some Assistance?"
-  greeting-offline-message="Need Some Assistance?"
-  chat-delay="2000"
-  enable-direct-call="false"
-  enable-ga="false"
-></call-us>
-<script
-  defer
-  src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js"
-  id="tcx-callus-js"
-  charset="utf-8"
-></script>
+></script> -->

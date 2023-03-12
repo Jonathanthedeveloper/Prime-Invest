@@ -1,30 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="title" content="Millennium Investment" />
-  <meta name="description"
-    content="Millennium Investment is a cryptocurrency investment company that specialises in providing our investors with a wide range of investment options." />
-  <meta name="copyright" content="Millennium Investment IT Department." />
-  <meta name="keywords"
-    content="Invest, bitcoin, blockchain, profit, investors, company, cryptocurrency, Ethereum, Millennium" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="Millenniuminvestment.org" />
-  <meta property="og:title" content="Millennium Investment" />
-  <meta property="og:description"
-    content="Millennium Investment is a cryptocurrency investment company that specialises in providing our investors with a wide range of investment options." />
-  <meta property="og:image"
-    content="http://res.cloudinary.com/dpu5ywrox/image/upload/v1675332457/kyuenvjtoqkylu8ma0sv.png" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="Millenniuminvestment.org" />
-  <meta property="twitter:title" content="Millennium Investment" />
-  <meta property="twitter:description"
-    content="Millennium Investment is a cryptocurrency investment company that specialises in providing our investors with a wide range of investment options." />
-  <meta property="twitter:image"
-    content="http://res.cloudinary.com/dpu5ywrox/image/upload/v1675332457/kyuenvjtoqkylu8ma0sv.png" />
   <title>Login</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="../Images/Logo.ico" type="image/x-icon" />
@@ -41,19 +20,15 @@
 
 
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-  <script defer src="../JS/form.js"></script>
-
-
 </head>
 
-<body class="bg-darkNavy">
+<body class="bg-brightBlue relative flex items-center h-full">
   <section id="main-section">
     <div class="flex items-center justify-center w-screen h-screen">
       <div class="w-96 pb-2 bg-lightGray text-center rounded-lg shadow-2xl ease-in-out duration-1000 hover:shadow-none">
-        <img class="w-16 mx-auto mt-4" src="../Images/Logo.png" alt="Millennium Investment Logo" />
-        <h1 class="text-3xl mt-4 text-darkNavy font-extrabold">Login</h1>
-        <p class="text-sm text-gold">Welcome Back</p>
+        <img class="w-16 mx-auto mt-4" src="../Images/Logo.png" alt="Crypto Trust Limited Logo" />
+        <h1 class="text-4xl mt-4 text-darkBlue font-extrabold">Login</h1>
+        <p class="text-sm mt-2 text-brightBlue">Welcome Back</p>
 
 
         <% if( alert?.message ){ %>
@@ -68,33 +43,43 @@
             <form action="/user/login" method="post" id="login">
               <p class="mt-10">
                 <input
-                  class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                  class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
                   type="email" id="email" name="email" placeholder="Enter Your Email Address" required />
               </p>
 
-              <p class="mt-4 flex justify-center mr-2">
+              <p class="mt-6 flex justify-center mr-2">
                 <input
-                  class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-darkNavy"
+                  class="bg-white border-primaryBlue border-solid border-2 ml-1 p-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
                   type="password" id="myPassword" name="password" placeholder="Enter Your Password" required />
                 <i class="fas fa-eye -ml-6 mt-3.5" id="eye" onclick="myFunction()"></i>
               </p>
 
               <p class="mt-6">
                 <button type="submit"
-                  class="py-2 px-10 duration-1000 text-darkNavy border-2 border-darkNavy rounded-lg baseline hover:bg-darkNavy hover:text-gold">Login</button>
+                  class="flex flex-row mx-auto justify-center items-center py-2 px-10 w-80 duration-500 text-darkBlue border-2 border-brightBlue rounded-lg hover:bg-brightBlue hover:text-lightGray">Login <ion-icon class="text-3xl ml-4" name="enter-outline"></ion-icon></button>
               </p>
 
-              <p class="mt-4">
-                <a class="text-sm hover: text-darkNavy hover:text-gold" href="/user/forgot-password">Forgot Password</a>
-                <a class="text-sm hover: text-darkNavy ml-4 hover:text-gold" href="/user/create">Sign Up</a>
+              <p class="mt-4 space-x-16">
+                <a class="text-sm hover: text-darkBlue hover:text-brightBlue" href="/user/forgot-password">Forgot Password</a>
+                <a class="text-sm hover: text-darkBlue hover:text-brightBlue" href="/user/create">Sign Up</a>
               </p>
             </form>
 
       </div>
     </div>
   </section>
-
-
+  <canvas class="background absolute top-0 left-0 right-0 bottom-0 -z-10"></canvas>
+  <!-- Iconic Icon Scripts -->
+  <script
+  type="module"
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+  <script src="../JS/particles.min.js"></script>
+  <script src="../JS/form.js"></script>
 </body>
 
 </html>

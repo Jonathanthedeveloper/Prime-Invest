@@ -7,8 +7,9 @@ btn.addEventListener("click", () => [
   nav.classList.toggle("flex"),
   nav.classList.toggle("hidden"),
 ]);
-//For The Top Section
-var swiper1 = new Swiper(".mySwiper1", {
+
+//Top slider
+var swiper = new Swiper(".mySwiper1", {
   spaceBetween: 30,
   centeredSlides: true,
   autoplay: {
@@ -16,6 +17,47 @@ var swiper1 = new Swiper(".mySwiper1", {
     disableOnInteraction: false,
   },
 });
+
+//For the video player
+const player = new Plyr('#player');
+
+//How to get started section
+const card1 = document.getElementById('ist-card');
+const card2 = document.getElementById('2nd-card');
+const card3 = document.getElementById('3rd-card');
+//From the second card
+card2.onmouseover = () => {
+   card2.style.border = "2px solid #4285F4";
+   card1.style.border = "none";
+};
+card2.onmouseout = () => {
+  card2.style.border = "none";
+  card1.style.border = "2px solid #4285F4";
+}
+card3.onmouseover = () => {
+  card3.style.border = "2px solid #4285F4";
+  card1.style.border = "none";
+};
+card3.onmouseout = () => {
+ card3.style.border = "none";
+ card1.style.border = "2px solid #4285F4";
+}
+
+//For the Questions
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
 
 // For The Animation
 const observer = new IntersectionObserver((entries) => {
@@ -27,18 +69,6 @@ const observer = new IntersectionObserver((entries) => {
 });
 const hiddenElements = document.querySelectorAll(".hide");
 hiddenElements.forEach((el) => observer.observe(el));
-
-// For the Automatic typing happening on the Page.
-var typed = new Typed(".auto-type", {
-  strings: ["Secure,", "Strategise And,", "Maximise,"],
-  smartBackspace: true,
-  typeSpeed: 120,
-  backSpeed: 140,
-  loop: true,
-  showCursor: true,
-  cursorChar: "|",
-  autoInsertCss: true,
-});
 
 //Testimonial Section
 var swiper = new Swiper(".mySwiper", {
@@ -59,59 +89,3 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
-calculate = () => {
-  const basic = document.getElementById("basic");
-  const standard = document.getElementById("standard");
-  const essential = document.getElementById("essential");
-  const premium = document.getElementById("premium");
-  const investingAmount = document.getElementById("investingAmount");
-  const display = document.getElementById("display");
-  if (basic.checked === true) {
-    if (investingAmount.value < 250) {
-      display.innerText = "The Minimum You Can Invest is £250.";
-    }
-    if (investingAmount.value > 5000) {
-      display.innerText = "The Maximum You Can Invest is £5,000.";
-    }
-    if (investingAmount.value >= 250 && investingAmount.value <= 5000) {
-      display.innerText =
-        "Contact The Admin For More Information About This Package.";
-    }
-  }
-  if (standard.checked === true) {
-    if (investingAmount.value < 100) {
-      display.innerText = "The Minimum You Can Invest is £100.";
-    }
-    if (investingAmount.value > 10000) {
-      display.innerText = "The Maximum You Can Invest is £10,000.";
-    }
-    if (investingAmount.value >= 100 && investingAmount.value <= 10000) {
-      const gain = 0.12 * investingAmount.value;
-      display.innerText = "You Will Make £" + gain + " After 24 Hours.";
-    }
-  }
-  if (essential.checked === true) {
-    if (investingAmount.value < 1000) {
-      display.innerText = "The Minimum You Can Invest is £1,000.";
-    }
-    if (investingAmount.value > 50000) {
-      display.innerText = "The Maximum You Can Invest is £50,000.";
-    }
-    if (investingAmount.value >= 1000 && investingAmount.value <= 50000) {
-      const gain = 0.25 * investingAmount.value;
-      display.innerText = "You Will Make £" + gain + " After 12 Days.";
-    }
-  }
-  if (premium.checked === true) {
-    if (investingAmount.value < 10000) {
-      display.innerText = "The Minimum You Can Invest is £10,000.";
-    }
-    if (investingAmount.value > 500000) {
-      display.innerText = "The Maximum You Can Invest is £500,000.";
-    }
-    if (investingAmount.value >= 10000 && investingAmount.value <= 500000) {
-      const gain = 0.4 * investingAmount.value;
-      display.innerText = "You Will Make £" + gain + " After 15 Days.";
-    }
-  }
-};

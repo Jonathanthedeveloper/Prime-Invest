@@ -19,15 +19,15 @@
   <script defer src="../JS/dashboard.js"></script>
 </head>
 
-<body class="bg-darkNavy">
+<body class="bg-darkGray">
   <%- include ("partials/sidebar"); -%>
     <section>
       <div class="flex flex-col justify-center items-center ml-14 md:ml-0">
         <div class="flex flex-row justify-center space-x-4 items-center mt-24">
           <div class="w-4 h-4 rounded-full bg-gray-600"></div>
-          <div class="w-4 h-4 rounded-full bg-veryDarkWhite"></div>
+          <div class="w-4 h-4 rounded-full bg-brightBlue"></div>
         </div>
-        <div class="text-gold mt-10 text-center">
+        <div class="text-brightBlue mt-10 text-center">
           <h1 class="text-2xl font-bold md:text-4xl">Confirm Your Deposit</h1>
         </div>
         <div class="mt-10 text-center ml-6 md:ml-0">
@@ -35,11 +35,11 @@
             Please send your payments to the following Wallet Address.
           </h4>
           <div class="flex flex-row mt-6">
-            <h4 id="wallet" class="text-sm text-white md:base">
+            <h4 id="wallet" class="text-sm text-darkBlue md:base">
               <%= wallet %>
             </h4>
-            <button onclick="copy()" class="text-gold ml-2 rounded-lg duration-500 hover:bg-gold hover:text-darkNavy">
-              <ion-icon name="clipboard-outline"></ion-icon>Copy
+            <button onclick="copy()" class="text-darkBlue ml-2 rounded-lg duration-500">
+              <ion-icon class="mr-1" name="copy-outline"></ion-icon>Copy
             </button>
           </div>
         </div>
@@ -50,12 +50,12 @@
           <form action="/user/checkout" method="post">
             <input type="hidden" name="amount" value="<%= amount %>">
             <input type="hidden" name="medium" value="<%= medium %>">
-            <input class="mt-4 ml-4 px-8 py-2 placeholder:text-center placeholder:text-sm w-72 md:w-96 md:ml-0"
+            <input class="mt-4 ml-4 px-8 py-2 placeholder:text-center placeholder:text-sm w-72 md:w-96 md:ml-0 rounded-xl border-2 border-brightBlue"
               type="text" name="transactionID" id="transaction-ID" placeholder="Input Your Transaction Hash" />
         </div>
         <div class="flex flex-row space-x-6 mt-16 text-white">
-          <input class="px-10 ml-4 py-3 rounded-lg duration-700  bg-red-600 hover:bg-white hover:text-gold" type="submit" value="Cancel" name="action">
-          <input class="px-10 ml-4 py-3 rounded-lg duration-700 bg-green-600 hover:bg-white hover:text-gold" type="submit" value="Confirm" name="action">
+          <input class="px-10 ml-4 py-3 rounded-lg duration-700  bg-red-600 hover:bg-white hover:text-brightBlue hover:border hover:border-brightBlue" type="submit" value="Cancel" name="action">
+          <input class="px-10 ml-4 py-3 rounded-lg duration-700 bg-green-600 hover:bg-white hover:text-brightBlue hover:border hover:border-brightBlue" type="submit" value="Confirm" name="action">
           </form>
         </div>
       </div>
