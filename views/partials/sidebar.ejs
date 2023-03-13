@@ -1,56 +1,59 @@
-<section>
-  <div class="navigation z-50 shadow-xl">
-    <div class="menuToggle"></div>
-    <ul class="mt-14">
-      <li class="list" style="--clr: #0f2331">
-        <a href="/user/dashboard">
-          <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-          <span class="text">Dashboard</span>
-        </a>
-      </li>
-      <li class="list" style="--clr: #A61F69">
-        <a href="/user/deposit"><span class="icon"><ion-icon name="add-circle-outline"></ion-icon></span>
-          <span class="text">Deposit</span>
-        </a>
-      </li>
-      <li class="list" style="--clr: #d4af37">
-        <a href="/user/invest"><span class="icon"><ion-icon name="download-outline"></ion-icon></span>
-          <span class="text">Invest</span>
-        </a>
-      </li>
-      <li class="list" style="--clr: #3c6255">
-        <a href="/user/withdraw"><span class="icon"><ion-icon name="share-outline"></ion-icon></span>
-          <span class="text">Withdraw</span>
-        </a>
-      </li>
-      <li class="list" style="--clr: #0f2356">
-        <a href="/user/transactions"><span class="icon"><ion-icon name="receipt-outline"></ion-icon></span>
-          <span class="text">History</span>
-        </a>
-      </li>
-      <li class="list" style="--clr: #ff4500">
-        <a href="/user/profile"><span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-          <span class="text">My Profile</span>
-        </a>
-      </li>
-      <li class="list" style="--clr: #2196f3">
-        <a href="/support"><span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
-          <span class="text">Get Support</span>
-        </a>
-      </li>
-      <li class="list" style="--clr: #ffa117">
-        <a href="/user/referral"><span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-          <span class="text">My Referral</span>
-        </a>
-      </li>
-      <li class="list" style="--clr: #31286e">
-        <!-- <a href=""><span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-          <span class="text">Log Out</span>
-        </a> -->
-        <form action="/user/logout" method="post">
-          <button type="submit"><span class="icon text-3xl ml-4"><ion-icon name="log-out-outline"></ion-icon></span></button>
-        </form>
-      </li>
-    </ul>
-  </div>
+<section class="relative z-50">
+    <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
+        <i class="bi bi-filter-left px-2 bg-darkBlue rounded-md"></i>
+      </span>
+      <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000
+        p-2 w-[300px] overflow-y-auto text-center bg-darkBlue shadow h-screen">
+        <div class="text-gray-100 text-xl">
+          <div class="p-2.5 mt-1 flex items-center rounded-md">
+            <i class="bi bi-currency-bitcoin px-2 py-1 bg-brightBlue rounded-md"></i>
+            <h1 class="text-[15px]  ml-3 text-xl text-gray-200 font-bold text-left">Crypto Trust Limited</h1>
+            <i class="bi bi-x ml-20 cursor-pointer lg:hidden" onclick="Openbar()"></i>
+          </div>
+          <hr class="my-2 text-gray-600">
+    
+          <div class="mt-10">
+            <a href="/user/dashboard"><div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-brightBlue">
+              <i class="bi bi-house-door-fill"></i>
+             <span class="text-[15px] ml-4 text-gray-200">Dashboard</span>
+            </div></a>
+            <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-brightBlue">
+                <i class="bi bi-cash-coin"></i>
+                <div class="flex justify-between w-full items-center" onclick="dropDown()">
+                  <span class="text-[15px] ml-4 text-gray-200">Transactions</span>
+                    <i id="arrow" class="bi bi-caret-down-fill"></i>
+                </div>
+              </div>
+              <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
+               <a href="/user/deposit"> <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Deposit</h1></a>
+               <a href="/user/invest"> <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Invest</h1></a>
+               <a href="/user/withdraw"> <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Withdrawal</h1></a>
+              </div>
+            <a href="/user/transactions"><div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-brightBlue">
+            <i class="bi bi-receipt"></i>
+              <span class="text-[15px] ml-4 text-gray-200">History</span>
+            </div></a>
+            <hr class="my-4 mb-10 text-gray-600">
+            <a href="/user/profile"><div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-brightBlue">
+                <i class="bi bi-person-check"></i>
+             <span class="text-[15px] ml-4 text-gray-200">My Profile</span>
+            </div></a>
+            <a href="/support"><div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-brightBlue">
+                <i class="bi bi-envelope-check-fill"></i>
+             <span class="text-[15px] ml-4 text-gray-200">Get Support</span>
+            </div></a>
+            <a href="/user/referral"><div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-brightBlue">
+                <i class="bi bi-people-fill"></i>
+             <span class="text-[15px] ml-4 text-gray-200">My Referral</span>
+            </div></a>
+            <form action="/user/logout" method="post">
+            <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-brightBlue">
+              <button type="submit">
+              <i class="bi bi-box-arrow-in-right"></i>
+              <span class="text-[15px] ml-4 text-gray-200">Logout</span></button>
+            </div></form>
+    
+          </div>
+        </div>
+      </div>
 </section>

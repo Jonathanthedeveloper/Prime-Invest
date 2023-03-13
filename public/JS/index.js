@@ -88,4 +88,3 @@ var swiper = new Swiper(".mySwiper", {
     dynamicBullets: true,
   },
 });
-
