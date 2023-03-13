@@ -80,7 +80,7 @@ class AdminController {
 
             res.redirect('/user/admin/deposit')
         } else if (transaction.type === 'withdrawal') {
-            res.redirect('/user/admin/withdraw')
+            res.redirect('/user/admin/withdraw');
         }
     }
 
