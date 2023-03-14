@@ -14,7 +14,7 @@ html {
 /* The Nav Bar For Small Screen */
 .hamburger {
   cursor: pointer;
-  width: 24px;
+  width: 30px;
   height: 24px;
   transition: all 0.25s;
   position: relative;
@@ -25,8 +25,8 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  width: 24px;
-  height: 2px;
+  width: 30px;
+  height: 4px;
   background-color: #4285F4;
   transform: rotate(0);
   transition: all 0.5s;
