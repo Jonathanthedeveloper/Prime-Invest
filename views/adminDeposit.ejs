@@ -86,7 +86,7 @@
                       type="submit" value="reject" name="approve">
                   </form>
                   <% } else {%>
-                    <h4 class="text-<%= deposit.status===" successful" ? "green" : "red" %>-600 mt-1.5
+                    <h4 class="text-<%= deposit.status===" successful".trim() ? "green" : "red" %>-600 mt-1.5
                       text-xs
                       md:text-sm">
                       <%= deposit.status==="successful" ? "Completed" : "Rejected" %>

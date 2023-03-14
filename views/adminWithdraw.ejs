@@ -51,7 +51,7 @@
               </h4>
               <p class="text-xs md:text-sm">
                 <%if(withdrawal.status==="pending" ){%>
-                  <form action="/user/admin/withdrawal?_method=patch" method="post">
+                  <form action="/user/admin/withdraw?_method=patch" method="post">
                     <input type="hidden" name="id" value="<%= withdrawal._id %>">
                     <input
                       class="text-green-600 text-xs mr-2 font-light capitalize hover:underline hover:cursor-pointer md:text-sm"
@@ -78,13 +78,19 @@
               <%= withdrawal.user.name %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.type%>
+              <%= withdrawal.type %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
               <%= withdrawal.amount %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.medium %>
+              <%= withdrawal.account.walletType%>
+            </h4>
+            <h4 class="text-darkBlue text-sm mt-2 md:text-base">
+              <%= withdrawal.account.address%>
+            </h4>
+            <h4 class="text-darkBlue text-sm mt-2 md:text-base">
+              <%= withdrawal.createdAt.toLocaleString('en-US')%>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">[Transaction ID]</h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
@@ -92,7 +98,7 @@
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
               <%if(withdrawal.status==="pending" ){%>
-                <form action="/user/admin/withdrawal?_method=patch" method="post">
+                <form action="/user/admin/withdraw?_method=patch" method="post">
                   <input type="hidden" name="id" value="<%= withdrawal._id %>">
                   <input
                     class="text-green-600 text-xs mr-2 font-light capitalize hover:underline hover:cursor-pointer md:text-sm"
@@ -102,7 +108,7 @@
                     type="submit" value="reject" name="approve">
                 </form>
                 <% } else {%>
-                  <h4 class="text-<%= withdrawal.status===" successful" ? "green" : "red" %>-600 mt-1.5
+                  <h4 class="text-<%= withdrawal.status=== " successful".trim() ? "green" : "red" %>-600 mt-1.5
                     text-xs
                     md:text-sm">
                     <%= withdrawal.status==="successful" ? "Completed" : "Rejected" %>
