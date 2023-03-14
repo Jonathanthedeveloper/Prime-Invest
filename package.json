@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This is an investment website",
   "main": "app.js",
+  "engines": {
+    "node": "18.0.0"
+  },
   "scripts": {
     "build": "tailwindcss -i ./index.css -o ./public/CSS/main.css",
     "watch": "tailwindcss -i ./index.css -o ./public/CSS/main.css --watch",
