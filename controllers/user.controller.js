@@ -362,9 +362,15 @@ class UserController {
         }
     }
     async renderInvestment(req, res) {
-        const investments = await User.findOne({ _id: req.user._id }).populate('investments').select('investments -_id')
-        const activeInvestments = investments.investments.filter(investment => Date.now() < investment.expiresAt);
-        res.render('invest', { investments: activeInvestments, status: req.flash('status') })
+        try {
+            const investments = await User.findOne({ _id: req.user._id }).populate('investments').select('investments -_id')
+            const activeInvestments = investments.investments.filter(investment => Date.now() < investment.expiresAt);
+
+            res.render('invest', { investments: activeInvestments, status: req.flash('status', 'success') })
+        } catch (error) {
+            req.flash('status', 'fail')
+            res.redirect('/user/investment')
+        }
     }
 
     async handleInvestment(req, res) {
