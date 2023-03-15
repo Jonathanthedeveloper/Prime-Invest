@@ -50,7 +50,8 @@ class AdminController {
             return transaction.type === "withdrawal"
         })
 
-        withdrawals.sort((a, b) => b.createdAt - a.createdAt)
+        withdrawals.sort((a, b) => b.createdAt - a.createdAt);
+        console.log(withdrawals)
         res.render('adminWithdraw', { withdrawals })
     }
 
