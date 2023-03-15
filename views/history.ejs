@@ -95,7 +95,9 @@
                 <%= transaction.createdAt.toLocaleDateString() %>
               </td>
               <td class="border text-center <%= transaction.status %> capitalize">
-                <%= transaction.status %>
+                <%= transaction.type==='investment' && Date.now()> transaction.expiresAt? "Active" : transaction.status
+                  %>
+
               </td>
             </tr>
             <% }) %>
