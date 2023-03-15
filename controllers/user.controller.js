@@ -18,6 +18,7 @@ const AdminService = require('../services/admin.service')
 const { generateUserId } = require('../utils/utils')
 const sendMail = require('../utils/mail.util')
 const transactionService = require('../services/transaction.service');
+const { User } = require('../models/user.model');
 
 
 class UserController {
@@ -238,9 +239,8 @@ class UserController {
         res.render('history', { transactions })
     }
 
-    async renderLoginPage(req, res) {
-        const referral = req.query.ref;
-        const { role } = req.query
+    async renderRegisterPage(req, res) {
+        const { role, referral } = req.query
         // if(!role) return console.log('user')
         res.render('create', { referral, role })
     }
@@ -361,7 +361,11 @@ class UserController {
             res.redirect('/user/checkout')
         }
     }
-
+    async renderInvestment(req, res) {
+        const investments = await User.findOne({ _id: req.user._id }).populate('investments').select('investments -_id')
+        const activeInvestments = investments.investments.filter(investment => Date.now() < investment.expiresAt);
+        res.render('invest', { investments: activeInvestments, status: req.flash('status') })
+    }
 
     async handleInvestment(req, res) {
         try {

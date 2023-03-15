@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {registerUser, renderLoginPage} = require('../controllers/user.controller');
+const { registerUser, renderRegisterPage } = require('../controllers/user.controller');
 
 
 
 
 router.route('/')
-    .get(renderLoginPage)
+    .get(renderRegisterPage)
     .post(registerUser)
 
 

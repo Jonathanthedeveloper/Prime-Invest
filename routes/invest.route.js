@@ -2,11 +2,9 @@ const express = require('express');
 const router = express.Router();
 const fetchUserData = require('../middlewares/fetchUserData.middleware');
 
-const { handleInvestment } = require('../controllers/user.controller')
+const { handleInvestment, renderInvestment } = require('../controllers/user.controller')
 
-router.get('/', function (req, res) {
-    res.render('invest', { status: req.flash('status') });
-})
+router.get('/', renderInvestment)
 // router.post('/', fetchUserData)
 
 router.post('/', fetchUserData, handleInvestment)
