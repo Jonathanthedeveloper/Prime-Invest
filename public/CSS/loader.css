@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   z-index: 1000000000;
-  background-color: #fff;
+  background-color: #eff7ff;
 }
 
 .loader > div {
@@ -16,7 +16,7 @@
 }
 
 .p {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 0.2s;
@@ -25,7 +25,7 @@
 }
 
 .r {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 0.4s;
@@ -34,7 +34,7 @@
 }
 
 .i1 {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 0.6s;
@@ -43,7 +43,7 @@
 }
 
 .m {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 0.8s;
@@ -52,7 +52,7 @@
 }
 
 .e1 {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 1s;
@@ -61,7 +61,7 @@
 }
 
 .f {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 1.2s;
@@ -70,7 +70,7 @@
 }
 
 .i2 {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 1.4s;
@@ -79,7 +79,7 @@
 }
 
 .n1 {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 1.6s;
@@ -88,7 +88,7 @@
 }
 
 .a {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 1.8s;
@@ -97,7 +97,7 @@
 }
 
 .n2 {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 2s;
@@ -106,7 +106,7 @@
 }
 
 .c {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 2.2s;
@@ -115,7 +115,7 @@
 }
 
 .e2 {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
   animation-delay: 2.4s;
@@ -124,7 +124,7 @@
 }
 
 .d1 {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass1 2s ease-in-out infinite;
   animation-delay: 2.6s;
@@ -133,7 +133,7 @@
 }
 
 .d2 {
-  color: black;
+  color: #2f5ead;
   opacity: 0;
   animation: pass1 2s ease-in-out infinite;
   animation-delay: 2.8s;
