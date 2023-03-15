@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../Images/logo.png?v=2" type="image/x-png" />
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap Icon -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="../CSS/main.css" />
-    <script
-      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Custom JavaScript -->
-    <script defer src="../JS/dashboard.js"></script>
-    <script src="../JS/invest.js"></script>
-    <script src="//code.jivosite.com/widget/EvXdD3O8tA" async></script>
-  </head>
 
-  <body class="bg-darkGray main">
-    <%- include ("partials/sidebar"); -%>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../Images/logo.png?v=2" type="image/x-png" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- Bootstrap Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" crossorigin="anonymous"></script>
+  <!-- Custom JavaScript -->
+  <script defer src="../JS/dashboard.js"></script>
+  <script src="../JS/invest.js"></script>
+  <script src="//code.jivosite.com/widget/EvXdD3O8tA" async></script>
+</head>
+
+<body class="bg-darkGray main">
+
+  <%- include ("partials/sidebar"); -%>
     <section>
       <div class="flex flex-col justify-center items-center">
         <div class="text-center text-brightBlue mt-16">
@@ -41,15 +35,11 @@
           </h1>
           <h4 class="text-sm mt-10 text-darkBlue md:base">Select Your Plan.</h4>
         </div>
-        <p class="invest-status" hidden><%=status%></p>
-        <form
-          action="/user/invest"
-          method="post"
-          class="flex flex-col items-center justify-center"
-        >
-          <div
-            class="custom-select rounded-xl mt-2 w-72 md:w-96 border-2 border-brightBlue"
-          >
+        <p class="invest-status" hidden>
+          <%=status%>
+        </p>
+        <form action="/user/invest" method="post" class="flex flex-col items-center justify-center">
+          <div class="custom-select rounded-xl mt-2 w-72 md:w-96 border-2 border-brightBlue">
             <select name="plan">
               <option value="starter" selected>Starter Plan</option>
               <option value="platinum">Platinum Plan</option>
@@ -63,16 +53,10 @@
             </h4>
             <input
               class="px-8 py-3 rounded-xl mt-2 placeholder:text-center placeholder:text-sm w-72 md:w-96 border-2 border-brightBlue"
-              type="number"
-              name="amount"
-              id="amount"
-              placeholder="Enter The Amount Here"
-            />
+              type="number" name="amount" id="amount" placeholder="Enter The Amount Here" />
           </div>
-          <button
-            type="submit"
-            class="px-10 py-3 rounded-xl mt-10 duration-700 border-2 border-brightBlue hover:bg-lightGray hover:text-darkBlue bg-brightBlue text-lightGray"
-          >
+          <button type="submit"
+            class="px-10 py-3 rounded-xl mt-10 duration-700 border-2 border-brightBlue hover:bg-lightGray hover:text-darkBlue bg-brightBlue text-lightGray">
             Invest
           </button>
         </form>
@@ -81,13 +65,9 @@
             Confused About The Plans?
           </h1>
         </div>
-        <div
-          class="flex flex-col flex-wrap items-center justify-center mt-4 space-y-4 md:space-x-4 md:flex-row"
-        >
-          <div
-            id="card1"
-            class="w-48 h-48 p-4 rounded-xl duration700 shadow-2xl hover:shadow-none bg-brightBlue md:mt-4"
-          >
+        <div class="flex flex-col flex-wrap items-center justify-center mt-4 space-y-4 md:space-x-4 md:flex-row">
+          <div id="card1"
+            class="w-48 h-48 p-4 rounded-xl duration700 shadow-2xl hover:shadow-none bg-brightBlue md:mt-4">
             <h4 class="text-white text-base font-bold md:text-xl">
               Starter Plan
             </h4>
@@ -109,14 +89,11 @@
             </p>
             <p class="text-white">
               Principal Return<span class="text-darkGray text-sm ml-2">
-                YES</span
-              >
+                YES</span>
             </p>
           </div>
-          <div
-            id="card2"
-            class="w-48 h-48 p-4 rounded-xl duration700 shadow-2xl hover:shadow-none bg-brightBlue md:mt-4"
-          >
+          <div id="card2"
+            class="w-48 h-48 p-4 rounded-xl duration700 shadow-2xl hover:shadow-none bg-brightBlue md:mt-4">
             <h4 class="text-white text-base font-bold md:text-xl">
               Platinum Plan
             </h4>
@@ -138,14 +115,11 @@
             </p>
             <p class="text-white">
               Principal Return<span class="text-darkGray text-sm ml-2">
-                YES</span
-              >
+                YES</span>
             </p>
           </div>
-          <div
-            id="card3"
-            class="w-48 h-48 p-4 rounded-xl duration-700 shadow-2xl hover:shadow-none bg-brightBlue md:mt-4"
-          >
+          <div id="card3"
+            class="w-48 h-48 p-4 rounded-xl duration-700 shadow-2xl hover:shadow-none bg-brightBlue md:mt-4">
             <h4 class="text-white text-base font-bold md:text-xl">
               Premium Plan
             </h4>
@@ -167,14 +141,11 @@
             </p>
             <p class="text-white">
               Principal Return<span class="text-darkGray text-sm ml-2">
-                YES</span
-              >
+                YES</span>
             </p>
           </div>
-          <div
-            id="card4"
-            class="w-48 h-48 p-4 rounded-xl duration-700 shadow-2xl hover:shadow-none bg-brightBlue md:mt-4"
-          >
+          <div id="card4"
+            class="w-48 h-48 p-4 rounded-xl duration-700 shadow-2xl hover:shadow-none bg-brightBlue md:mt-4">
             <h4 class="text-white text-base font-bold md:text-xl">
               Zenith Plan
             </h4>
@@ -196,14 +167,14 @@
             </p>
             <p class="text-white">
               Principal Return<span class="text-darkGray text-sm ml-2">
-                YES</span
-              >
+                YES</span>
             </p>
           </div>
         </div>
       </div>
     </section>
     <%- include ("partials/script"); -%>
-    <script src="../JS/deposit.js"></script>
-  </body>
+      <script src="../JS/deposit.js"></script>
+</body>
+
 </html>

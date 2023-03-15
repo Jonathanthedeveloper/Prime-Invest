@@ -1,5 +1,21 @@
-  <style>
-    .p {
+.loader {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000000000;
+  background-color: #fff;
+}
+
+.loader > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.p {
   color: black;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
@@ -70,6 +86,7 @@
   letter-spacing: 0.5em;
   text-shadow: 2px 2px 3px #919191;
 }
+
 .a {
   color: black;
   opacity: 0;
@@ -78,14 +95,16 @@
   letter-spacing: 0.5em;
   text-shadow: 2px 2px 3px #919191;
 }
+
 .n2 {
   color: black;
   opacity: 0;
   animation: pass 2s ease-in-out infinite;
-  animation-delay: 2.0s;
+  animation-delay: 2s;
   letter-spacing: 0.5em;
   text-shadow: 2px 2px 3px #919191;
 }
+
 .c {
   color: black;
   opacity: 0;
@@ -94,6 +113,7 @@
   letter-spacing: 0.5em;
   text-shadow: 2px 2px 3px #919191;
 }
+
 .e2 {
   color: black;
   opacity: 0;
@@ -102,6 +122,7 @@
   letter-spacing: 0.5em;
   text-shadow: 2px 2px 3px #919191;
 }
+
 .d1 {
   color: black;
   opacity: 0;
@@ -147,22 +168,3 @@
     opacity: 1;
   }
 }
-  </style>
-  
-  <div class="loader">
-    <span class="p">P</span>
-    <span class="r">r</span>
-    <span class="i1">i</span>
-    <span class="m">m</span>
-    <span class="e1">e</span>
-    <span class="F">F</span>
-    <span class="i2">i</span>
-    <span class="n1">n</span>
-    <span class="a">a</span>
-    <span class="n2">n</span>
-    <span class="c">c</span>
-    <span class="e2">e</span>
-    <span class="d1">.</span>
-    <span class="d2">.</span>
-  </div>
-
