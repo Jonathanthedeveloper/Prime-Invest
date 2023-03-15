@@ -7,7 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Withdraw</title>
   <!-- Favicon -->
-  <link rel="shortcut icon" href="../Images/logo.png?v=2" type="image/x-png" />
+  <link
+  rel="shortcut icon"
+  href="../../Images/logo.ico"
+  type="image/x-ico"
+/>
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,8 +47,8 @@
       </div>
 
       <% withdrawals.forEach( (withdrawal, index)=> { %>
-        <div class="mt-20 flex flex-col items-center justify-center">
-          <button class="collapsible">
+        <div class="mt-4 flex flex-col items-center justify-center">
+          <button class="another collapsible">
             <div class="flex flex-row items-center justify-evenly">
               <h4 class="text-sm md:text-base">
                 <%= withdrawal.type%>
@@ -84,13 +88,13 @@
               <%= withdrawal.amount %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.account.walletType%>
+              <%= withdrawal.account.walletType %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.account.address%>
+              <%= withdrawal.account.address %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.createdAt.toLocaleString('en-US')%>
+              <%= withdrawal.createdAt.toLocaleString('en-US') %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
               <%= withdrawal._id %>
@@ -123,30 +127,6 @@
 
 
         <%})%>
-
-          <div class="mt-20 flex flex-col items-center justify-center">
-            <button class="collapsible">
-              <div class="flex flex-row items-center justify-evenly">
-                <h4 class="text-sm md:text-base">[Transaction Made]</h4>
-                <p class="text-xs md:text-sm">[Status, can be confirm or reject]</p>
-                <p class="text-xs md:text-sm">[Date]</p>
-              </div>
-            </button>
-            <div class="content">
-              <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-                [Username]
-              </h4>
-              <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-                [Transaction Made]
-              </h4>
-              <h4 class="text-darkBlue text-sm mt-2 md:text-base">[Amount]</h4>
-              <h4 class="text-darkBlue text-sm mt-2 md:text-base">[Wallet to use for the withdrawal]</h4>
-              <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-                [Date and Time]
-              </h4>
-              <h4 class="text-darkBlue text-sm mt-2 md:text-base">[Status]</h4>
-            </div>
-          </div>
     </section>
     <%- include ("partials/script"); -%>
       <script src="../../JS/collapsible.js"></script>

@@ -7,10 +7,10 @@
     <title>Dashboard</title>
     <!-- Favicon -->
     <link
-      rel="shortcut icon"
-      href="../Images/logo.png?v=2"
-      type="image/x-png"
-    />
+    rel="shortcut icon"
+    href="../Images/logo.ico"
+    type="image/x-ico"
+  />
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -118,7 +118,7 @@
             <td class="border text-center capitalize">
               <%= transaction.createdAt.toLocaleDateString() %>
             </td>
-            <td class="border text-center <%= transaction.status %> capitalize">
+            <td class="border text-center <%= transaction.status %> capitalize p-1">
               <%= transaction.status %>
             </td>
           </tr>
@@ -126,7 +126,7 @@
         </tbody>
       </table>
       <div class="mt-20 flex flex-col items-center justify-center">
-        <button class="collapsible">
+        <button class="another collapsible">
           <div
             class="flex flex-row items-center justify-evenly"
           >
