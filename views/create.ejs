@@ -6,6 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Create Account</title>
+<meta name ="description" content ="Prime Finance Limited is a cryptocurrency investment website that offers a range of investment plans for individuals looking to grow their crypto assets."/>
+<meta name ="copyright" content ="Prime Finance Developers"/>
+<meta name ="keywords" content ="cryptocurrency investment plans, prime finance limited, prime finance New Zealand, secure crypto investments, prime finance investment options, reliable crypto investment platform, secure crypto investments, investment companies in New Zealand, cryptocurrency investment strategies"/>
+<meta property ="og:type" content ="website"/>
+<meta property ="og:url" content ="primefinanceltd.com"/>
+<meta property ="og:title" content ="Prime Finance Limited"/>
+<meta property ="og:description" content ="Prime Finance Limited is a cryptocurrency investment website that offers a range of investment plans for individuals looking to grow their crypto assets."/>
+<meta property ="og:image" content ="https://www.primefinanceltd.com/Images/Logo.png"/>
+<meta property ="twitter:card" content ="summary_large_image"/>
+<meta property ="twitter:url" content ="primefinanceltd.com"/>
+<meta property ="twitter:title" content ="Prime Finance Limited"/>
+<meta property ="twitter:description" content ="Prime Finance Limited is a cryptocurrency investment website that offers a range of investment plans for individuals looking to grow their crypto assets."/>
+<meta property ="twitter:image" content ="https://www.primefinanceltd.com/Images/Logo.png"/>
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="../Images/logo.png?v=2" type="image/x-png" />
   <!-- Google Font -->
@@ -21,77 +35,64 @@
 </head>
 
 <body class="bg-brightBlue">
-  <section id="main-section">
-    <div class="flex flex-row items-center justify-center">
-      <div class="h-full p-6 flex flex-col items-center justify-center">
-        <img class="w-16 mt-0 bg-white rounded-full" src="../Images/Logo.png" alt="Crypto Trust Limited Logo" />
-        <h1 class="text-4xl mt-4 text-lightGray font-extrabold">Sign-Up</h1>
-        <p class="text-sm mt-2 text-darkGray mb-4 w-56">Sign Up To Become An Investor</p>
+  <section id="main-section" class="flex items-center justify-center">
+      <div class="mt-14 p-6 flex flex-col bg-lightGray rounded-lg items-center justify-center w-96">
+        <img class="w-16" src="../Images/Logo.png" alt="Prime Finance Limited Logo" />
+        <h1 class="text-4xl mt-4 text-darkBlue font-extrabold">Sign-Up</h1>
+        <p class="text-sm mt-2 text-brightBlue mb-4 w-56">Sign Up To Become An Investor</p>
         <form action="/user/create" method="post">
           <p>
             <input
               class="border-primaryBlue border-solid border-2 ml-1 px-2 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
               type="text" id="name" name="name" placeholder="Enter Your Full Name" />
           </p>
-          <p class="mt-4">
+          <p class="mt-2">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 px-2 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
               type="text" id="email" name="email" placeholder="Enter Your Email Address" />
           </p>
-          <p class="mt-4">
+          <p class="mt-2">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 px-2 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
               type="text" id="username" name="username" placeholder="Enter Your Username" />
           </p>
-          <p class="mt-4 flex justify-center mr-2">
+          <p class="mt-2 flex justify-center mr-2">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 px-2 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
               type="password" id="myPassword" name="password" placeholder="Enter Your Password" />
             <i class="fas fa-eye -ml-6 mt-3.5" id="eye" onclick="myFunction()"></i>
           </p>
 
-          <p class="text-sm font-extralight text-lightGray mt-2 w-80 text-center">
+          <p class="text-xs font-extralight capitalize text-darkBlue mt-2 w-80 text-center">
             Use at least 8 characters - 1 uppercase and 1 lowercase letter,
             and 1 number.
           </p>
 
-          <p class="mt-4 flex justify-center mr-2">
+          <p class="mt-2 flex justify-center mr-2">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 px-2 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
               type="password" id="myPassword1" name="confirmPassword" placeholder="Confirm Your Password" />
             <i class="fas fa-eye -ml-6 mt-3.5" id="eye1" onclick="myFunction1()"></i>
           </p>
-          <p class="mt-4">
+          <p class="mt-2">
             <input
               class="border-primaryBlue border-solid border-2 ml-1 px-2 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
               type="text" name="referredBy" placeholder="Referral Code" value="<%= referral %>" />
           </p>
           <!-- <input type="hidden" name="referredBy" value="<%= referral %>"> -->
           <input type="hidden" name="role" value="<%= role %>">
-          <p class="mt-4">
-            <input
-              class="border-primaryBlue border-solid border-2 ml-1 px-2 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
-              type="text" id="secretQuestion" name="secretQuestion" placeholder="Enter Your Secret Question" />
-          </p>
-          <p class="mt-4">
-            <input
-              class="border-primaryBlue border-solid border-2 ml-1 px-2 py-2 w-80 rounded-lg placeholder:text-center placeholder:font-light placeholder:text-sm placeholder:text-gray-400 focus:outline-brightBlue"
-              type="text" id="secretAnswer" name="secretAnswer" placeholder="Enter Your Secret Answer" />
-          </p>
-          <p class="mt-10 ml-1.5 text-center">
+          <p class="mt-5 ml-1.5 text-center">
             <input type="submit"
-              class="py-2 px-14 duration-500 text-lightGray border-2 border-lightGray rounded-lg hover:bg-lightGray hover:text-brightBlue"
+              class="py-2 px-14 duration-500 text-darkBlue border-2 border-brightBlue rounded-lg hover:bg-brightBlue hover:text-lightGray"
               value="Sign-Up" />
           </p>
         </form>
-        <p class="mt-8 w-72 text-left text-lightGray text-sm">
-          By Signing Up, You Agree To Our<a class="text-darkBlue hover:text-lightGray" href="/legal"> Terms Of Service,
+        <p class="mt-4 w-72 text-left text-gray-500 text-sm">
+          By Signing Up, You Agree To Our<a class="text-darkBlue hover:text-brightBlue" href="/legal"> Terms Of Service,
             Privacy And Anti-Spam</a>
           Policies.
         </p>
       </div>
-
-    </div>
   </section>
   <canvas class="background absolute top-0 left-0 right-0 bottom-0 -z-10"></canvas>
   <script src="../JS/particles.min.js"></script>
