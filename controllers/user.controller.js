@@ -369,7 +369,7 @@ class UserController {
             res.render('invest', { investments: activeInvestments, status: req.flash('status', 'success') })
         } catch (error) {
             req.flash('status', 'fail')
-            res.redirect('/user/investment')
+            res.redirect('/user/invest')
         }
     }
 
