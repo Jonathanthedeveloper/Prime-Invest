@@ -630,6 +630,11 @@ video {
   margin-right: auto;
 }
 
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -2072,7 +2077,15 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .another.collapsible{
-  padding: 8px;
+  padding: 18px;
+  border: 2px solid #4285F4;
+  border-radius: 0;
+  background-color: #FDFDFD;
+  color: #030346;
+}
+
+.another.collapsible:after{
+  content: "";
 }
 
 /* Testimonial */

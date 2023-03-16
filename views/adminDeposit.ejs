@@ -29,7 +29,7 @@
   <%- include("partials/adminSidebar"); -%>
     <section>
       <div class="flex flex-col items-center justify-center">
-        <div class="mt-20 text-center">
+        <div class="my-20 text-center">
           <h1 class="text-2xl text-brightBlue font-bold md:text-4xl">Deposit</h1>
           <h4 class="text-sm mt-2 text-darkBlue md:text-base">
             Total Of <span class="text-brightBlue">
@@ -43,7 +43,7 @@
       </div>
       
       <% deposits.forEach( (deposit, index)=> { %>
-        <div class="mt-4 flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center justify-center">
           <button class="another collapsible ">
             <div class="flex flex-row items-center justify-evenly my-auto">
               <h4 class="text-sm md:text-base capitalize">
@@ -75,20 +75,20 @@
           </button>
           <div class="content">
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= deposit.user.name %>
+              <span class="text-brightBlue">Username:</span> <%= deposit.user.name %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base capitalize">
-              <%= deposit.type%>
+              <span class="text-brightBlue">Transaction:</span> <%= deposit.type%>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= deposit.amount %>
+              <span class="text-brightBlue">Amount:</span> $<%= deposit.amount %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= deposit.medium %>
+              <span class="text-brightBlue">Wallet:</span> <%= deposit.medium %>
             </h4>
-            <h4 class="text-darkBlue text-sm mt-2 md:text-base">[Transaction ID]</h4>
+            <h4 class="text-darkBlue text-sm mt-2 md:text-base"><span class="text-brightBlue">Transaction ID:</span> <%= deposit.transactionID %></h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= deposit.createdAt.toLocaleString('en-US') %>
+              <span class="text-brightBlue">Date and Time: </span><%= deposit.createdAt.toLocaleString('en-US') %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
               <%if(deposit.status==="pending" ){%>

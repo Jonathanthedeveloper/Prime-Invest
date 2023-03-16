@@ -79,28 +79,28 @@
           </button>
           <div class="content">
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.user.name %>
+              <span class="text-brightBlue">Username:</span> <%= withdrawal.user.name %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.type %>
+              <span class="text-brightBlue">Transaction:</span> <%= withdrawal.type %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.amount %>
+              <span class="text-brightBlue">Amount:</span> $<%= withdrawal.amount %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.account.walletType %>
+              <span class="text-brightBlue">Wallet:</span> <%= withdrawal.account.walletType %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.account.address %>
+              <span class="text-brightBlue">Wallet Address:</span> <%= withdrawal.account.address %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.createdAt.toLocaleString('en-US') %>
+              <span class="text-brightBlue">Date and Time:</span> <%= withdrawal.createdAt.toLocaleString('en-US') %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal._id %>
+              <span class="text-brightBlue">Withdrawal ID:</span> <%= withdrawal._id %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <%= withdrawal.createdAt.toLocaleString('en-US') %>
+              <span class="text-brightBlue">Completed Time:</span> <%= withdrawal.createdAt.toLocaleString('en-US') %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
               <%if(withdrawal.status==="pending" ){%>
