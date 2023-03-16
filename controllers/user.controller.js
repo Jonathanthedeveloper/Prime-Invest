@@ -240,7 +240,7 @@ class UserController {
     }
 
     async renderRegisterPage(req, res) {
-        const { role, referral } = req.query
+        const { role, ref: referral } = req.query
         // if(!role) return console.log('user')
         res.render('create', { referral, role })
     }

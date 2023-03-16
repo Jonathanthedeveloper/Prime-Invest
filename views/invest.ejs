@@ -31,8 +31,8 @@
     ></script>
     <!-- Custom JavaScript -->
     <script defer src="../JS/dashboard.js"></script>
-    <script src="../JS/invest.js"></script>
-    <script src="//code.jivosite.com/widget/EvXdD3O8tA" async></script>
+    <script defer src="../JS/invest.js"></script>
+    <!-- <script src="//code.jivosite.com/widget/EvXdD3O8tA" async></script> -->
   </head>
 
 <body class="bg-darkGray main">
@@ -49,10 +49,11 @@
         <p class="invest-status" hidden>
           <%=status%>
         </p>
-        <form action="/user/invest" method="post" class="flex flex-col items-center justify-center">
+        <form id="form" action="/user/invest" method="post" class="flex flex-col items-center justify-center">
           <div class="custom-select rounded-xl mt-2 w-72 md:w-96 border-2 border-brightBlue">
             <select name="plan">
-              <option value="starter" selected>Starter Plan</option>
+              <option value="">Select Your Plan</option>
+              <option value="starter">Starter Plan</option>
               <option value="platinum">Platinum Plan</option>
               <option value="premium">Premium Plan</option>
               <option value="zenith">Zenith Plan</option>
@@ -110,7 +111,7 @@
             </h4>
             <p class="text-white mt-4">
               Minimum
-              <span class="text-darkGray text-sm ml-2"> $5000</span>
+              <span class="text-darkGray text-sm ml-2"> $5,000</span>
             </p>
             <p class="text-white">
               Maximum
@@ -184,9 +185,9 @@
         </div>
       </div>
     </section>
-    <% if(investments.length> 0){ %>
+    <% if(investments.length > 0){ %>
       <section class="investments text-center">
-        <p>Active Investments</p>
+        <p class="mt-10">Active Investments</p>
         <table class="mx-auto mt-12 mb-1 border-collapse w-3/4 text-xs bg-white shadow-xl md:text-sm md:mx-auto">
           <thead class="">
             <tr class="text-left h-16 border-b-2 border-cyan-500">
@@ -195,10 +196,10 @@
                 Amount
               </th>
               <th class="w-1/3 border border-slate-300 dark:border-slate-600 font-semibold text-center">
-                invested at
+                Invested At
               </th>
               <th class="w-1/3 border border-slate-300 dark:border-slate-600 font-semibold text-center">
-                expires at
+                Expires At
               </th>
             </tr>
           </thead>

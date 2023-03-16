@@ -7,12 +7,13 @@
     "node": "18.0.0"
   },
   "scripts": {
-    "build": "tailwindcss -i ./index.css -o ./public/CSS/main.css",
+    "build": "npm install",
+    "build-css": "tailwindcss -i ./index.css -o ./public/CSS/main.css",
     "watch": "tailwindcss -i ./index.css -o ./public/CSS/main.css --watch",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "author": "",
+  "author": "Prime Finance Limited Developers",
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.2.4"
