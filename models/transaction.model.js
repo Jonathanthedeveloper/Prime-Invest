@@ -1,7 +1,14 @@
 const { Schema, model } = require('mongoose');
 
 const accountSchema = new Schema({
-
+    walletType: {
+        type: String,
+        default: ""
+    },
+    address: {
+        type: String,
+        default: ""
+    }
 })
 
 
@@ -40,6 +47,10 @@ const transactionSchema = new Schema({
     },
     transactionID: {
         type: String
+    },
+    account: {
+        type: accountSchema,
+        default: {}
     }
 
 }, { timestamps: true });

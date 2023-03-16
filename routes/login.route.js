@@ -7,12 +7,12 @@ router.route('/')
 
         let flash = req.flash('alert');
 
-        if (!flash) {
+        if (!flash || flash.length < 1) {
             return res.render('login', { alert: null });
         } else {
             try {
                 flash = JSON.parse(flash)
-               return res.render('login', { alert: flash || null });
+                return res.render('login', { alert: flash || null });
 
             } catch (error) {
                 console.log(error)
