@@ -7,11 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Withdraw</title>
   <!-- Favicon -->
-  <link
-  rel="shortcut icon"
-  href="../../Images/logo.ico"
-  type="image/x-ico"
-/>
+  <link rel="shortcut icon" href="../../Images/logo.ico" type="image/x-ico" />
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -79,28 +75,35 @@
           </button>
           <div class="content">
             <h4 class="text-darkBlue text-sm mt-6 md:text-base">
-              <span class="text-brightBlue">Username:</span> <%= withdrawal.user.name %>
+              <span class="text-brightBlue">Username:</span>
+              <%= withdrawal.user.name %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base capitalize">
-              <span class="text-brightBlue">Transaction:</span> <%= withdrawal.type %>
+              <span class="text-brightBlue">Transaction:</span>
+              <%= withdrawal.type %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
               <span class="text-brightBlue">Amount:</span> $<%= withdrawal.amount %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <span class="text-brightBlue">Wallet:</span> <%= withdrawal.account.walletType %>
+              <span class="text-brightBlue">Wallet:</span>
+              <%= withdrawal.account.walletType %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <span class="text-brightBlue">Wallet Address:</span> <%= withdrawal.account.address %>
+              <span class="text-brightBlue">Wallet Address:</span>
+              <%= withdrawal.account.address %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <span class="text-brightBlue">Date and Time:</span> <%= withdrawal.createdAt.toLocaleString('en-US') %>
+              <span class="text-brightBlue">Date and Time:</span>
+              <%= withdrawal.createdAt.toLocaleString('en-US') %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <span class="text-brightBlue">Withdrawal ID:</span> <%= withdrawal._id %>
+              <span class="text-brightBlue">Withdrawal ID:</span>
+              <%= withdrawal._id %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
-              <span class="text-brightBlue">Completed Time:</span> <%= withdrawal.createdAt.toLocaleString('en-US') %>
+              <span class="text-brightBlue">Requested Time:</span>
+              <%= withdrawal.createdAt.toLocaleString('en-US') %>
             </h4>
             <h4 class="text-darkBlue text-sm mt-2 md:text-base">
               <%if(withdrawal.status==="pending" ){%>

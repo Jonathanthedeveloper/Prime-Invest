@@ -51,7 +51,6 @@ class AdminController {
         })
 
         withdrawals.sort((a, b) => b.createdAt - a.createdAt);
-        console.log(withdrawals)
         res.render('adminWithdraw', { withdrawals })
     }
 
@@ -75,7 +74,6 @@ class AdminController {
 
                 const refEarnings = await transactionService.create(referralEarnings);
                 await User.findByIdAndUpdate(transaction.user.referredBy, { $push: { earnings: refEarnings._id } });
-                console.log("Upstream credited ")
             }
 
 
@@ -98,7 +96,6 @@ class AdminController {
 
     async renderAdminUsers(req, res) {
         const users = await User.find({}).populate('referredBy')
-        console.log(users);
 
 
 
@@ -114,7 +111,6 @@ class AdminController {
     async handlePayouts(req, res) {
 
         // transactionService.updateMany({}, updateData)
-        console.log("USERS PAID SUCCESSFULLY")
         // res.send("success")
     }
 

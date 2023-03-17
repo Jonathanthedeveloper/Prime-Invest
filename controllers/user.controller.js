@@ -145,7 +145,6 @@ class UserController {
             email: foundUser.email,
             role: foundUser.role
         }, process.env.JWT_SECRET_KEY);
-        console.log('login successful')
 
 
         res
@@ -312,8 +311,8 @@ class UserController {
                 case "place":
                     wallet = "place";
                     break;
-                case "place":
-                    wallet = "place";
+                default:
+                    wallet = "you did not select a deposit method";
                     break;
             }
 
@@ -332,7 +331,8 @@ class UserController {
         try {
 
             if (req.body.action === 'cancel') {
-                return res.redirect('/user/dashboard')
+                req.flash('status', 'fail')
+                return res.redirect('/user/deposit')
             }
 
             const transactionData = {
@@ -515,7 +515,6 @@ class UserController {
     async renderPasswordReset(req, res) {
 
         try {
-            console.log(req.params.token)
             res.render('resetPassword', { resetToken: req.params.token })
         } catch (error) {
             req.flash('status', 'fail')
