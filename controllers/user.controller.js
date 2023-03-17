@@ -145,7 +145,6 @@ class UserController {
             email: foundUser.email,
             role: foundUser.role
         }, process.env.JWT_SECRET_KEY);
-        console.log('login successful')
 
 
         res
@@ -519,7 +518,6 @@ class UserController {
     async renderPasswordReset(req, res) {
 
         try {
-            console.log(req.params.token)
             res.render('resetPassword', { resetToken: req.params.token })
         } catch (error) {
             req.flash('status', 'fail')
