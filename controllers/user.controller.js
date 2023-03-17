@@ -315,8 +315,8 @@ class UserController {
                 case "place":
                     wallet = "place";
                     break;
-                case "place":
-                    wallet = "place";
+                default:
+                    wallet = "you did not select a deposit method";
                     break;
             }
 
@@ -336,7 +336,7 @@ class UserController {
 
             if (req.body.action === 'cancel') {
                 req.flash('status', 'fail')
-                return res.redirect('/user/dashboard')
+                return res.redirect('/user/deposit')
             }
 
             const transactionData = {
