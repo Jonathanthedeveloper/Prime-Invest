@@ -1,10 +1,6 @@
 const fs = require('fs');
 
 
-
-
-console.log(__dirname)
-
 let welcomeMessage = fs.readFileSync(`${__dirname}/../messageTemplates/welcome.html`)
 let resetPasswordMessage = fs.readFileSync(`${__dirname}/../messageTemplates/forgotPassword.html`)
 let withdrawMessage = fs.readFileSync(`${__dirname}/../messageTemplates/withdrawal.html`)

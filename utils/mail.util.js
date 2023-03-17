@@ -20,15 +20,6 @@ async function sendMail(options) {
         pass: testAccount.pass, // generated ethereal password
       },
     });
-    // const transporter = nodemailer.createTransport({
-    //   service: "gmail",
-    //   auth: {
-    //     user: 'jonathancodes2@gmail.com', // generated ethereal user
-    //     pass: "", // generated ethereal password
-    //   },
-    // });
-
-    console.log(options)
 
     // send mail with defined transport object
     const info = await transporter.sendMail({

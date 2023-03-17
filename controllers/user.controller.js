@@ -335,6 +335,7 @@ class UserController {
         try {
 
             if (req.body.action === 'cancel') {
+                req.flash('status', 'fail')
                 return res.redirect('/user/dashboard')
             }
 
