@@ -282,9 +282,6 @@ class UserController {
                 case "Bitcoin":
                     wallet = "bc1qy92tmad8n4rqmwhp6euesth8d2ww4hcgszgwm4";
                     break;
-                case "Doge":
-                    wallet = "DJAvMADVk1RuH3x6tyTDs7qZ5FG1mBexvw";
-                    break;
                 case "Ethereum":
                     wallet = "0xdDEd040e63c19Ed098f0072D07dB39AE329EBFde";
                     break;
