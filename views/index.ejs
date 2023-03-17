@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prime Finance Limited</title> 
+    <title>Prime Finance Limited</title>
     <meta
       name="description"
       content="Prime Finance Limited is a cryptocurrency investment website that offers a range of investment plans for individuals looking to grow their crypto assets."
@@ -59,15 +59,15 @@
     <!-- Plyr CSS Link -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css" />
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../CSS/loader.css">
+    <link rel="stylesheet" href="../CSS/loader.css" />
     <link rel="stylesheet" href="../CSS/main.css" />
     <!-- Scripts -->
     <script async src="../JS/loader.js"></script>
-    <script src="//code.jivosite.com/widget/EvXdD3O8tA" async></script>
+     <!-- Jivo Chat -->
+     <script src="//code.jivosite.com/widget/IQVm7Hn4FQ" async></script>
   </head>
   <body class="bg-lightGray">
-    <%- include("partials/loader"); -%>
-    <%- include("partials/nav"); -%>
+    <%- include("partials/loader"); -%> <%- include("partials/nav"); -%>
     <!-- Hero Section -->
     <section id="Hero Section">
       <div class="h-screen relative">
@@ -611,7 +611,7 @@
             class="w-64 h-32 rounded-lg duration-700 mb-10 bg-white shadow-2xl md:mt-10 hover:shadow-none border-2 border-brightBlue"
           >
             <img
-              class="h-14 mx-auto -mt-10"
+              class="h-14 mx-auto -mt-11"
               src="../Images/man.png"
               alt="This is an Icon"
             />
@@ -661,23 +661,16 @@
         <h4 class="my-10 font-bold text-darkBlue text-xl md:text-2xl">
           New to Cryptocurrency and Stock? Check out this video.
         </h4>
-        <div
-          class="flex flex-row justify-center items-center text-center relative w-4/5 md:w-fit"
-        >
-          <div class="background">
-            <video
-              id="player"
-              style="--plyr-color-main: #030303"
-              playsinline
-              controls
-            >
-              <source
-                src="../Images/stock-for-dummies (1).mp4"
-                type="video/mp4"
-              />
-            </video>
+          <div class="flex justify-center w-full">
+            <iframe
+            class="background h-96 w-4/5 rounded-lg md:w-1/2"
+              src="https://www.youtube.com/embed/F3QpgXBtDeo"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
           </div>
-        </div>
       </div>
     </section>
     <section id="Why Choose Us">
