@@ -105,7 +105,7 @@
             <span class="text-brightBlue">Transaction: </span> <%= transaction.type %>
           </h4>
           <h4 class="text-darkBlue text-sm mt-2 md:text-base"><span class="text-brightBlue">Amount: </span>$<%= transaction.amount %></h4>
-          <h4 class="text-darkBlue text-sm mt-2 md:text-base"><span class="text-brightBlue">Wallet:</span> <%= transaction.medium %></h4>
+          <h4 class="text-darkBlue text-sm mt-2 md:text-base"><span class="text-brightBlue">Wallet:</span> <%= transaction.account.wallet %></h4>
           <h4 class="text-darkBlue text-sm mt-2 md:text-base">
             <span class="text-brightBlue">Date and Time: </span><%= transaction.createdAt.toLocaleDateString() %>
           </h4>

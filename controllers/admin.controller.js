@@ -4,8 +4,7 @@ const depositService = require('../services/deposit.service');
 const transactionService = require('../services/transaction.service');
 const { User } = require('../models/user.model');
 const { referralEarningPercent } = require('../config');
-const sendMail = require('../utils/mail.util');
-
+const Email = require('../utils/mail.util');
 
 
 class AdminController {
@@ -59,8 +58,6 @@ class AdminController {
         const status = approve === "confirm" ? "successful" : "failed";
         const transaction = await transactionService.update({ _id: id }, { status });
 
-        sendMail({ type: transaction.type, to: transaction.user.email })
-
         if (transaction.type === 'deposit') {
             // console.log("REF =>", transaction.user.referredBy)
             if (transaction.user.referredBy) {
@@ -76,9 +73,10 @@ class AdminController {
                 await User.findByIdAndUpdate(transaction.user.referredBy, { $push: { earnings: refEarnings._id } });
             }
 
-
+ new Email(transaction.user).sendDeposit()
             res.redirect('/user/admin/deposit')
         } else if (transaction.type === 'withdrawal') {
+            new Email(transaction.user).sendWithdrawal()
             res.redirect('/user/admin/withdraw')
         }
     }

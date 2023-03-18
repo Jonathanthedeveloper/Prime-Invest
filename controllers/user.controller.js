@@ -16,35 +16,14 @@ const {
 const userService = require('../services/user.service');
 const AdminService = require('../services/admin.service')
 const { generateUserId } = require('../utils/utils')
-const sendMail = require('../utils/mail.util')
 const transactionService = require('../services/transaction.service');
 const { User } = require('../models/user.model');
-
+const Email = require('../utils/mail.util');
 
 class UserController {
 
     // registering a user 
     async registerUser(req, res) {
-
-
-        // const userData = req.body;
-
-        // {
-        //     name: 'user',
-        //     email: 'user@email.com',
-        //     confirmEmail: 'user@email.com',
-        //     password: '123456',
-        //     confirmPassword: '123456',
-        //     BTCwallet: '',
-        //     bankName: '',
-        //     bankAddress: '',
-        //     accountNumber: '',
-        //     sortCode: '',
-        //     secretQuestion: '',
-        //     secretAnswer: ''
-        //   }
-
-        // if(!req.body.role) return console.log(req.body.role)
 
         const userData = {
             name: req.body.name,
@@ -105,7 +84,7 @@ class UserController {
         }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
 
 
-        await sendMail({ type: 'welcome', to: user.email })
+        new Email(user).sendWelcome()
 
         res
             .cookie('token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 })
@@ -261,7 +240,6 @@ class UserController {
             user.withdrawals.push(withdrawal._id)
             await user.save()
 
-            // console.log(user)
 
             req.flash('status', 'success');
             res.redirect('/user/withdraw')
@@ -441,7 +419,7 @@ class UserController {
                 await user.save()
             });
 
-            await sendMail({ type: 'investment', to: user.email })
+            new Email(user).sendInvestment()
 
             req.flash('status', 'success');
             res.redirect('/user/invest')
@@ -468,7 +446,7 @@ class UserController {
 
 
         const link = `${req.protocol}://${req.get('host')}/user/reset-password/${token}`;
-        await sendMail({ type: 'resetPassword', to: user.email, link })
+        new Email(user, link).sendForgotPassword()
 
         res.redirect('/user/forgot-password')
     }
