@@ -45,8 +45,6 @@
               <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                 Username</th>
               <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
-                Account balance</th>
-              <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                 Registration Date</th>
             </tr>
           </thead>
@@ -58,9 +56,6 @@
                   <a href="/user/admin/profile/<%= user._id %>">
                     <%= user.username || user.name%>
                   </a>
-                </td>
-                <td class="border text-center">
-                  $<%= user.balance %>
                 </td>
                 <td class="border capitalize text-center">
                   <%= user.createdAt.toLocaleDateString() %>
