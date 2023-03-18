@@ -28,7 +28,7 @@ class Email {
     const html = await ejs.renderFile(`${__dirname}/../views/emails/${template}.ejs`, { link: this.link })
 
     const mailOptions = {
-      from: 'Prime Finance Limited<info@primefinanceltd.com>', // sender address
+      from: 'Prime Finance Limited <info@primefinanceltd.com>', // sender address
       to: this.to,
       subject: subject,
       html,
