@@ -54,11 +54,8 @@
               <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="tron" id="tron"
                   placeholder="Update Your Tron wallet" /></p>
 
-              <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="bnbBEP2"
-                  id="bnbBEP20" placeholder="Update Your BNB (BEP2) wallet" /></p>
-
               <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="bnbBEP20"
-                  id="bnbBEP20" placeholder="Update Your BNB(BEP20) wallet" /></p>
+                  id="bnbBEP20" placeholder="Update Your BNB wallet" /></p>
 
               <p> <input class="w-72 md:w-96 px-8 py-3 mt-4 placeholder:text-sm rounded-xl border-2 border-brightBlue" type="text" name="usdtERC20"
                   id="usdtERC20" placeholder="Update Your USDT (ERC20) wallet" /></p>
@@ -105,9 +102,6 @@
               </span></h4>
             <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your BNB Wallet Address: <span class="text-brightBlue">
                 <%= user.account.bnbBEP2Address %>
-              </span></h4>
-            <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your BNB Wallet Address: <span class="text-brightBlue">
-                <%= user.account.bnbBEP20Address%>
               </span></h4>
             <h4 class="text-sm mt-4 text-darkBlue md:text-base">Your USDT Wallet Address: <span class="text-brightBlue">
                 <%= user.account.usdtERC20Address %>
