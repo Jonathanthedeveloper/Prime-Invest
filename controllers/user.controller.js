@@ -333,7 +333,7 @@ class UserController {
 
         } catch (error) {
             req.flash('status', 'fail')
-            res.redirect('/user/checkout')
+            res.redirect('/user/deposit')
         }
     }
     async renderInvestment(req, res) {
@@ -341,9 +341,8 @@ class UserController {
             const investments = await User.findOne({ _id: req.user._id }).populate('investments').select('investments -_id')
             const activeInvestments = investments.investments.filter(investment => Date.now() < investment.expiresAt);
 
-            res.render('invest', { investments: activeInvestments, status: req.flash('status', 'success') })
+            res.render('invest', { investments: activeInvestments, status: req.flash('status').join() })
         } catch (error) {
-            req.flash('status', 'fail')
             res.redirect('/user/invest')
         }
     }
@@ -419,7 +418,7 @@ class UserController {
                 await user.save()
             });
 
-            new Email(user).sendInvestment()
+            new Email(user, "", transaction.amount).sendInvestment()
 
             req.flash('status', 'success');
             res.redirect('/user/invest')
@@ -439,15 +438,25 @@ class UserController {
             return res.redirect('/user/forgot-password')
         }
 
-        const token = crypto.randomBytes(20).toString('hex');
-        user.passwordResetToken = token;
-        user.passwordResetExpires = Date.now() + 1000 * 60 * 10;
-        await user?.save();
+        try {
+            const token = crypto.randomBytes(20).toString('hex');
+            user.passwordResetToken = token;
+            user.passwordResetExpires = Date.now() + 1000 * 60 * 10;
+            await user?.save();
 
 
-        const link = `${req.protocol}://${req.get('host')}/user/reset-password/${token}`;
-        new Email(user, link).sendForgotPassword()
+            const link = `${req.protocol}://${req.get('host')}/user/reset-password/${token}`;
+            new Email(user, link).sendForgotPassword()
 
+        } catch (error) {
+            user.passwordResetToken = undefined;
+            user.passwordResetExpires = undefined;
+            await user.save()
+            req.flash('status', 'fail')
+            res.redirect('/user/forgot-password')
+            return
+        }
+        req.flash('status', 'success')
         res.redirect('/user/forgot-password')
     }
 

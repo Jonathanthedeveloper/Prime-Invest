@@ -73,10 +73,10 @@ class AdminController {
                 await User.findByIdAndUpdate(transaction.user.referredBy, { $push: { earnings: refEarnings._id } });
             }
 
- new Email(transaction.user).sendDeposit()
+ new Email(transaction.user, "", transaction.amount).sendDeposit()
             res.redirect('/user/admin/deposit')
         } else if (transaction.type === 'withdrawal') {
-            new Email(transaction.user).sendWithdrawal()
+            new Email(transaction.user, "", transaction.amount).sendWithdrawal()
             res.redirect('/user/admin/withdraw')
         }
     }
@@ -110,6 +110,40 @@ class AdminController {
 
         // transactionService.updateMany({}, updateData)
         // res.send("success")
+    }
+    async handleBonus(req, res) {
+        try {
+            const user = await userService.findOne({ email: req.body.email });
+            if (!user) {
+                req.flash('status', 'fail');
+                res.redirect('/user/admin/bonus')
+                return
+            }
+
+            const transactionData = {
+                user: user._id,
+                type: req.body.action,
+                amount: req.body.amount,
+                status: "successful",
+            }
+
+            const transaction = await transactionService.create(transactionData);
+
+            if (transaction.type === "bonus") {
+                user.earnings.push(transaction._id)
+            } else if (transaction.type === 'deposit') {
+                user.deposits.push(transaction._id)
+                new Email(user).sendDeposit()
+            }
+
+            await user.save()
+
+            req.flash('status', 'success');
+            res.redirect('/user/admin/bonus')
+        } catch (error) {
+            req.flash('status', 'fail');
+            res.redirect('/user/admin/bonus')
+        }
     }
 
 }

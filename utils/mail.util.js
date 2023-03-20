@@ -4,10 +4,11 @@ const { convert } = require('html-to-text')
 
 class Email {
 
-  constructor(user, link) {
+  constructor(user, link, amount) {
     this.to = user.email
     this.name = user.name
     this.link = link
+    this.amount = amount
   }
 
   async _createTransporter() {
@@ -25,7 +26,7 @@ class Email {
 
 
   async _send(template, subject) {
-    const html = await ejs.renderFile(`${__dirname}/../views/emails/${template}.ejs`, { link: this.link })
+    const html = await ejs.renderFile(`${__dirname}/../views/emails/${template}.ejs`, { link: this.link, name: this.name, amount: this.amount })
 
     const mailOptions = {
       from: 'Prime Finance Limited <info@primefinanceltd.com>', // sender address

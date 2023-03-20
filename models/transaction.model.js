@@ -20,7 +20,7 @@ const transactionSchema = new Schema({
     },
     type: {
         type: String,
-        enum: ['withdrawal', 'deposit', 'investment', 'earning', 'referral earnings'],
+        enum: ['withdrawal', 'deposit', 'investment', 'earning', 'referral earnings', "bonus"],
         required: true
     },
     amount: {

@@ -18,7 +18,6 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../CSS/main.css" />
   <!-- Custom JavaScript -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" crossorigin="anonymous"></script>
   <script defer src="../JS/dashboard.js"></script>
   <script defer src="../JS/getDepositData.js"></script>
   <!-- Jivo Chat -->
@@ -26,34 +25,16 @@
 </head>
 
 <body class="bg-darkGray main">
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const depositStatus = document.querySelector('.deposit-status').textContent.trim()
-
-      console.log(depositStatus);
-
-
-      if (depositStatus === 'success') {
-        swal({
-          icon: "success",
-          title: "Success",
-          text: "Your request has been summitted successfully",
-          button: "Go To dashboard"
-        })
-      } else if (depositStatus === 'fail') {
-        swal({
-          icon: "error",
-          title: "Failed",
-          text: "Deposit failed, please try again later",
-          buttons: ["Retry", "Go To Dashboard"]
-        })
-      }
-    })
-  </script>
   <%- include ("partials/sidebar"); -%>
-    <p class="deposit-status" hidden>
-      <%= status %>
-    </p>
+  <% if(status==='success' ){ %>
+    <div class="mx-auto px-3 mt-20 py-5 m-3 bg-green-300 text-green-700 w-11/12 md:w-3/4 rounded-sm text-center capitalize md:mt-0">
+      Your Deposit request has been submitted successfully.
+    </div>
+    <% } else if (status==='fail' ){%>
+      <div class="mx-auto px-3 mt-20 py-5 m-3 bg-red-300 text-red-700 w-11/12 md:w-3/4 rounded-sm text-center capitalize md:mt-0">
+        Deposit failed, please try again later, thank you.
+      </div>
+      <% }%>
     <form action="/user/deposit" method="post">
       <div class="flex flex-col justify-center items-center">
         <div class="flex flex-row justify-center space-x-4 items-center mt-32">
@@ -74,7 +55,7 @@
             <option value="Bitcoin Cash">Bitcoin Cash</option>
             <option value="Tron">Tron(TRX)</option>
             <option value="BNB">BNB</option>
-            <option value="USDT  ERC20">USDT ERC20</option>
+            <option value="USDT ERC20">USDT ERC20</option>
             <option value="USDT TRC20">USDT TRC20</option>
           </select>
         </div>
