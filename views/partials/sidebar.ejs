@@ -1,4 +1,16 @@
-<section class="relative z-50">
+<div class="fixed bottom-0 left-0 z-50" id="google_translate_element"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+      },
+      "google_translate_element"
+    );
+  }
+</script>
+<section class="relative z-40">
     <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
         <i class="bi bi-filter-left px-2 bg-darkBlue rounded-md"></i>
       </span>

@@ -44,16 +44,16 @@ class Email {
     await this._send("welcome", "Welcome to Prime Finance Limited")
   }
   async sendDeposit() {
-    await this._send("deposit", "Welcome to Prime Finance Limited")
+    await this._send("deposit", "New Deposit")
   }
   async sendInvestment() {
-    await this._send("investment", "Welcome to Prime Finance Limited")
+    await this._send("investment", "New Investment")
   }
   async sendWithdrawal() {
-    await this._send("withdrawal", "Welcome to Prime Finance Limited")
+    await this._send("withdrawal", "New Withdrawal")
   }
   async sendForgotPassword() {
-    await this._send("forgotPassword", "Welcome to Prime Finance Limited")
+    await this._send("forgotPassword", "Forgot Password")
   }
 
 

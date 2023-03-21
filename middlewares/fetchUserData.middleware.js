@@ -21,15 +21,6 @@ const fetchUserData = async (req, res, next) => {
         return;
     }
 
-    // const withdrawals = userInformation.withdrawals.filter(withdrawal => withdrawal.status === 'successful')
-    // const deposits = userInformation.deposits.filter(deposit => deposit.status === 'successful')
-    // const investments = userInformation.investments.filter(investment => investment.status === 'successful')
-    // const earnings = userInformation.earnings.filter(earning => earning.status === 'successful')
-
-    // const balance = deposits.reduce((total, deposit) => total + deposit.amount, 0) - withdrawals.reduce((total, withdrawal) => total + withdrawal.amount, 0) - investments.reduce((total, investment) => total + investment.amount, 0) + earnings.reduce((total, earning) => total + earning.amount, 0)
-
-    // console.log(balance)
-
     req.user = userInformation
     next()
 }
