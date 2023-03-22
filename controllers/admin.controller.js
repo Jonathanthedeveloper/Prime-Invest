@@ -14,8 +14,6 @@ class AdminController {
         const transactions = await transactionService.findAll({});
         const users = await userService.findAll({});
 
-        // console.log(transactions);
-
         const deposits = transactions.filter(transaction => {
             return transaction.type === "deposit" && transaction.status === "successful"
         })
@@ -59,7 +57,6 @@ class AdminController {
         const transaction = await transactionService.update({ _id: id }, { status });
 
         if (transaction.type === 'deposit') {
-            // console.log("REF =>", transaction.user.referredBy)
             if (transaction.user.referredBy) {
                 const referralEarnings = {
                     from: transaction.user._id,

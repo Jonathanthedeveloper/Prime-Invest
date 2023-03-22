@@ -495,7 +495,6 @@ class UserController {
         } catch (error) {
             req.flash('status', 'fail')
             res.redirect('/user/dashboard')
-            console.error(error)
         }
     }
 
@@ -506,7 +505,6 @@ class UserController {
         } catch (error) {
             req.flash('status', 'fail')
             res.redirect('/user/dashboard')
-            console.error(error)
         }
     }
 
