@@ -44,8 +44,6 @@
             <tr class=" text-center h-16 border-b-2 border-cyan-500">
               <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                 Investor's Name</th>
-                <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
-                  Balance </th>
               <th class="w-1/4 border border-slate-300 dark:border-slate-600 font-semibold text-center">
                 Registration Date</th>
             </tr>
@@ -54,13 +52,10 @@
 
             <% users.forEach(user=> {%>
               <tr class="border-b-1 h-10">
-                <td class="border capitalize text-center">
+                <td class="border capitalize text-center hover:underline hover:text-brightBlue">
                   <a href="/user/admin/profile/<%= user._id %>">
                     <%= user.name || user.username %>
                   </a>
-                </td>
-                <td class="border capitalize text-center">
-                 $ <%= user.balance || 0 %>
                 </td>
                 <td class="border capitalize text-center">
                   <%= user.createdAt.toLocaleDateString() %>
