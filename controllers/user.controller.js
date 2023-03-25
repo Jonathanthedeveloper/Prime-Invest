@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const scheduler = require('node-schedule')
 const saltRounds = 10;
 const {
-    payoutDuration,
+    starterDuration, platinumDuration, premiumDuration, zenithDuration,
     starterPercent,
     platinumPercent,
     premiumPercent,
@@ -19,7 +19,7 @@ const { generateUserId } = require('../utils/utils')
 const transactionService = require('../services/transaction.service');
 const { User } = require('../models/user.model');
 const Email = require('../utils/mail.util');
-
+const Transaction = require('../models/transaction.model')
 class UserController {
 
     // registering a user 
@@ -355,6 +355,15 @@ class UserController {
                 return res.redirect('/user/deposit')
             }
 
+            let payoutDuration;
+
+            switch (req.body.plan) {
+                case 'starter': payoutDuration = starterDuration; break;
+                case 'platinum': payoutDuration = platinumDuration; break;
+                case 'premium': payoutDuration = premiumDuration; break;
+                case 'zenith': payoutDuration = zenithDuration; break;
+            }
+
             const transactionData = {
                 user: req.user._id,
                 type: 'investment',
@@ -363,8 +372,8 @@ class UserController {
                 plan: req.body.plan,
                 active: true,
                 expiresAt: Date.now() + payoutDuration,
+               
             }
-
 
             const investment = await transactionService.create(transactionData);
             const user = await userService.findOne({ _id: req.user._id })
@@ -418,7 +427,7 @@ class UserController {
                 await user.save()
             });
 
-            new Email(user, "", transaction.amount).sendInvestment()
+            new Email(user, "", transactionData.amount).sendInvestment()
 
             req.flash('status', 'success');
             res.redirect('/user/invest')

@@ -2,23 +2,23 @@ const Transaction = require('../models/transaction.model');
 const User = require('../models/user.model');
 const userService = require('../services/user.service')
 const transactionService = require('../services/transaction.service')
-const { cashFlipPercent, standardPercent, essentialPercent, premiumPercent, cashFlipDuration, standardDuration, premiumDuration, essentialDuration } = require('../config')
+const { starterPercent, platinumPercent, premiumPercent, zenithPercent, referralEarningPercent, starterDuration, platinumDuration, premiumDuration, zenithDuration } = require('../config')
 
 
 const _getPayoutAmount = (plan, amount) =>{
 
     switch (plan) {
-        case 'cashFlip':
-           return (amount + ((cashFlipPercent * amount))).toFixed(2);
+        case 'starter':
+           return (amount + ((starterPercent * amount)) * 7).toFixed(2);
             break;
-        case 'standard':
-           return (amount + ((standardPercent * amount))).toFixed(2);
-            break;
-        case 'essential':
-           return (amount + ((essentialPercent * amount))).toFixed(2);
+        case 'platinum':
+           return (amount + ((platinumPercent * amount)) * 7).toFixed(2);
             break;
         case 'premium':
-           return (amount + ((premiumPercent * amount))).toFixed(2);
+           return (amount + ((premiumPercent * amount)) * 7).toFixed(2);
+            break;
+        case 'zenith':
+           return (amount + ((zenithPercent * amount)) * 7).toFixed(2);
             break;
         default:
            return 0;

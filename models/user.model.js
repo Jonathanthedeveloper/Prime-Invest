@@ -50,57 +50,12 @@ const investmentSchema = new Schema({
 }, { timestamps: true })
 
 
-// const transactionSchema = new Schema({
-//     type: {
-//         type: String,
-//     },
-//     amount: {
-//         type: Number,
-//     },
-//     status: {
-//         type: String,
-//         enum: ["pending", "successful", "failed"],
-//         default: "pending"
-//     }
-// }, {timestamps : true})
-
 const walletSchema = new Schema({ //done
     balance: {
         type: Number,
         required: true,
         default: 0.00
     }
-})
-
-
-
-const bankSchema = new Schema({ // done
-    bankName: {
-        type: String,
-        trim: true,
-        default: ""
-    },
-    bankAddress: {
-        type: String,
-        trim: true,
-        default: ""
-    },
-    accountNumber: {
-        type: String,
-        trim: true,
-        default: ""
-    },
-    accountName: {
-        type: String,
-        trim: true,
-        default: ""
-    },
-    sortCode: {
-        type: String,
-        trim: true,
-        default: ""
-    }
-
 })
 
 const accountSchema = new Schema({ //done
@@ -149,10 +104,6 @@ const accountSchema = new Schema({ //done
         trim: true,
         default: ""
     },
-    bank: {
-        type: bankSchema,
-        default: {}
-    }
 });
 
 
@@ -272,19 +223,8 @@ const Investment = model("Investment", investmentSchema)
 const Wallet = model("Wallet", walletSchema)
 // const Transaction = model("Transaction", transactionSchema)
 const Secret = model('Secret', secretSchema);
-const Bank = model('Bank', bankSchema);
 const Account = model('Account', accountSchema);
 const User = model('User', userSchema);
 module.exports = { User, Withdrawal, Deposit, Investment };
 
-/*
- {
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
-});
-
-
-tourSchema.virtual('durationWeeks').get(function () {
-    return this.duration / 7
-});
-*/
+// const { User, Withdrawal, Deposit, Investment } = require('../models/user.model')

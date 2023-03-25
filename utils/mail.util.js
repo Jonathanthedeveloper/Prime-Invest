@@ -14,12 +14,12 @@ class Email {
   async _createTransporter() {
     return nodemailer.createTransport({
 
-      host: "bh-alpha.bergeservers.com",
+      host: "smtp.zoho.com",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
         user: "info@primefinanceltd.com",
-        pass: "information123$",
+        pass: "Gentlesin123$",
       }
     })
   }
