@@ -29,7 +29,7 @@ const _getPayoutAmount = (plan, amount) =>{
  const payInvestors = async ()=>{
 try {
 // fetch all investments where there status is active and have not been fulfilled 
-const pendingInvestments = await Transaction.find({$and : [{type: 'investment'}, {isFulfilled: {$ne : true}}, {expiresAt: {$lte : Date.now()}}]})
+const pendingInvestments = await Transaction.find({$and : [{type: 'investment'}, {isFulfilled: {$ne : true}},{active: {$ne: false}}, {expiresAt: {$lte : Date.now()}}]})
 
 // console.log(pendingInvestments)
 
@@ -56,10 +56,8 @@ const pendingInvestments = await Transaction.find({$and : [{type: 'investment'},
             user.earnings.push(earning._id)
             await user.save()
 
-            investment.isFulfilled = true
-            investment.active = false
+            await Transaction.findByIdAndUpdate(investment._id, {isFulfilled: true, active: false}, {new: true})
 
-            await investment.save()
 
 
 

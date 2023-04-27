@@ -308,6 +308,8 @@ class UserController {
     async handleCheckout(req, res) {
         try {
 
+            
+
             if (req.body.action === 'cancel') {
                 req.flash('status', 'fail')
                 return res.redirect('/user/deposit')
@@ -321,11 +323,9 @@ class UserController {
                 transactionID: req.body.transactionID
             }
 
-            const deposit = await transactionService.create(transactionData)
-            const user = await userService.findOne({ _id: req.user._id })
-            user.deposits.push(deposit._id)
-            await user.save()
-
+            const deposit = await Transaction.create(transactionData)
+            const user = await User.findByIdAndUpdate(req.user._id, { $push: { deposits: deposit._id } }, { new: true })
+           
 
             req.flash('status', 'success')
             res.redirect('/user/deposit')
@@ -387,7 +387,7 @@ class UserController {
             const job = scheduler.scheduleJob(payoutDate, async function () {
 
 
-                const transaction = await transactionService.update({ _id: investment._id }, { active: false });
+                const transaction = await transactionService.update({ _id: investment._id }, { active: false , isFulfilled: true});
 
                 let amount;
 
